@@ -1,3 +1,4 @@
+<?php include "lib/Database.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,17 +70,16 @@
           </div>
           <div class="menu col-sm-6">
             <ul>
-              <li class="myactive">
-                <a href="">Home</a> <i class="fa-solid fa-caret-down"></i>
+            <?php
+              $menu_sql = "SELECT * FROM `menu`";
+              $menu_stmt = fetch_data($connection,$menu_sql);
+              if($menu_stmt){
+                mysqli_stmt_bind_result($menu_stmt,$id,$menu_name,$link);
+                while(mysqli_stmt_fetch($menu_stmt)){?>
+              <li <?php if($menu_name == 'Home') echo "class='myactive'";?>>
+                <a href="<?=$link;?>"><?=$menu_name;?></a> <i class="fa-solid fa-caret-down"></i>
               </li>
-              <li><a href="">Courses</a> <i class="fa-solid fa-caret-down"></i></li>
-              <li>
-                <a href="">About</a> <i class="fa-solid fa-caret-down"></i>
-              </li>
-              <li><a href="">Contact</a> <i class="fa-solid fa-caret-down"></i></li>
-              <li>
-                <a href="">Account</a> <i class="fa-solid fa-caret-down"></i>
-              </li>
+              <?php }} ?>
               <div class="cart">
                 <i class="fa-solid fa-cart-shopping"><sup class="cart-num">( 0 )</sup></i>
               </div>
