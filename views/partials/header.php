@@ -1,4 +1,3 @@
-<?php include "lib/Database.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +32,14 @@
       <div class="container">
         <div class="row">
           <div class="logo col-sm-2">
-            <img src="public/images/serveritlogo.png" alt="" />
+            <?php 
+              $imageSql = "SELECT `name`,`image` FROM `images` WHERE `name`='header-logo'";
+              $imageStmt = fetch_data($connection,$imageSql);
+              if($imageStmt){
+                mysqli_stmt_bind_result($imageStmt,$name,$image);
+                mysqli_stmt_fetch($imageStmt)?>
+                <img src="<?php echo IMAGEPATH,$image;?>" alt="<?=$name;?>" />
+              <?php } ?>
           </div>
           <div class="search col-sm-2">
             <form action="" class="search-form">

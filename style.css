@@ -341,6 +341,7 @@ section.our-campus {
 
 .our-campus-left>p {
     font-size: 15px;
+    text-align: justify;
 }
 .our-campus-left>a {font-weight: 400;}
 .our-campus-right {

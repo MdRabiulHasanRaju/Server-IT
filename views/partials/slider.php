@@ -1,59 +1,30 @@
-  <!-- slider part start-->
-  <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="hover" data-bs-interval="5000">
+<div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="hover" data-bs-interval="5000">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="public/images/slide_bg_1536x623.jpg" class="d-block w-100" />
+    <?php 
+      $slideSql = "SELECT * FROM `slider`";
+      $slideStmt = fetch_data($connection,$slideSql);
+      if($slideStmt){
+      mysqli_stmt_bind_result($slideStmt,$id,$image,$title,$text,$btnName,$btnLink);
+      $i=0;
+      $j=0;
+      while(mysqli_stmt_fetch($slideStmt)){?>
+      <div class="carousel-item <?php if($j==0){?> active<?php } ?>">
+        <img src="<?=IMAGEPATH,$image;?>" class="d-block w-100" />
         <div class="container">
-          <div class="carousel-caption text-start">
+          <div class="carousel-caption <?php if($i==0){?> text-start <?php }else if($i==2){?>text-end<?php } ?> ">
             <h1 class="wow bounceInUp" data-wow-duration="2s">
-              Server IT Studio Headline 1
+            <?=$title;?>
             </h1>
             <p class="wow slideInLeft" data-wow-duration="2s">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Temporibus tenetur ea dolore delectus
+               <?=$text;?>
             </p>
             <p>
-              <a class="btn btn-lg btn-primary slide-btn wow slideInRight" href="#" data-wow-duration="2s">Sign up today</a>
+              <a class="btn btn-lg btn-primary slide-btn wow slideInRight" href="<?=$btnLink;?>" data-wow-duration="2s"><?=$btnName;?></a>
             </p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <img src="public/images/serverit1_1536x623.jpg" class="d-block w-100" />
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h1 class="wow bounceInUp" data-wow-duration="2s">
-              Server IT Studio Headline 2
-            </h1>
-            <p class="wow slideInLeft" data-wow-duration="2s">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Temporibus tenetur ea dolore delectus
-            </p>
-            <p>
-              <a class="btn btn-lg btn-primary slide-btn wow slideInRight" href="#" data-wow-duration="2s">Learn more</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="public/images/serverit2_1536x623.jpeg" class="d-block w-100" />
-
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1 class="wow bounceInUp" data-wow-duration="2s">
-              Server IT Studio Headline 3
-            </h1>
-            <p class="wow slideInLeft" data-wow-duration="2s">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Temporibus tenetur ea dolore delectus
-            </p>
-            <p>
-              <a class="btn btn-lg btn-primary slide-btn wow slideInRight" href="#" data-wow-duration="2s">Browse gallery</a>
-            </p>
-          </div>
-        </div>
-      </div>
+    <?php $j=1; $i++; if($i>2) $i=0; }} ?>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
