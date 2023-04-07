@@ -4,6 +4,7 @@
   include "utility/Format.php";
   $baseurl = new Baseurl;
   define("IMAGEPATH","{$baseurl->url()}/serverit/public/images/");
+  define("VIDEOPATH","{$baseurl->url()}/serverit/public/video/");
   $format = new Format;
 ?>
 

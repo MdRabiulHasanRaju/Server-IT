@@ -6,84 +6,26 @@
         </div>
         <div class="col-12">
           <div class="owl-carousel owl-theme">
+          <?php
+            $instructorsSql = "SELECT * FROM `instructors`";
+            $instructorsStmt = fetch_data($connection,$instructorsSql);
+            if($instructorsStmt){
+            mysqli_stmt_bind_result($instructorsStmt,$id,$name,$expertise,$about,$image);
+            while(mysqli_stmt_fetch($instructorsStmt)){ ?>
             <div class="item">
               <div class="card">
-                <img class="img-fluid" alt="" src="public/images/raju.jpg" />
+                <img class="img-fluid" alt="" src="<?=IMAGEPATH,$image;?>" />
                 <div class="card-body">
                   <div class="instructor-info">
-                    <h4 class="card-title">Rabiul Hasan</h4>
+                    <h4 class="card-title"><?=$name;?></h4>
                     <p class="card-text">
-                      Web Developer
+                    <?=$expertise;?>
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="item">
-              <div class="card">
-                <img class="img-fluid" alt="" src="public/images/nibir.jpg" />
-                <div class="card-body">
-                  <div class="instructor-info">
-                    <h4 class="card-title">Nibir Hasan</h4>
-                    <p class="card-text">
-                      Graphics Designer
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="card">
-                <img class="img-fluid" alt="100%x280" src="public/images/nihaj.jpg" />
-                <div class="card-body">
-                  <div class="instructor-info">
-                    <h4 class="card-title">Nihaj Hasan</h4>
-                    <p class="card-text">
-                      Graphics Designer
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="card">
-                <img class="img-fluid" alt="100%x280" src="public/images/nakib.jpg" />
-                <div class="card-body">
-                  <div class="instructor-info">
-                    <h4 class="card-title">Nakib Hasan</h4>
-                    <p class="card-text">
-                      Microsoft Office
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="card">
-                <img class="img-fluid" alt="100%x280" src="public/images/saif.jpg" />
-                <div class="card-body">
-                  <div class="instructor-info">
-                    <h4 class="card-title">Saif Haider</h4>
-                    <p class="card-text">
-                      Web Developer
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="card">
-                <img class="img-fluid" alt="100%x280" src="public/images/towsif.jpg" />
-                <div class="card-body">
-                  <div class="instructor-info">
-                    <h4 class="card-title">Towsif Haider</h4>
-                    <p class="card-text">
-                      Digital Marketing
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <?php }} ?>
           </div>
         </div>
       </div>

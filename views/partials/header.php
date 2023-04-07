@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="public/WOW-master/css/libs/animate.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="responsive.css" />
-  <link rel="icon" href="server_logo_1_499x195-removebg-preview.png" type="image/x-icon" />
+  <link rel="icon" href="public/images/serveritlogo.png" type="image/x-icon" />
 </head>
 
 

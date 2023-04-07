@@ -399,10 +399,11 @@ section.campus-video {
     font-size: 15px;
     color: #dbdbdb;
 }
-.campus-video-text>a>i {
+.campus-video-text>i {
     font-size: 55px;
     line-height: 1.5;
     color: #d7d7d7;
+    cursor:pointer;
 }
 section.instructors{
     padding: 100px 0;
@@ -635,3 +636,21 @@ section.review-part {
     display: flex;
     justify-content: center;
 }
+.video-player {
+    text-align: right;
+    display: none;
+  }
+  .video-btn-close {
+    position: relative;
+    border-radius: 50% !important;
+    top: 42px;
+    padding: 5px 13px;
+    border: none;
+    z-index: 1;
+    background-color: white;
+  }
+
+  .video-btn-close>i {
+    color: red;
+    font-size: 35px;
+  } 

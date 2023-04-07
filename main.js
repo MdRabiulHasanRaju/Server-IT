@@ -56,3 +56,25 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
+
+
+
+let video = document.getElementsByClassName("video-player")[0];
+let videoFile = document.getElementsByClassName("video-file")[0];
+let closeBtn = document.getElementsByClassName("video-btn-close")[0];
+let videoPlayBtn = document.getElementsByClassName("video-play-btn")[0];
+let campusVideoText = document.getElementsByClassName("campus-video-text")[0];
+
+
+videoPlayBtn.addEventListener("click",()=>{
+    video.style.display = "block";
+    campusVideoText.style.display = "none";
+    videoFile.currentTime = 0;
+    videoFile.play()
+})
+
+closeBtn.addEventListener("click",()=>{
+    video.style.display = "none";
+    campusVideoText.style.display = "block";
+    videoFile.pause()
+})
