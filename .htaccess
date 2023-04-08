@@ -1,0 +1,1 @@
+ErrorDocument 404 /serverit/views/error/404.php

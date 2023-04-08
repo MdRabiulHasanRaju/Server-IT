@@ -58,7 +58,7 @@ a {
     color: #D0D0BC;
 }
 
-.top-left>ul>li>a {color: #fffff6;font-size: 15px;}
+.top-left>ul>li>a {color: #fffff6;font-size: 10px;}
 .social-bar>ul>li>a {
     color: #fffff6;
     font-size: 15px;
@@ -292,7 +292,6 @@ h5.card-title {
 }
 p.card-text {
     font-size: 14px;
-    text-align: justify;
 }
 .card-body>i {
     font-size: 30px;

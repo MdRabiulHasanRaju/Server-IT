@@ -1,13 +1,3 @@
-<?php 
-  include "lib/Database.php";
-  include "utility/Baseurl.php";
-  include "utility/Format.php";
-  $baseurl = new Baseurl;
-  define("IMAGEPATH","{$baseurl->url()}/serverit/public/images/");
-  define("VIDEOPATH","{$baseurl->url()}/serverit/public/video/");
-  $format = new Format;
-?>
-
 <?php include ("views/partials/header.php"); ?>
 <?php include ("views/partials/slider.php"); ?>
 

@@ -1,3 +1,13 @@
+<?php 
+  include $_SERVER['DOCUMENT_ROOT']."/serverit/lib/Database.php";
+  include $_SERVER['DOCUMENT_ROOT']."/serverit/utility/Baseurl.php";
+  include $_SERVER['DOCUMENT_ROOT']."/serverit/utility/Format.php";
+  $baseurl = new Baseurl;
+  define("IMAGEPATH","{$baseurl->url()}/serverit/public/images/");
+  define("VIDEOPATH","{$baseurl->url()}/serverit/public/video/");
+  define("LINK","{$baseurl->url()}/serverit/");
+  $format = new Format;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
