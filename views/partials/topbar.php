@@ -15,7 +15,7 @@
             </a>
           </li>
           <li>
-            <a href=""
+            <a href="mailto:<?=$email;?>" 
               ><i class="fa-regular fa-envelope"></i> <?=$email;?></a
             >
           </li>
@@ -43,7 +43,7 @@
             while(mysqli_stmt_fetch($link_stmt)){
             ?>
             <li>
-              <a href="<?=$links;?>">
+              <a target="_blank" href="<?=$links;?>">
                <?=$icon;?>
               </a>
             </li>

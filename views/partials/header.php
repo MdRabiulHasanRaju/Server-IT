@@ -81,7 +81,7 @@
           </div>
           <div class="mobile-menu-bar col-sm-10">
             <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-cart-shopping"><sup class="cart-num">( 0 )</sup></i>
+            <!-- <i class="fa-solid fa-cart-shopping"><sup class="cart-num">( 0 )</sup></i> -->
             <i class="fa-solid fa-bars menu-bar"></i>
           </div>
           <div class="menu col-sm-6">
@@ -97,7 +97,7 @@
               </li>
               <?php }} ?>
               <div class="cart">
-                <i class="fa-solid fa-cart-shopping"><sup class="cart-num">( 0 )</sup></i>
+                <!-- <i class="fa-solid fa-cart-shopping"><sup class="cart-num">( 0 )</sup></i> -->
               </div>
             </ul>
           </div>

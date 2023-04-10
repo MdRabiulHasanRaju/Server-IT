@@ -20,56 +20,32 @@
           <!-- Inner -->
           <div class="carousel-inner py-4">
             <!-- Single item -->
-            <div class="carousel-item active">
+
+            <?php 
+        $reviewSql = "SELECT * FROM `review`";
+        $reviewStmt = fetch_data($connection, $reviewSql);
+        if($reviewStmt){
+          mysqli_stmt_bind_result($reviewStmt,$id,$name,$courseName,$comment,$star,$userId);
+          $i=0;
+          while(mysqli_stmt_fetch($reviewStmt)){ ?>
+
+            <div class="carousel-item <?php if($i==0) echo 'active'?>">
               <div class="container">
                 <div class="row">
                   <div class="col-md-12">
-                    <img class="rounded-circle shadow-1-strong mb-4" src="public/images/shakib.jpg" alt="" style="width: 150px;height: 150px;" />
-                    <h5 class="mb-3 reviewer-name">Shakib Al Hasan</h5>
-                    <p class="reviewer-stack">Web Designer</p>
+                    <img class="rounded-circle shadow-1-strong mb-4" src="public/images/review.png" alt="" style="width: 150px;height: 150px;" />
+                    <h5 class="mb-3 reviewer-name"><?=$name;?></h5>
+                    <p class="reviewer-stack"><?=$courseName;?></p>
                     <p class="text-muted reviewer-des">
                       <i class="fas fa-quote-left pe-2"></i>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
-                      officiis hic tenetur quae quaerat ad velit ab hic tenetur.
+                      <?=$comment;?>
                     </p>
-                    <ul class="list-unstyled d-flex justify-content-center text-danger mb-0">
-                      <li><i class="fas fa-star fa-sm"></i></li>
-                      <li><i class="fas fa-star fa-sm"></i></li>
-                      <li><i class="fas fa-star fa-sm"></i></li>
-                      <li><i class="fas fa-star fa-sm"></i></li>
-                      <li>
-                        <i class="fas fa-star-half-alt fa-sm"></i>
-                      </li>
-                    </ul>
+                    <?=$star;?>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12">
-                    <img class="rounded-circle shadow-1-strong mb-4" src="public/images/tamim.jpg" alt="" style="width: 150px;height: 150px;" />
-                    <h5 class="mb-3 reviewer-name">Tamim Iqbal</h5>
-                    <p class="reviewer-stack">Graphics Designer</p>
-                    <p class="text-muted reviewer-des">
-                      <i class="fas fa-quote-left pe-2"></i>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id
-                      officiis hic tenetur quae quaerat ad velit ab hic tenetur.
-                    </p>
-                    <ul class="list-unstyled d-flex justify-content-center text-danger mb-0">
-                      <li><i class="fas fa-star fa-sm"></i></li>
-                      <li><i class="fas fa-star fa-sm"></i></li>
-                      <li><i class="fas fa-star fa-sm"></i></li>
-                      <li><i class="fas fa-star fa-sm"></i></li>
-                      <li>
-                        <i class="fas fa-star-half-alt fa-sm"></i>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php $i++; }} ?>
           </div>
           <!-- Inner -->
         </div>
