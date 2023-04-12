@@ -6,7 +6,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="footer-about mt-40">
               <div class="logo">
-                <a href="#"><img class="logoImg" src="public/images/serveritlogo.png" alt="Logo" /></a>
+                <a href="#"><img class="logoImg" src="<?=LINK;?>public/images/serveritlogo.png" alt="Logo" /></a>
               </div>
               <p>
                 ServerITStudio.com is a dedicated website to provide quality
@@ -100,7 +100,7 @@
                 </li>
                 <li>
                   <div class="icon">
-                    <i class="fa fa-envelope-o"></i>
+                    <i class="fa fa-envelope"></i>
                   </div>
                   <div class="cont">
                   <a href="mailto:<?=$email;?>"><p><?=$email;?></p></a>

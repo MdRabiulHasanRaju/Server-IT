@@ -26,7 +26,7 @@
   section.on-slide { margin-top: 0px; }
   .on-slide > .container > .row > .card {margin-top: 2px;margin-bottom: 4px;background: #222222;height: auto;box-shadow: 9px 8px 14px -6px black;width: 100px;}
   .our-campus-right { display: none; }
-  .our-campus { background: url("/public/images/node.png") 0% 0% / cover rgba(0, 0, 0, 0.9); color: white; }
+  .our-campus { color: white; }
   .carousel-caption>h1 {
       font-size: 18px;
   }

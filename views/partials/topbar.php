@@ -31,7 +31,7 @@
     <div class="col-md-4">
       <div class="top-right">
         <div class="login-btn">
-          <i class="fa-solid fa-user-plus"></i> Login/Sign Up
+          <a href="<?=LINK;?>views/pages/auth/auth.php"> <i class="fa-solid fa-user-plus"></i> Login/Sign Up</a>
         </div>
         <div class="social-bar">
           <ul>

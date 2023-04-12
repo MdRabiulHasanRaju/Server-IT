@@ -18,21 +18,17 @@
   <title>Server IT Studio</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" />
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+  <link rel="stylesheet" href="<?=LINK;?>public/fontAwesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="<?=LINK;?>public/fontAwesome/css/all.min.css">
+  <link rel="stylesheet" href="<?=LINK;?>public/bootstrap/bootstrap.min.css">
 
-  <link rel="stylesheet" href="public/owl/owl.carousel.min.css">
-  <link rel="stylesheet" href="public/owl/owl.theme.default.min.css">
-  <link rel="stylesheet" href="public/WOW-master/css/libs/animate.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="responsive.css" />
-  <link rel="icon" href="public/images/serveritlogo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="<?=LINK;?>public/owl/owl.carousel.min.css">
+  <link rel="stylesheet" href="<?=LINK;?>public/owl/owl.theme.default.min.css">
+  <link rel="stylesheet" href="<?=LINK;?>public/WOW-master/css/libs/animate.css" />
+  <link rel="stylesheet" href="<?=LINK;?>style.css" />
+  <link rel="stylesheet" href="<?=LINK;?>responsive.css" />
+  <link rel="icon" href="<?=LINK;?>public/images/serveritlogo.png" type="image/x-icon" />
 </head>
 
 
@@ -93,7 +89,7 @@
                 mysqli_stmt_bind_result($menu_stmt,$id,$menu_name,$link);
                 while(mysqli_stmt_fetch($menu_stmt)){?>
               <li <?php if($menu_name == 'Home') echo "class='myactive'";?>>
-                <a href="<?=$link;?>"><?=$menu_name;?></a> <i class="fa-solid fa-caret-down"></i>
+                <a href="<?=LINK;?><?=$link;?>"><?=$menu_name;?></a> <i class="fa-solid fa-caret-down"></i>
               </li>
               <?php }} ?>
               <div class="cart">

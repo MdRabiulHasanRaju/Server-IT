@@ -34,12 +34,12 @@
 <?php include("views/partials/footer.php"); ?>
 
 
-<script src="public/jquery/jquery.js"></script>
-<script src="public/owl/owl.carousel.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
-<script src="public/WOW-master/dist/wow.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="<?=LINK;?>public/jquery/jquery.js"></script>
+<script src="<?=LINK;?>public/owl/owl.carousel.min.js"></script>
+<script src="<?=LINK;?>public/bootstrap/bootstrap.min.js" ></script>
+<script src="<?=LINK;?>public/bootstrap/bootstrap.bundle.min.js" ></script>
+<script src="<?=LINK;?>public/WOW-master/dist/wow.min.js"></script>
+<script src="<?=LINK;?>public/bootstrap/popper.min.js" ></script>
 <script>
   new WOW().init();
 </script>
