@@ -33,8 +33,16 @@
                       <i class="fa-regular fa-star"></i>
                       <i class="fa-regular fa-star"></i>
                     </div>
-                    <p><i class="fa-solid fa-cart-shopping"></i></p>
+                    <p class=""><i class="fa-solid fa-cart-shopping"></i>Students</p>
                   </div>
+
+
+                  <div class="price-box">
+                    <h4 class="text-center">Course Fee 13000 BDT</h4>
+                  </div>
+
+
+
                 </div>
               </div>
             </div>

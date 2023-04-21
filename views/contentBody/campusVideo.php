@@ -14,7 +14,7 @@
       </div>
       <div class="video-player">
           <button class="video-btn-close"><i class="fa-solid fa-xmark"></i></button>
-          <video class="video-file" width="100%" height="80%" controls autoplay>
+          <video class="video-file" width="100%" height="80%" controls>
             <source src="<?=VIDEOPATH,$video;?>" type="video/mp4">
           </video>
         </div>

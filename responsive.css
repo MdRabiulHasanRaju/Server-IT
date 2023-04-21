@@ -122,7 +122,6 @@
     top: 0;
   }
   .auth-des>p {
-    left: 120px;
   }
   section.review-part .title-h3::after {
     content: "";

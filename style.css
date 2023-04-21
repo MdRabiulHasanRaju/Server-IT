@@ -352,22 +352,22 @@ section.featured-courses {
 .auth-des>img {
     border-radius: 50%;
     width: 40px!important;
-    margin-right: 30px;
 }
 .auth-des {
     display: flex;
     border-top: 1px solid #dfdfdf;
     padding: 2px 0px;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.star {position: relative;top: 13px;}
+.star {position: relative;}
 
 .auth-des>p {
     position: relative;
     font-size: 15px;
     color: #FF0000;
-    left: 65px;
-    top: 7px;
+    margin: 0;
 }
 .star>i {
     font-size: 13px;
@@ -425,6 +425,10 @@ section.instructors{
     display: block;
 }
 .instructor, .card{
+    box-sizing: border-box;
+    box-shadow: 3px 2px 15px -9px black;
+    border-radius: 8px;
+    outline: none;
     border: none;
 }
 .post-news-1>a>img {
