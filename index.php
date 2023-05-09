@@ -3,31 +3,31 @@
 
 <div class="content-body">
   <!-- on-slide-section -->
-  <?php include("views/contentBody/onslider.php"); ?>
+  <?php include("views/pages/explorer/onslider.php"); ?>
   <!-- on-slide-section -->
 
   <!-- Our Campus Section -->
-  <?php include("views/contentBody/ourCampus.php"); ?>
+  <?php include("views/pages/explorer/ourCampus.php"); ?>
   <!-- Our Campus Section -->
 
   <!-- Featured Courses -->
-  <?php include("views/contentBody/courses.php"); ?>
+  <?php include("views/pages/explorer/courses.php"); ?>
   <!-- Featured Courses -->
 
   <!--Campus Video-->
-  <?php include("views/contentBody/campusVideo.php"); ?>
+  <?php include("views/pages/explorer/campusVideo.php"); ?>
   <!--Campus Video-->
 
   <!-- Instructors-->
-  <?php include("views/contentBody/instructors.php"); ?>
+  <?php include("views/pages/explorer/instructors.php"); ?>
   <!-- Instructors -->
 
   <!-- news-section -->
-  <?php include("views/contentBody/latestNews.php"); ?>
+  <?php include("views/pages/explorer/latestNews.php"); ?>
   <!-- news-section -->
 
   <!-- review section -->
-  <?php include("views/contentBody/review.php"); ?>
+  <?php include("views/pages/explorer/review.php"); ?>
   <!-- review section -->
 </div>
 
