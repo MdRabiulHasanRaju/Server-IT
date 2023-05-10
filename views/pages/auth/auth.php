@@ -7,7 +7,7 @@ if(isset($_GET['p'])){
 }
 if(isset($_SESSION['username']))
 {
-	header("location: profile.php");
+	header("location: ../profile/profile.php");
 	exit;
 }
 $username_err = $password_err = $confirm_password_err = $err = "";
