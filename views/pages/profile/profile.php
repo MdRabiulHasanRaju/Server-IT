@@ -8,24 +8,6 @@
 <section class="profile-box">    
     <div class="container">
         <div class="row">
-
-        <div class="col-md-9">
-            <div class="profile-page-link">
-                <ul>
-                <a href=""><li>Dashboard</li></a>
-                <a href=""><li>Edit Profile</li></a>
-                <a href=""><li>Change Your Password</li></a>
-                <a href=""><li>Logout</li></a>
-                </ul>
-            </div>
-            <div class="profile-page-content">
-                <div class="empty-order">
-                    <h1>Empty Order History!</h1>
-                </div>
-                
-            </div>
-        </div>
-
         <div class="col-md-3">
             <div class="profile-sidebar">
               <div class="inside-profile-sidebar-1"></div>
@@ -46,6 +28,22 @@
               </div>
             </div>
           </div>
+          <div class="col-md-9">
+            <div class="profile-page-link">
+                <ul>
+                <a href=""><li>Dashboard</li></a>
+                <a href=""><li>Edit Profile</li></a>
+                <a href=""><li>Change Your Password</li></a>
+                <a href=""><li>Logout</li></a>
+                </ul>
+            </div>
+            <div class="profile-page-content">
+                <div class="empty-order">
+                    <h1>Empty Order History!</h1>
+                </div>
+                
+            </div>
+        </div>
         </div>
     </div>
 </section>

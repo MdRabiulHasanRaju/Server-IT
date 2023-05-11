@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	if(isset($_POST['submit'])){
 		if(isset($_SESSION['username']))
 		{
-			header("location: profile.php");
+			header("location: ".LINK."views/pages/profile/profile.php");
 			exit;
 		}
 		include_once $_SERVER['DOCUMENT_ROOT']."/serverit/lib/Database.php";

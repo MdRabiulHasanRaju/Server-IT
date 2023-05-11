@@ -12,7 +12,7 @@
             if($instructorsStmt){
             mysqli_stmt_bind_result($instructorsStmt,$id,$name,$expertise,$about,$image);
             while(mysqli_stmt_fetch($instructorsStmt)){ ?>
-            <div class="item">
+            <div class="item course-item">
               <div class="card">
                 <img class="img-fluid" alt="" src="<?=IMAGEPATH,$image;?>" />
                 <div class="card-body">

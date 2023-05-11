@@ -15,7 +15,7 @@
                 $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
                 $instructorStmt = fetch_data($connection,$instructorSql);
                 mysqli_stmt_bind_result($instructorStmt,$image);?>
-            <div class="item">
+            <div class="item course-item">
               <div class="card">
                 <img class="img-fluid" style="height: 200px" alt="100%x280" src="<?=IMAGEPATH,$image;?>" />
                 <div class="card-body">

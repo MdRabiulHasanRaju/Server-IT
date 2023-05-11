@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	if(isset($_POST['submit'])){
 		if(isset($_SESSION['username']))
 		{
-			header("location: profile.php");
+			header("location: ".LINK."views/pages/profile/profile.php");
 			exit;
 		}
         include $_SERVER['DOCUMENT_ROOT']."/serverit/lib/Database.php";
@@ -60,8 +60,22 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 										$_SESSION["id"] = $id;
 										$_SESSION["loggedin"] = true;
 
-										header("location: profile.php");
-										die();
+										$sql = "select * from users_info where user_id = ?";
+										$stmt = mysqli_prepare($connection, $sql);
+										mysqli_stmt_bind_param($stmt, "i", $param_id);
+										$param_id = $_SESSION['id'];
+										if (mysqli_stmt_execute($stmt)) {
+											if (mysqli_stmt_store_result($stmt)) {
+												if (mysqli_stmt_num_rows($stmt) == 0) {
+													header("location: ".LINK."views/pages/profile/create-profile.php");
+													die();
+												}else{
+													header("location: ".LINK."views/pages/profile/profile.php");
+													die();
+												}
+											}
+										}
+										
 									}
 								}
 								else{
@@ -88,4 +102,3 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	header("location: ".LINK."views/pages/auth/auth.php?p=1");
 	die();
 }
-?>
