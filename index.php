@@ -1,4 +1,4 @@
-<?php include ("views/partials/header.php"); ?>
+<?php session_start(); $header_active="Home"; include ("views/partials/header.php"); ?>
 <?php include ("views/partials/slider.php"); ?>
 
 <div class="content-body">

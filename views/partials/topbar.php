@@ -31,7 +31,11 @@
     <div class="col-md-4">
       <div class="top-right">
         <div class="login-btn">
+          <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){?>
+          <a class="btn btn-danger" href="<?=LINK;?>controllers/logoutController.php"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+          <?php }else{?>
           <a href="<?=LINK;?>views/pages/auth/auth.php"> <i class="fa-solid fa-user-plus"></i> Login/Sign Up</a>
+          <?php }?>
         </div>
         <div class="social-bar">
           <ul>

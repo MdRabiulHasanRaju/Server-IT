@@ -1,7 +1,7 @@
 @media only screen and (max-width: 768px) {
   .top-bar { display: none; }
   .search { display: none; }
-  .logo > img {width: 100px;}
+  .logo>a > img {width: 100px;}
   .logo {margin-top: 5px;}
   .category { display: none; }
   .menu{display: none;}

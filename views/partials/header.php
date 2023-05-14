@@ -4,6 +4,7 @@
   include $_SERVER['DOCUMENT_ROOT']."/serverit/utility/Format.php";
   $baseurl = new Baseurl;
   define("IMAGEPATH","{$baseurl->url()}/serverit/public/images/");
+  define("UPLOADIMAGEPATH","{$baseurl->url()}/serverit/public/upload/");
   define("VIDEOPATH","{$baseurl->url()}/serverit/public/video/");
   define("LINK","{$baseurl->url()}/serverit/");
   $format = new Format;
@@ -44,7 +45,9 @@
               if($imageStmt){
                 mysqli_stmt_bind_result($imageStmt,$name,$image);
                 mysqli_stmt_fetch($imageStmt)?>
+                <a href="<?=LINK;?>">
                 <img src="<?php echo IMAGEPATH,$image;?>" alt="<?=$name;?>" />
+                </a>
               <?php } ?>
           </div>
           <div class="search col-sm-2">
@@ -88,7 +91,7 @@
               if($menu_stmt){
                 mysqli_stmt_bind_result($menu_stmt,$id,$menu_name,$link);
                 while(mysqli_stmt_fetch($menu_stmt)){?>
-              <li <?php if($menu_name == 'Home') echo "class='myactive'";?>>
+              <li <?php if(isset($header_active) && $header_active == $menu_name) echo "class='myactive'";?>>
                 <a href="<?=LINK;?><?=$link;?>"><?=$menu_name;?></a> <i class="fa-solid fa-caret-down"></i>
               </li>
               <?php }} ?>

@@ -4,8 +4,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Baseurl.php";
 $baseurl = new Baseurl;
 define("LINK", "{$baseurl->url()}/serverit/");
 ?>
-<?php ob_start();
-$active = ''; ?>
+<?php ob_start(); ?>
 <?php
 $wrong_otp = "";
 if (isset($_POST["email"])) {

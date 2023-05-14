@@ -33,7 +33,7 @@
                       <i class="fa-regular fa-star"></i>
                       <i class="fa-regular fa-star"></i>
                     </div>
-                    <p class=""><i class="fa-solid fa-cart-shopping"></i>Students</p>
+                    <p class="">(0) Students</p>
                   </div>
 
 
