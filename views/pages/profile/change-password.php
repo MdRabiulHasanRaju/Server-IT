@@ -10,15 +10,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         die();
     }
 
-    $name_err = $title_err = $address_err = $phone_err = "";
-    if (isset($_SESSION["name_err"])) {
-        $name_err = $_SESSION["name_err"];
-    } elseif (isset($_SESSION["title_err"])) {
-        $title_err = $_SESSION["title_err"];
-    } elseif (isset($_SESSION["address_err"])) {
-        $address_err = $_SESSION["address_err"];
-    } elseif (isset($_SESSION["phone_err"])) {
-        $phone_err = $_SESSION["phone_err"];
+    $oldPassword_err = $newPassword_err = $confirmNewPassword_err = $success = "";
+    if (isset($_SESSION["oldPassword_err"])) {
+        $oldPassword_err = $_SESSION["oldPassword_err"];
+    } elseif (isset($_SESSION["newPassword_err"])) {
+        $newPassword_err = $_SESSION["newPassword_err"];
+    } elseif (isset($_SESSION["confirmNewPassword_err"])) {
+        $confirmNewPassword_err = $_SESSION["confirmNewPassword_err"];
+    } elseif (isset($_SESSION["success"])) {
+        $success = $_SESSION["success"];
     }
 ?>
     <style>
@@ -97,7 +97,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                 <li>Dashboard</li>
                             </a>
                             <a class="<?php if ($profile_active == 'editProfile') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/edit-profile.php">
-                                <li>Edit Profile</li>
+                                <li>Edit Your Profile Info</li>
                             </a>
                             <a class="<?php if ($profile_active == 'changePassword') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/change-password.php">
                                 <li>Change Your Password</li>
@@ -110,24 +110,34 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     <div class="col-md-6 offset-md-3 profile-page-content">
                         <div class="card card-body create-profile-data">
                             <h2 class="insert-title">Change Your Password</h2>
-                            <form action="<?= LINK; ?>controllers/createProfileController.php" method="post">
+                            <?php if ($success != "") { ?>
+                                <div class="alert alert-success alert-dismissible show" role="alert">
+                                    <?php echo $success;
+                                    unset($_SESSION['success']); ?>
+                                    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php } ?>
+                            <form action="<?= LINK; ?>controllers/changePasswordController.php" method="post">
                                 <div class="form-group">
                                     <label for="oldPass">Old Password <span style="color:red;">*</span></label>
-                                    <input id="oldPass" name="oldPassword" class="form-control" type="text" placeholder="Enter Your Old Password">
-                                    <span style="color:red"><?php echo $name_err;
-                                                            unset($_SESSION['name_err']); ?></span>
+                                    <input id="oldPass" name="oldPassword" class="form-control" type="password" placeholder="Enter Your Old Password" required>
+                                    <span style="color:red"><?php echo $oldPassword_err;
+                                                            unset($_SESSION['oldPassword_err']); ?></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="newPass">New Password <span style="color:red;">*</span></label>
-                                    <input id="newPass" name="oldPassword" class="form-control" type="text" placeholder="Enter New Password">
-                                    <span style="color:red"><?php echo $name_err;
-                                                            unset($_SESSION['name_err']); ?></span>
+                                    <input id="newPass" name="newPass" class="form-control" type="password" placeholder="Enter New Password" required>
+                                    <span style="color:red"><?php echo $newPassword_err;
+                                                            unset($_SESSION['newPassword_err']); ?></span>
                                 </div>
+                                <span id="StrengthDisp" class="strength">Weak password</span>
                                 <div class="form-group">
-                                    <label for="oldPass">Confirm New Password <span style="color:red;">*</span></label>
-                                    <input id="oldPass" name="oldPassword" class="form-control" type="text" placeholder="Enter Confirm New Password">
-                                    <span style="color:red"><?php echo $name_err;
-                                                            unset($_SESSION['name_err']); ?></span>
+                                    <label for="confirmNewPass">Confirm New Password <span style="color:red;">*</span></label>
+                                    <input id="confirmNewPass" name="confirmNewPass" class="form-control" type="password" placeholder="Enter Confirm New Password" required>
+                                    <span style="color:red"><?php echo $confirmNewPassword_err;
+                                                            unset($_SESSION['confirmNewPassword_err']); ?></span>
                                 </div>
                                 <input type="submit" name="submit" class="btn btn-success slide-btn" value="Change Password">
                             </form>
@@ -146,6 +156,40 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 }
 ob_end_flush(); ?>
 
+<script>
+    let password = document.getElementById("newPass");
+    let strengthBadge = document.getElementById("StrengthDisp");
+
+    let strongPassword = new RegExp(
+        "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})"
+    );
+    let mediumPassword = new RegExp(
+        "((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))"
+    );
+
+    function StrengthChecker(PasswordParameter) {
+        if (strongPassword.test(PasswordParameter)) {
+            strengthBadge.style.color = "#25e825";
+            strengthBadge.textContent = "Strong password";
+        } else if (mediumPassword.test(PasswordParameter)) {
+            strengthBadge.style.color = "#0c9db5";
+            strengthBadge.textContent = "Medium password";
+        } else {
+            strengthBadge.style.color = "#ff6363";
+            strengthBadge.textContent = "Weak password";
+        }
+    }
+
+    password.addEventListener("input", () => {
+        strengthBadge.style.display = "block";
+
+        StrengthChecker(password.value);
+
+        if (password.value.length == 0) {
+            strengthBadge.style.display = "none";
+        }
+    });
+</script>
 
 <script src="<?= LINK; ?>public/jquery/jquery.js"></script>
 <script src="<?= LINK; ?>public/owl/owl.carousel.min.js"></script>

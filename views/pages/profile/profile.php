@@ -54,7 +54,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
               <li>Dashboard</li>
             </a>
             <a class="<?php if ($profile_active == 'editProfile') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/edit-profile.php">
-              <li>Edit Profile</li>
+              <li>Edit Your Profile Info</li>
             </a>
             <a class="<?php if ($profile_active == 'changePassword') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/change-password.php">
               <li>Change Your Password</li>

@@ -1,24 +1,22 @@
 <?php
 session_start();
-if(isset($_GET['p'])){
+if (isset($_GET['p'])) {
   $showPage = $_GET['p'];
-}else{
-  $showPage=1;
+} else {
+  $showPage = 1;
 }
-if(isset($_SESSION['username']))
-{
-	header("location: ../profile/profile.php");
-	exit;
+if (isset($_SESSION['username'])) {
+  header("location: ../profile/profile.php");
+  exit;
 }
 $username_err = $password_err = $confirm_password_err = $err = "";
-if(isset($_SESSION["username_err"])){
-	$username_err = $_SESSION["username_err"];
+if (isset($_SESSION["username_err"])) {
+  $username_err = $_SESSION["username_err"];
+} elseif (isset($_SESSION["password_err"])) {
+  $password_err = $_SESSION["password_err"];
 }
-elseif(isset($_SESSION["password_err"])){
-	$password_err = $_SESSION["password_err"];
-}
-if(isset($_SESSION["err"])){
-	$err = $_SESSION["err"];
+if (isset($_SESSION["err"])) {
+  $err = $_SESSION["err"];
 }
 ?>
 
@@ -40,15 +38,17 @@ $format = new Format;
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="stylesheet" href="<?=LINK;?>public/fontAwesome/css/fontawesome.min.css">
-  <link rel="stylesheet" href="<?=LINK;?>public/fontAwesome/css/all.min.css">
-  <link rel="stylesheet" href="<?=LINK;?>public/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= LINK; ?>public/fontAwesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="<?= LINK; ?>public/fontAwesome/css/all.min.css">
+  <link rel="stylesheet" href="<?= LINK; ?>public/bootstrap/bootstrap.min.css">
 
   <title>Server IT Studio || Auth</title>
   <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/serveritlogo.png" />
   <link rel="stylesheet" href="auth.css">
   <style>
-    body{background-image: url('<?=IMAGEPATH;?>serverit2.jpeg');}
+    body {
+      background-image: url('<?= IMAGEPATH; ?>serverit2.jpeg');
+    }
   </style>
 </head>
 
@@ -56,7 +56,7 @@ $format = new Format;
   <div class="container-fluid">
     <div class="row">
       <div class="authfy-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-      <div class="col-sm-5 authfy-panel-left">
+        <div class="col-sm-5 authfy-panel-left">
           <div class="brand-col">
             <div class="headline">
               <!-- brand-logo start -->
@@ -77,7 +77,7 @@ $format = new Format;
                   </a>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-12">
-                <a class="btn btn-warning btn-block mt-4 btn-lg" href="<?=LINK;?>index.php"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
+                  <a class="btn btn-warning btn-block mt-4 btn-lg" href="<?= LINK; ?>index.php"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
                 </div>
               </div><!-- ./social-buttons -->
             </div>
@@ -90,14 +90,14 @@ $format = new Format;
 
 
             <!-- panel-login start -->
-            <div class="authfy-panel panel-login text-center <?php if($showPage==1){?>active<?php }?>">
+            <div class="authfy-panel panel-login text-center <?php if ($showPage == 1) { ?>active<?php } ?>">
               <div class="authfy-heading">
                 <h3 class="auth-title">Login to your account</h3>
                 <p>Don’t have an account? <a class="lnk-toggler" data-panel=".panel-signup" href="#">Sign Up Free!</a></p>
               </div>
               <div class="row">
                 <div class="col-xs-12 col-sm-12">
-                  <form name="loginForm" class="loginForm" action="<?=LINK;?>controllers/loginController.php" method="POST">
+                  <form name="loginForm" class="loginForm" action="<?= LINK; ?>controllers/loginController.php" method="POST">
                     <div class="form-group">
                       <input type="email" class="form-control email" name="username" placeholder="Email address">
                     </div>
@@ -107,7 +107,8 @@ $format = new Format;
                         <span class="fa fa-eye-slash pwd-toggle"></span>
                       </div>
                     </div>
-                    <span style="color:red"><?php echo $err; unset($_SESSION['err']); ?></span>
+                    <span style="color:red"><?php echo $err;
+                                            unset($_SESSION['err']); ?></span>
                     <!-- start remember-row -->
                     <div class="row remember-row">
                       <div class="col-xs-6 col-sm-6">
@@ -132,31 +133,33 @@ $format = new Format;
 
 
             <!-- panel-signup start -->
-            <div class="authfy-panel panel-signup text-center <?php if($showPage==2){?>active<?php }?>">
+            <div class="authfy-panel panel-signup text-center <?php if ($showPage == 2) { ?>active<?php } ?>">
               <div class="row">
                 <div class="col-xs-12 col-sm-12">
                   <div class="authfy-heading">
                     <h3 class="auth-title">Sign up for free!</h3>
                   </div>
-                  <form name="signupForm" class="signupForm" action="<?=LINK;?>controllers/signupController.php" method="post">
+                  <form name="signupForm" class="signupForm" action="<?= LINK; ?>controllers/signupController.php" method="post">
                     <div class="form-group">
                       <input type="email" class="form-control" name="username" placeholder="Email address">
                     </div>
-                    <span style="color:red"><?php echo $username_err; unset($_SESSION['username_err'])?></span>
+                    <span style="color:red"><?php echo $username_err;
+                                            unset($_SESSION['username_err']) ?></span>
                     <div class="form-group">
                       <div class="pwdMask">
                         <input id="PassEntry" type="password" class="form-control" name="password" placeholder="Password">
                         <span class="fa fa-eye-slash pwd-toggle"></span>
                       </div>
                     </div>
-                    <span id="StrengthDisp" class="strength" >Weak password</span>
+                    <span id="StrengthDisp" class="strength">Weak password</span>
                     <div class="form-group">
                       <div class="pwdMask">
                         <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
                         <span class="fa fa-eye-slash pwd-toggle"></span>
                       </div>
                     </div>
-                    <span style="color:red"><?php echo $password_err; unset($_SESSION['password_err'])?></span>
+                    <span style="color:red"><?php echo $password_err;
+                                            unset($_SESSION['password_err']) ?></span>
                     <div class="form-group">
                       <p class="term-policy text-muted small">I agree to the <a href="#">privacy policy</a> and <a href="#">terms of service</a>.</p>
                     </div>
@@ -171,7 +174,7 @@ $format = new Format;
 
 
             <!-- panel-forget start -->
-            <div class="authfy-panel panel-forgot <?php if($showPage==3){?>active<?php }?>">
+            <div class="authfy-panel panel-forgot <?php if ($showPage == 3) { ?>active<?php } ?>">
               <div class="row">
                 <div class="col-xs-12 col-sm-12">
                   <div class="authfy-heading">
@@ -205,37 +208,37 @@ $format = new Format;
 
   <script>
     let password = document.getElementById("PassEntry");
-let strengthBadge = document.getElementById("StrengthDisp");
+    let strengthBadge = document.getElementById("StrengthDisp");
 
-let strongPassword = new RegExp(
-  "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})"
-);
-let mediumPassword = new RegExp(
-  "((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))"
-);
+    let strongPassword = new RegExp(
+      "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})"
+    );
+    let mediumPassword = new RegExp(
+      "((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))"
+    );
 
-function StrengthChecker(PasswordParameter) {
-  if (strongPassword.test(PasswordParameter)) {
-    strengthBadge.style.color = "#25e825";
-    strengthBadge.textContent = "Strong password";
-  } else if (mediumPassword.test(PasswordParameter)) {
-    strengthBadge.style.color = "#0c9db5";
-    strengthBadge.textContent = "Medium password";
-  } else {
-    strengthBadge.style.color = "#ff6363";
-    strengthBadge.textContent = "Weak password";
-  }
-}
+    function StrengthChecker(PasswordParameter) {
+      if (strongPassword.test(PasswordParameter)) {
+        strengthBadge.style.color = "#25e825";
+        strengthBadge.textContent = "Strong password";
+      } else if (mediumPassword.test(PasswordParameter)) {
+        strengthBadge.style.color = "#0c9db5";
+        strengthBadge.textContent = "Medium password";
+      } else {
+        strengthBadge.style.color = "#ff6363";
+        strengthBadge.textContent = "Weak password";
+      }
+    }
 
-password.addEventListener("input", () => {
-  strengthBadge.style.display = "block";
+    password.addEventListener("input", () => {
+      strengthBadge.style.display = "block";
 
-  StrengthChecker(password.value);
+      StrengthChecker(password.value);
 
-  if (password.value.length == 0) {
-    strengthBadge.style.display = "none";
-  }
-});
+      if (password.value.length == 0) {
+        strengthBadge.style.display = "none";
+      }
+    });
   </script>
 
   <script src="<?= LINK; ?>public/jquery/jquery.js"></script>

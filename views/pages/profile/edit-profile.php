@@ -10,7 +10,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         die();
     }
 
-    $name_err = $title_err = $address_err = $phone_err = "";
+    $name_err = $title_err = $address_err = $phone_err = $image_err = "";
     if (isset($_SESSION["name_err"])) {
         $name_err = $_SESSION["name_err"];
     } elseif (isset($_SESSION["title_err"])) {
@@ -19,6 +19,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         $address_err = $_SESSION["address_err"];
     } elseif (isset($_SESSION["phone_err"])) {
         $phone_err = $_SESSION["phone_err"];
+    } elseif (isset($_SESSION["image_err"])) {
+        $image_err = $_SESSION["image_err"];
     }
 ?>
     <style>
@@ -97,7 +99,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                 <li>Dashboard</li>
                             </a>
                             <a class="<?php if ($profile_active == 'editProfile') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/edit-profile.php">
-                                <li>Edit Profile</li>
+                                <li>Edit Your Profile Info</li>
                             </a>
                             <a class="<?php if ($profile_active == 'changePassword') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/change-password.php">
                                 <li>Change Your Password</li>
@@ -110,7 +112,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     <div class="col-md-6 offset-md-3 profile-page-content">
                         <div class="card card-body create-profile-data">
                             <h2 class="insert-title">Change General Information</h2>
-                            <form action="<?= LINK; ?>controllers/createProfileController.php" method="post">
+                            <form action="<?= LINK; ?>controllers/editProfileController.php" enctype="multipart/form-data" method="post">
                                 <div class="form-group">
                                     <label for="name">Full Name <span style="color:red;">*</span></label>
                                     <input id="name" name="name" value="<?= $_SESSION['name']; ?>" class="form-control" type="text" placeholder="Enter Your Full Name">
@@ -138,6 +140,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                 <div class="form-group">
                                     <label for="image">Profile Picture</label>
                                     <input id="image" name="image" class="form-control" type="file">
+                                    <span style="color:red"><?php echo $image_err;
+                                                            unset($_SESSION['image_err']); ?></span>
                                 </div>
                                 <input type="submit" name="submit" class="btn btn-success slide-btn" value="Save Changes">
                             </form>

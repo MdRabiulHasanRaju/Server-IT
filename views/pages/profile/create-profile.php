@@ -103,31 +103,31 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                             <form action="<?= LINK; ?>controllers/createProfileController.php" enctype="multipart/form-data" method="post">
                                 <div class="form-group">
                                     <label for="name">Full Name <span style="color:red;">*</span></label>
-                                    <input id="name" name="name" class="form-control" type="text" placeholder="Enter Your Full Name">
+                                    <input id="name" name="name" class="form-control" type="text" placeholder="Enter Your Full Name" required>
                                     <span style="color:red"><?php echo $name_err;
                                                             unset($_SESSION['name_err']); ?></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Title <span style="color:red;">*</span></label>
-                                    <input id="title" name="title" class="form-control" type="text" placeholder="Enter a Title">
+                                    <input id="title" name="title" class="form-control" type="text" placeholder="Enter a Title" required>
                                     <span style="color:red"><?php echo $title_err;
                                                             unset($_SESSION['title_err']); ?></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address <span style="color:red;">*</span></label>
-                                    <input id="address" name="address" class="form-control" type="text" placeholder="Enter Your Address">
+                                    <input id="address" name="address" class="form-control" type="text" placeholder="Enter Your Address" required>
                                     <span style="color:red"><?php echo $address_err;
                                                             unset($_SESSION['address_err']); ?></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile">Phone Number <span style="color:red;">*</span></label>
-                                    <input id="mobile" name="mobile" class="form-control" type="text" placeholder="Enter Your Phone Number">
+                                    <input id="mobile" name="mobile" class="form-control" type="text" placeholder="Enter Your Phone Number" required>
                                     <span style="color:red"><?php echo $phone_err;
                                                             unset($_SESSION['phone_err']); ?></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Profile Picture</label>
-                                    <input id="image" name="image" class="form-control" type="file">
+                                    <input id="image" name="image" class="form-control" type="file" required>
                                     <span style="color:red"><?php echo $image_err;
                                                             unset($_SESSION['image_err']); ?></span>
                                 </div>
