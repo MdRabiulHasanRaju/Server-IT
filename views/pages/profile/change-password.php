@@ -44,15 +44,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             font-size: 13px;
         }
 
-        input::placeholder {
+        .form-group>input::placeholder {
             font-size: 12px;
         }
 
-        input:focus {
+        .form-group>input:focus {
             font-size: 13px;
         }
 
-        input {
+        .form-group>input {
             font-size: 13px !important;
         }
 
@@ -94,15 +94,19 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     <div class="profile-page-link">
                         <ul>
                             <a class="<?php if ($profile_active == 'dashboard') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/profile.php">
+                                <i class="fa-solid fa-table"></i>
                                 <li>Dashboard</li>
                             </a>
                             <a class="<?php if ($profile_active == 'editProfile') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/edit-profile.php">
+                                <i class="fa-sharp fa-solid fa-user-pen"></i>
                                 <li>Edit Your Profile Info</li>
                             </a>
                             <a class="<?php if ($profile_active == 'changePassword') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/change-password.php">
+                                <i class="fa-solid fa-lock"></i>
                                 <li>Change Your Password</li>
                             </a>
                             <a href="<?= LINK; ?>controllers/logoutController.php">
+                                <i class="fa-solid fa-right-from-bracket"></i>
                                 <li>Logout</li>
                             </a>
                         </ul>

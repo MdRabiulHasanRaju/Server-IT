@@ -714,7 +714,13 @@ section.review-part {
     margin: 0 15px;
     font-weight: bold;
     transition: .5s ease;
+    display: grid;
+    align-items: center;
   }
+  .profile-page-link>ul>a>i{
+    font-size: 20px;
+    margin: auto;
+    }
   .profile-page-link>ul>a:hover{
     background: red;
     color: white;

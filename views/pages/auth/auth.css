@@ -411,7 +411,7 @@ content: "\f00c";
     padding: 10px 10px;
 }
 }
-.brand-logo>img {
+.brand-logo>a>img {
   filter: invert(1);
   width: 200px;
 }

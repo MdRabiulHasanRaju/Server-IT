@@ -61,7 +61,9 @@ $format = new Format;
             <div class="headline">
               <!-- brand-logo start -->
               <div class="brand-logo">
-                <img src="<?= LINK; ?>public/images/serveritlogo.png" width="150" alt="serveritstudio-logo">
+                <a href="<?= LINK; ?>index.php">
+                  <img src="<?= LINK; ?>public/images/serveritlogo.png" width="150" alt="serveritstudio-logo">
+                </a>
               </div><!-- ./brand-logo -->
               <p>To gain quick access, sign in with your social media account.</p>
               <!-- social login buttons start -->
