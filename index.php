@@ -1,5 +1,7 @@
-<?php session_start(); $header_active="Home"; include ("views/partials/header.php"); ?>
-<?php include ("views/partials/slider.php"); ?>
+<?php session_start();
+$header_active = "Home";
+include("views/partials/header.php"); ?>
+<?php include("views/partials/slider.php"); ?>
 
 <div class="content-body">
   <!-- on-slide-section -->
@@ -34,12 +36,38 @@
 <?php include("views/partials/footer.php"); ?>
 
 
-<script src="<?=LINK;?>public/jquery/jquery.js"></script>
-<script src="<?=LINK;?>public/owl/owl.carousel.min.js"></script>
-<script src="<?=LINK;?>public/bootstrap/bootstrap.min.js" ></script>
-<script src="<?=LINK;?>public/bootstrap/bootstrap.bundle.min.js" ></script>
-<script src="<?=LINK;?>public/WOW-master/dist/wow.min.js"></script>
-<script src="<?=LINK;?>public/bootstrap/popper.min.js" ></script>
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "101601976219405");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml: true,
+      version: 'v16.0'
+    });
+  };
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<script src="<?= LINK; ?>public/jquery/jquery.js"></script>
+<script src="<?= LINK; ?>public/owl/owl.carousel.min.js"></script>
+<script src="<?= LINK; ?>public/bootstrap/bootstrap.min.js"></script>
+<script src="<?= LINK; ?>public/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="<?= LINK; ?>public/WOW-master/dist/wow.min.js"></script>
+<script src="<?= LINK; ?>public/bootstrap/popper.min.js"></script>
 <script>
   new WOW().init();
 </script>

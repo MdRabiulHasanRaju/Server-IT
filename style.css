@@ -153,8 +153,9 @@ a {
 }
 
 .menu>ul>li {
-    padding: 8px 8px;
+    padding: 8px 7px;
     color: #74726e;
+    transition:300ms ease-in-out;
 }
 
 .cart {
@@ -202,8 +203,13 @@ a {
     100%{opacity:1}
 }
 .menu>ul>li:hover {
-    border-bottom: 2px solid #FF0000;
-    animation: fadeIn 1000ms;
+    background:red;
+    color:white;
+    border-radius:4px;
+    animation: fadeIn 300ms ease-in-out;
+}
+.menu>ul>li:hover a{
+    color:white;
 }
 .category:hover {
     border-bottom: 2px solid #FF0000;
@@ -327,6 +333,7 @@ p.card-text {
 }
 .our-campus-right>img {
     width: 70%;
+    box-shadow:1px 1px 31px -14px black;
 }
 section.our-campus {
     padding: 40px 0;
@@ -353,7 +360,6 @@ section.featured-courses {
     transition: .3s ease
 }
 .course-item:hover{
-    border: 1px solid #535353;
     transform: scale(1.03);
     transition: .3s ease
 }
@@ -638,7 +644,7 @@ section.review-part {
     content: "";
     display: block;
     width: auto;
-    border-bottom: 5px solid #ff0000;
+    border-bottom: 3px solid #525252;
     border-radius: 50%;
     margin: 8px 0px;
 }
@@ -754,3 +760,7 @@ h2.insert-title {
     width: 156px;
     float: right;
   }
+.student-forum{
+    background:red;
+    color:white;
+}

@@ -1,4 +1,4 @@
-<section class="featured-courses">
+<section class="featured-courses" id="featured-courses">
     <div class="container">
       <div class="row">
         <div class="col-12 title-div">
@@ -7,17 +7,17 @@
         <div class="col-12">
           <div class="owl-carousel owl-theme">
           <?php 
-            $courseSql = "SELECT `id`,`image`,`title`,`sub_title`,`instructor_id` FROM `courses`";
+            $courseSql = "SELECT `id`,`image`,`title`,`sub_title`,`instructor_id`,`price` FROM `courses`";
             $courseStmt = fetch_data($connection,$courseSql);
             if($courseStmt){
-              mysqli_stmt_bind_result($courseStmt,$id,$image,$title,$subTitle,$instructorId);
+              mysqli_stmt_bind_result($courseStmt,$id,$image,$title,$subTitle,$instructorId,$price);
               while(mysqli_stmt_fetch($courseStmt)){ 
                 $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
                 $instructorStmt = fetch_data($connection,$instructorSql);
                 mysqli_stmt_bind_result($instructorStmt,$image);?>
             <div class="item course-item">
               <div class="card">
-                <img class="img-fluid" style="height: 200px" alt="100%x280" src="<?=IMAGEPATH,$image;?>" />
+                <img class="img-fluid" style="min-height: 150px" alt="100%x280" src="<?=IMAGEPATH,$image;?>" />
                 <div class="card-body">
                   <h4 class="card-title"><?=$title;?></h4>
                   <p class="card-text">
@@ -38,7 +38,7 @@
 
 
                   <div class="price-box">
-                    <h4 class="text-center">Course Fee 13000 BDT</h4>
+                    <h4 class="text-center">Course Fee <?=$price;?> BDT</h4>
                   </div>
 
 

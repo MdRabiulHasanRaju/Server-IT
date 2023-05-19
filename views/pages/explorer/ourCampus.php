@@ -5,7 +5,7 @@
     }
   }
 </style>
-<section class="our-campus">
+<section class="our-campus" id="our-campus">
   <div class="container">
     <?php
     $campusSql = "SELECT * FROM `campus_des`";

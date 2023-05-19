@@ -1,13 +1,13 @@
-<?php 
-  include $_SERVER['DOCUMENT_ROOT']."/serverit/lib/Database.php";
-  include $_SERVER['DOCUMENT_ROOT']."/serverit/utility/Baseurl.php";
-  include $_SERVER['DOCUMENT_ROOT']."/serverit/utility/Format.php";
-  $baseurl = new Baseurl;
-  define("IMAGEPATH","{$baseurl->url()}/serverit/public/images/");
-  define("UPLOADIMAGEPATH","{$baseurl->url()}/serverit/public/upload/");
-  define("VIDEOPATH","{$baseurl->url()}/serverit/public/video/");
-  define("LINK","{$baseurl->url()}/serverit/");
-  $format = new Format;
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Baseurl.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Format.php";
+$baseurl = new Baseurl;
+define("IMAGEPATH", "{$baseurl->url()}/serverit/public/images/");
+define("UPLOADIMAGEPATH", "{$baseurl->url()}/serverit/public/upload/");
+define("VIDEOPATH", "{$baseurl->url()}/serverit/public/video/");
+define("LINK", "{$baseurl->url()}/serverit/");
+$format = new Format;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,20 +20,19 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 
-  <link rel="stylesheet" href="<?=LINK;?>public/fontAwesome/css/fontawesome.min.css">
-  <link rel="stylesheet" href="<?=LINK;?>public/fontAwesome/css/all.min.css">
-  <link rel="stylesheet" href="<?=LINK;?>public/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="<?= LINK; ?>public/fontAwesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="<?= LINK; ?>public/fontAwesome/css/all.min.css">
+  <link rel="stylesheet" href="<?= LINK; ?>public/bootstrap/bootstrap.min.css">
 
-  <link rel="stylesheet" href="<?=LINK;?>public/owl/owl.carousel.min.css">
-  <link rel="stylesheet" href="<?=LINK;?>public/owl/owl.theme.default.min.css">
-  <link rel="stylesheet" href="<?=LINK;?>public/WOW-master/css/libs/animate.css" />
-  <link rel="stylesheet" href="<?=LINK;?>style.css" />
-  <link rel="stylesheet" href="<?=LINK;?>responsive.css" />
-  <link rel="icon" href="<?=LINK;?>public/images/serveritlogo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="<?= LINK; ?>public/owl/owl.carousel.min.css">
+  <link rel="stylesheet" href="<?= LINK; ?>public/owl/owl.theme.default.min.css">
+  <link rel="stylesheet" href="<?= LINK; ?>public/WOW-master/css/libs/animate.css" />
+  <link rel="stylesheet" href="<?= LINK; ?>style.css" />
+  <link rel="stylesheet" href="<?= LINK; ?>responsive.css" />
+  <link rel="icon" href="<?= LINK; ?>public/images/serveritlogo.png" type="image/x-icon" />
 </head>
 
-
-  <body>
+<body>
     <?php include("topbar.php");?>
     <div class="header">
       <div class="container">
@@ -91,7 +90,14 @@
               if($menu_stmt){
                 mysqli_stmt_bind_result($menu_stmt,$id,$menu_name,$link);
                 while(mysqli_stmt_fetch($menu_stmt)){?>
-              <li <?php if(isset($header_active) && $header_active == $menu_name) echo "class='myactive'";?>>
+              <li 
+              <?php 
+              if(isset($header_active) && $header_active == $menu_name){ 
+              echo "class='myactive'"; 
+              }
+              if(isset($menu_name) && $menu_name == "Student Forum"){
+              echo "class='btn btn-warning'";
+              } ?>>
                 <a href="<?=LINK;?><?=$link;?>"><?=$menu_name;?></a> <i class="fa-solid fa-caret-down"></i>
               </li>
               <?php }} ?>

@@ -22,6 +22,7 @@
   }
   .menu {
     display: none;
+    text-align: center;
   }
   .mobile-menu-bar {
     display: block;
@@ -64,7 +65,7 @@
     top: 0px;
     width: 100%;
     left: 0%;
-    animation: 1s ease-in-out 0s 1 normal none running menuAnimationRemove;
+    animation: 300ms ease-in-out 0s 1 normal none running menuAnimationRemove;
     overflow: hidden;
     display: block;
   }
@@ -78,7 +79,7 @@
     left: 0%;
     height: 220px;
     top: 1px;
-    animation: 1s ease-in-out 0s 1 normal none running menuAnimationAdd;
+    animation: 400ms ease-in-out 0s 1 normal none running menuAnimationAdd;
   }
   .mobile-menu-bar > i {
     margin-left: 15px;
