@@ -764,3 +764,6 @@ h2.insert-title {
     background:red;
     color:white;
 }
+.fade{
+    opacity:1;
+}

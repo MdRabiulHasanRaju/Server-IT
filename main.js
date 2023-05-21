@@ -10,18 +10,6 @@ menuBar.addEventListener("click", () => {
     menu[0].classList.remove("menu-remove");
   }
 });
-
-// let header = document.getElementsByClassName("header")[0];
-// let HeaderPosition = header.getBoundingClientRect().top;
-// window.addEventListener("scroll", e => {
-//   let scrollPos = window.scrollY;
-//   if (scrollPos > HeaderPosition) {
-//     header.classList.add('sticky-bar');
-//   } else {
-//     header.classList.remove('sticky-bar');
-//   }
-// });
-
 window.onscroll = function () {
   myFunction();
 };
@@ -36,7 +24,7 @@ function myFunction() {
 }
 
 $(".owl-carousel").owlCarousel({
-  loop: false,
+  loop: true,
   margin: 10,
   autoplay: true,
   nav: false,
@@ -62,16 +50,16 @@ let videoFile = document.getElementsByClassName("video-file")[0];
 let closeBtn = document.getElementsByClassName("video-btn-close")[0];
 let videoPlayBtn = document.getElementsByClassName("video-play-btn")[0];
 let campusVideoText = document.getElementsByClassName("campus-video-text")[0];
-
+if(videoPlayBtn && closeBtn){
 videoPlayBtn.addEventListener("click", () => {
   video.style.display = "block";
   campusVideoText.style.display = "none";
   videoFile.currentTime = 0;
   videoFile.play();
 });
-
 closeBtn.addEventListener("click", () => {
   video.style.display = "none";
   campusVideoText.style.display = "block";
   videoFile.pause();
 });
+}

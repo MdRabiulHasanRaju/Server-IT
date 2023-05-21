@@ -5,12 +5,20 @@ $profile_active = "dashboard";
 include("../../partials/header.php"); ?>
 <?php
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-  $sql = "select * from users_info where user_id = ?";
+  $sql = "select name from users_info where user_id = ?";
   $stmt = mysqli_prepare($connection, $sql);
   mysqli_stmt_bind_param($stmt, "i", $param_id);
   $param_id = $_SESSION['id'];
   if (mysqli_stmt_execute($stmt)) {
     if (mysqli_stmt_store_result($stmt)) {
+       mysqli_stmt_bind_result($stmt,$name);
+       if(mysqli_stmt_fetch($stmt)){
+        if(empty($name)){
+          unset($_SESSION["name"]);
+          header("location: " . LINK . "views/pages/profile/create-profile.php");
+          die();
+        }
+       }
       if (mysqli_stmt_num_rows($stmt) == 0) {
         header("location: " . LINK . "views/pages/profile/create-profile.php");
         die();

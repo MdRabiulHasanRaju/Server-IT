@@ -27,6 +27,7 @@ $format = new Format;
   <link rel="stylesheet" href="<?= LINK; ?>public/owl/owl.carousel.min.css">
   <link rel="stylesheet" href="<?= LINK; ?>public/owl/owl.theme.default.min.css">
   <link rel="stylesheet" href="<?= LINK; ?>public/WOW-master/css/libs/animate.css" />
+  <link rel="stylesheet" href="<?= LINK; ?>public/croppie/croppie.css">
   <link rel="stylesheet" href="<?= LINK; ?>style.css" />
   <link rel="stylesheet" href="<?= LINK; ?>responsive.css" />
   <link rel="icon" href="<?= LINK; ?>public/images/serveritlogo.png" type="image/x-icon" />

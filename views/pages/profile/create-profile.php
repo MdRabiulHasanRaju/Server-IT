@@ -1,6 +1,6 @@
 <?php ob_start();
 session_start();
-$header_active="Account";
+$header_active = "Account";
 include("../../partials/header.php"); ?>
 <?php
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
@@ -21,6 +21,25 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     } elseif (isset($_SESSION["image_err"])) {
         $image_err = $_SESSION["image_err"];
     }
+
+
+    $sql = "select image from users_info where user_id = ?";
+    $stmt = mysqli_prepare($connection, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $param_id);
+    $param_id = $_SESSION['id'];
+    if (mysqli_stmt_execute($stmt)) {
+        if (mysqli_stmt_store_result($stmt)) {
+            mysqli_stmt_bind_result($stmt, $image);
+            if (mysqli_stmt_fetch($stmt)) {
+                $_SESSION["image"] = $image;
+            } else {
+                unset($_SESSION["image"]);
+            }
+        }
+    }
+
+
+
 ?>
     <style>
         .inside-profile-sidebar-1 {
@@ -81,7 +100,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     <div class="profile-sidebar">
                         <div class="inside-profile-sidebar-1"></div>
                         <div class="inside-profile-sidebar-2">
-                            <img class="profile-sidebar-img align-self-start img-thumbnail img-fluid rounded-circle" src="<?= IMAGEPATH; ?>default.png" alt="profile image" />
+                            <img id="image-output" class="profile-sidebar-img align-self-start img-thumbnail img-fluid rounded-circle" src="<?php if (!isset($_SESSION['image'])) {
+                                                                                                                                                echo IMAGEPATH; ?>default.png<?php } else echo UPLOADIMAGEPATH, $_SESSION['image']; ?>" alt="profile image" />
                         </div>
                         <div class="inside-profile-sidebar-3 text-center">
                             <h4>Your Name</h4>
@@ -100,7 +120,40 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     <div class="col-md-6 offset-md-3 profile-page-content">
                         <div class="card card-body create-profile-data">
                             <h2 class="insert-title">General Information</h2>
+                            <div class="profile-pics">
+                                <div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">RESIZE YOUR IMAGE</h4>
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                    <span id="topclose" aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="upload-demo" class="center-block"></div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="cancel-cropping" type="button" class="btn btn-default" data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="button" id="cropImageBtn" class="btn btn-primary">
+                                                    Upload
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <form action="<?= LINK; ?>controllers/createProfileController.php" enctype="multipart/form-data" method="post">
+                                <?php if (!isset($_SESSION['image'])) { ?>
+                                    <div class="form-group" id="image-form">
+                                        <label for="profilePicsFile">Profile Picture <span style="color:red;">*</span></label>
+                                        <input id="profilePicsFile" name="image" class="form-control item-img file center-block" type="file" accept="image/*" required>
+                                        <span style="color:red"><?php echo $image_err;
+                                                                unset($_SESSION['image_err']); ?></span>
+                                    </div>
+                                <?php } ?>
                                 <div class="form-group">
                                     <label for="name">Full Name <span style="color:red;">*</span></label>
                                     <input id="name" name="name" class="form-control" type="text" placeholder="Enter Your Full Name" required>
@@ -125,12 +178,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                     <span style="color:red"><?php echo $phone_err;
                                                             unset($_SESSION['phone_err']); ?></span>
                                 </div>
-                                <div class="form-group">
-                                    <label for="image">Profile Picture</label>
-                                    <input id="image" name="image" class="form-control" type="file" required>
-                                    <span style="color:red"><?php echo $image_err;
-                                                            unset($_SESSION['image_err']); ?></span>
-                                </div>
                                 <input type="submit" name="submit" class="btn btn-success slide-btn" value="Save">
                             </form>
                         </div>
@@ -148,13 +195,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 }
 ob_end_flush(); ?>
 
-
 <script src="<?= LINK; ?>public/jquery/jquery.js"></script>
 <script src="<?= LINK; ?>public/owl/owl.carousel.min.js"></script>
 <script src="<?= LINK; ?>public/bootstrap/bootstrap.min.js"></script>
 <script src="<?= LINK; ?>public/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="<?= LINK; ?>public/WOW-master/dist/wow.min.js"></script>
 <script src="<?= LINK; ?>public/bootstrap/popper.min.js"></script>
+<script src="<?= LINK; ?>public/croppie/croppie.js"></script>
+<script src="profile.js"></script>
 <script>
     new WOW().init();
 </script>
