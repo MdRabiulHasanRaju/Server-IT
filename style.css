@@ -232,6 +232,8 @@ a {
 
 .myactive {
     border-bottom: 2px solid #FF0000;
+    background: whitesmoke;
+    border-radius: 5px;
 }
 .logo {
     margin-bottom: 10px;

@@ -45,69 +45,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 $temporary_file = $file['tmp_name'];
                 $imgfile = $_FILES["image"]["name"];
 
-                if (file_exists($_FILES["image"]["tmp_name"])) {
-
-                    $str_to_arry = explode('.', $name_img);
-                    $extension = end($str_to_arry);
-
-                    $file_type = $file['type'];
-                    if ($file_type == "image/jpg" || $file_type == "image/jpeg" || $file_type == "image/png") {
-                        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-                        $file_type = finfo_file($finfo, $temporary_file);
-                        if ($file_type == "image/jpeg" || $file_type == "image/png" || $file_type == "image/jpg") {
-                            // $data 	  = getimagesize($temporary_file);
-                            // $width 	  = $data[0]; // in pixel
-                            // $height   = $data[1];  // in pixel
-
-                            // if($width != 300 && $height != 300){
-                            //  	echo "Please Upload 300x300 pixel Image.";
-                            //  }
-
-                            $size = $file['size']; // size in byte
-                            $mb_2 = 2000000;
-
-                            if ($size > $mb_2) {
-                                $image_err = "File is too large, Upload less than or equal 2MB";
-                                $_SESSION["image_err"] = $image_err;
-                                header("location: " . LINK . "views/pages/profile/edit-profile.php");
-                                die();
-                            }
-
-                            $upload_location = "../public/upload/";
-                            $new_name = "profile-image-" . rand(9999, 999999) . md5($imgfile) . time() . "." . $extension;
-                            $location_with_name = $upload_location . $new_name;
-                            $uploadFile = move_uploaded_file($temporary_file, $location_with_name);
-                            if (!$uploadFile) {
-                                $image_err = "Problem in Uploading Image File";
-                                $_SESSION["image_err"] = $image_err;
-                                header("location: " . LINK . "views/pages/profile/edit-profile.php");
-                                die();
-                            } else {
-                                $imageLink = "$root/public/upload/$prev_image";
-                                if (file_exists($imageLink)) {
-                                    $delImage = unlink($imageLink);
-                                    if (!$delImage) {
-                                        echo "Image not deleted!";
-                                        die();
-                                    }
-                                }
-                            }
-                        } else {
-                            $image_err = "This is not an image mimetype";
-                            $_SESSION["image_err"] = $image_err;
-                            header("location: " . LINK . "views/pages/profile/edit-profile.php");
-                            die();
-                        }
-                    } else {
-                        $image_err = "This is not an image";
-                        $_SESSION["image_err"] = $image_err;
-                        header("location: " . LINK . "views/pages/profile/edit-profile.php?");
-                        die();
-                    }
-                } else {
+                if (!file_exists($_FILES["image"]["tmp_name"])) {
                     $new_name = $_SESSION['image'];
                 }
-            } 
+            }
 
             $sql = "select * from users_info where user_id = ?";
             $stmt = mysqli_prepare($connection, $sql);

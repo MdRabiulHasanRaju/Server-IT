@@ -22,7 +22,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     } elseif (isset($_SESSION["image_err"])) {
         $image_err = $_SESSION["image_err"];
     }
-?>
+    ?>
     <style>
         .inside-profile-sidebar-1 {
             background-image: url('<?= IMAGEPATH; ?>serveritlogo.png');
@@ -80,30 +80,45 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     <div class="profile-sidebar">
                         <div class="inside-profile-sidebar-1"></div>
                         <div class="inside-profile-sidebar-2">
-                            <img class="profile-sidebar-img align-self-start img-thumbnail img-fluid rounded-circle" src="<?= UPLOADIMAGEPATH, $_SESSION['image']; ?>" alt="profile image" />
+                            <img id="image-output" class="profile-sidebar-img align-self-start img-thumbnail img-fluid rounded-circle"
+                                src="<?= UPLOADIMAGEPATH, $_SESSION['image']; ?>" alt="profile image" />
                         </div>
                         <div class="inside-profile-sidebar-3 text-center">
-                            <h4><?= $_SESSION['name']; ?></h4>
-                            <p><?= $_SESSION['title']; ?></p>
+                            <h4>
+                                <?= $_SESSION['name']; ?>
+                            </h4>
+                            <p>
+                                <?= $_SESSION['title']; ?>
+                            </p>
                         </div>
                         <div class="profile-sidebar-recent">
-                            <p class="mt-2"><i class="fa-sharp fa-solid fa-location-dot"></i> <?= $_SESSION['address']; ?></p>
-                            <p class="mt-2"><i class="fa-solid fa-phone"></i> <?= $_SESSION['mobile']; ?></p>
+                            <p class="mt-2"><i class="fa-sharp fa-solid fa-location-dot"></i>
+                                <?= $_SESSION['address']; ?>
+                            </p>
+                            <p class="mt-2"><i class="fa-solid fa-phone"></i>
+                                <?= $_SESSION['mobile']; ?>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-9 create-profile">
                     <div class="profile-page-link">
                         <ul>
-                            <a class="<?php if ($profile_active == 'dashboard') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/profile.php">
+                            <a class="<?php if ($profile_active == 'dashboard')
+                                echo 'profile_active'; ?>"
+                                href="<?= LINK; ?>views/pages/profile/profile.php">
                                 <i class="fa-solid fa-table"></i>
                                 <li>Dashboard</li>
                             </a>
-                            <a class="<?php if ($profile_active == 'editProfile') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/edit-profile.php">
+                            <a class="<?php if ($profile_active == 'editProfile')
+                                echo 'profile_active'; ?>"
+                                href="<?= LINK; ?>views/pages/profile/edit-profile.php">
                                 <i class="fa-sharp fa-solid fa-user-pen"></i>
                                 <li>Edit Your Profile Info</li>
                             </a>
-                            <a class="<?php if ($profile_active == 'changePassword') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/change-password.php">
+                            <a class="<?php if ($profile_active == 'changePassword')
+                                echo 'profile_active'; ?>"
+                                href="<?= LINK; ?>views/pages/profile/change-password.php">
                                 <i class="fa-solid fa-lock"></i>
                                 <li>Change Your Password</li>
                             </a>
@@ -116,48 +131,99 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     <div class="col-md-6 offset-md-3 profile-page-content">
                         <div class="card card-body create-profile-data">
                             <h2 class="insert-title">Change General Information</h2>
-                            <form action="<?= LINK; ?>controllers/editProfileController.php" enctype="multipart/form-data" method="post">
+                            <div class="profile-pics">
+                                <div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">RESIZE YOUR IMAGE</h4>
+                                                <button type="button" class="close" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span id="topclose" aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="upload-demo" class="center-block"></div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="cancel-cropping" type="button" class="btn btn-default"
+                                                    data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="button" id="cropImageBtn" class="btn btn-primary">
+                                                    Change Picture
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="<?= LINK; ?>controllers/editProfileController.php" enctype="multipart/form-data"
+                                method="post">
+                                <div class="form-group">
+                                <label for="profilePicsFile">Profile Picture</label>
+                                        <input id="profilePicsFile" name="image" class="form-control item-img file center-block"
+                                            type="file" accept="image/*">
+                                    <span style="color:red">
+                                        <?php echo $image_err;
+                                        unset($_SESSION['image_err']); ?>
+                                    </span>
+                                </div>
                                 <div class="form-group">
                                     <label for="name">Full Name <span style="color:red;">*</span></label>
-                                    <input id="name" name="name" value="<?= $_SESSION['name']; ?>" class="form-control" type="text" placeholder="Enter Your Full Name">
-                                    <span style="color:red"><?php echo $name_err;
-                                                            unset($_SESSION['name_err']); ?></span>
+                                    <input id="name" name="name" value="<?= $_SESSION['name']; ?>" class="form-control"
+                                        type="text" placeholder="Enter Your Full Name" required>
+                                    <span style="color:red">
+                                        <?php echo $name_err;
+                                        unset($_SESSION['name_err']); ?>
+                                    </span>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Title <span style="color:red;">*</span></label>
-                                    <input id="title" name="title" value="<?= $_SESSION['title']; ?>" class="form-control" type="text" placeholder="Enter a Title">
-                                    <span style="color:red"><?php echo $title_err;
-                                                            unset($_SESSION['title_err']); ?></span>
+                                    <input id="title" name="title" value="<?= $_SESSION['title']; ?>" class="form-control"
+                                        type="text" placeholder="Enter a Title" required>
+                                    <span style="color:red">
+                                        <?php echo $title_err;
+                                        unset($_SESSION['title_err']); ?>
+                                    </span>
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address <span style="color:red;">*</span></label>
-                                    <input id="address" name="address" value="<?= $_SESSION['address']; ?>" class="form-control" type="text" placeholder="Enter Your Address">
-                                    <span style="color:red"><?php echo $address_err;
-                                                            unset($_SESSION['address_err']); ?></span>
+                                    <input id="address" name="address" value="<?= $_SESSION['address']; ?>"
+                                        class="form-control" type="text" placeholder="Enter Your Address" required>
+                                    <span style="color:red">
+                                        <?php echo $address_err;
+                                        unset($_SESSION['address_err']); ?>
+                                    </span>
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile">Phone Number <span style="color:red;">*</span></label>
-                                    <input id="mobile" name="mobile" value="<?= $_SESSION['mobile']; ?>" class="form-control" type="text" placeholder="Enter Your Phone Number">
-                                    <span style="color:red"><?php echo $phone_err;
-                                                            unset($_SESSION['phone_err']); ?></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="image">Profile Picture</label>
-                                    <input id="image" name="image" class="form-control" type="file">
-                                    <span style="color:red"><?php echo $image_err;
-                                                            unset($_SESSION['image_err']); ?></span>
+                                    <input id="mobile" name="mobile" value="<?= $_SESSION['mobile']; ?>"
+                                        class="form-control" type="text" placeholder="Enter Your Phone Number" required>
+                                    <span style="color:red">
+                                        <?php echo $phone_err;
+                                        unset($_SESSION['phone_err']); ?>
+                                    </span>
                                 </div>
                                 <input type="submit" name="submit" class="btn btn-success slide-btn" value="Save Changes">
                             </form>
                         </div>
-
+                        <script>
+                            let modal = document.getElementById("cropImagePop");
+                            window.onclick = function (event) {
+                                if (event.target == modal) {
+                                    document.getElementById("profilePicsFile").value = "";
+                                }
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<?php include("../../partials/footer.php");
+    <?php include("../../partials/footer.php");
 } else {
     header("location: " . LINK . "views/pages/auth/auth.php?p=1");
     die();
@@ -171,6 +237,8 @@ ob_end_flush(); ?>
 <script src="<?= LINK; ?>public/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="<?= LINK; ?>public/WOW-master/dist/wow.min.js"></script>
 <script src="<?= LINK; ?>public/bootstrap/popper.min.js"></script>
+<script src="<?= LINK; ?>public/croppie/croppie.js"></script>
+<script src="<?= LINK; ?>views/pages/profile/profile.js"></script>
 <script>
     new WOW().init();
 </script>

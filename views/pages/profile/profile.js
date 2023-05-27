@@ -71,14 +71,16 @@ window.onload = () => {
                 size: 'viewport'
             }).then(function(response) {
                 $.ajax({
-                    url: "/serverit/controllers/uploadController.php",
+                    url: "/serverit/controllers/changeProfilePictureController.php",
+                    //url: "/serverit/controllers/uploadController.php",
                     type: "POST",
                     data: {
                         "image": response
                     },
                     success: function(data) {
                         document.getElementById("image-output").src = data;
-                        document.getElementById("image-form").remove();
+                        document.getElementById("profilePicsFile").value="";
+                        //document.getElementById("image-form").remove();
                         $("#cropImagePop").modal("hide");
                     }
                 });
