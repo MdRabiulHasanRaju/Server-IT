@@ -1,4 +1,5 @@
 <?php
+session_start();
 include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Baseurl.php";
 $baseurl = new Baseurl;

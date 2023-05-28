@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$sql = "SELECT id, email, password FROM users WHERE email = ?";
 			$stmt = mysqli_prepare($connection, $sql);
 			mysqli_stmt_bind_param($stmt, "s", $param_username);
-			$param_username = $username;
+			$param_username = strtolower($username);
 
 			if (mysqli_stmt_execute($stmt)) {
 				mysqli_stmt_store_result($stmt);

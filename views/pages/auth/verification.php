@@ -1,4 +1,5 @@
 <?php
+session_start();
 include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Baseurl.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Format.php";
@@ -11,6 +12,7 @@ $format = new Format;
 <?php ob_start();
 $active = ''; ?>
 <?php
+$wrong_otp = '';
 if (isset($_GET["email"])) {
   if (isset($_SESSION['wrong_otp'])) {
     $wrong_otp = $_SESSION['wrong_otp'];
@@ -94,9 +96,9 @@ if (isset($_GET["email"])) {
                     <form name="loginForm" class="loginForm" action="<?= LINK; ?>controllers/verificationController.php" method="POST">
                       <input type="hidden" name="email" value="<?= $email; ?>">
                       <div class="form-group">
-                        <input type="text" class="form-control email" name="otp" placeholder="OTP">
+                        <input type="text" class="form-control email" name="otp" placeholder="OTP" required>
                       </div>
-                      <span class="strength" style="display:block;float:right;margin-left:6px;"><?php if (isset($wrong_otp)) {echo $wrong_otp; unset($_SESSION['wrong_otp']);} ?></span>
+                      <span style="color:red;"><?php echo $wrong_otp; unset($_SESSION['wrong_otp']); ?></span>
 
                       <div class="form-group">
                         <button name="otpsubmit" class="btn btn-lg btn-primary btn-block slide-btn" type="submit">Enter OTP</button>
