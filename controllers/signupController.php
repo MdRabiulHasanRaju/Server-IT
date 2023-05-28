@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 	if(isset($_POST['submit'])){
 		if(isset($_SESSION['username']))
 		{
-			header("location: ".LINK."views/pages/profile/profile.php");
+			header("location: ".LINK."profile");
 			exit;
 		}
 		include_once $_SERVER['DOCUMENT_ROOT']."/serverit/lib/Database.php";
@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 			if(empty(trim($_POST["username"]))){
 				$username_err = "Username cannot be blank";
 				$_SESSION["username_err"] = $username_err;
-				header("location: ".LINK."views/pages/auth/auth.php?p=2");
+				header("location: ".LINK."auth/2");
 				die();
 			}
 			else{
@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 						{
 							$username_err = "This username is already taken!"; 
 							$_SESSION["username_err"] = $username_err;
-							header("location: ".LINK."views/pages/auth/auth.php?p=2");
+							header("location: ".LINK."auth/2");
 							die();
 						}
 						else{
@@ -58,13 +58,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 		if(empty(trim($_POST['password']))){
 			$password_err = "Password cannot be blank";
 			$_SESSION["password_err"] = $password_err;
-			header("location: ".LINK."views/pages/auth/auth.php?p=2");
+			header("location: ".LINK."auth/2");
 			die();
 		}
 		elseif(strlen(trim($_POST['password'])) < 5){
 			$password_err = "Password cannot be less than 5 characters!";
 			$_SESSION["password_err"] = $password_err;
-			header("location: ".LINK."views/pages/auth/auth.php?p=2");
+			header("location: ".LINK."auth/2");
 			die();
 		}
 		else{
@@ -74,7 +74,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 		if(trim($_POST['password']) !=  trim($_POST['confirm_password'])){
 			$password_err = "Passwords should match!";
 			$_SESSION["password_err"] = $password_err;
-			header("location: ".LINK."views/pages/auth/auth.php?p=2");
+			header("location: ".LINK."auth/2");
 			die();
 		}
 
@@ -102,7 +102,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 						}
 					$verifysql = "insert into verification(otp,email) values('$otp','$username')";
 					$query = $connection->query($verifysql);
-					header("location: ".LINK."views/pages/auth/verification.php?email=$username");
+					header("location: ".LINK."verification/$username");
 				}
 				else{
 					echo "Something went wrong... cannot redirect!";
@@ -115,6 +115,6 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 		
 	}
 }else{
-	header("location: ".LINK."views/pages/auth/auth.php?p=2");
+	header("location: ".LINK."auth/2");
 	die();
 }

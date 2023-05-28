@@ -1,12 +1,20 @@
 <?php
 session_start();
+include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Baseurl.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Format.php";
+$baseurl = new Baseurl;
+define("IMAGEPATH", "{$baseurl->url()}/serverit/public/images/");
+define("VIDEOPATH", "{$baseurl->url()}/serverit/public/video/");
+define("LINK", "{$baseurl->url()}/serverit/");
+$format = new Format;
+
 if (isset($_GET['p'])) {
   $showPage = $_GET['p'];
 } else {
   $showPage = 1;
 }
 if (isset($_SESSION['username'])) {
-  header("location: ../profile/profile.php");
+  header("location: ".LINK."profile");
   exit;
 }
 $username_err = $password_err = $confirm_password_err = $err = "";
@@ -22,13 +30,6 @@ if (isset($_SESSION["err"])) {
 
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Baseurl.php";
-include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Format.php";
-$baseurl = new Baseurl;
-define("IMAGEPATH", "{$baseurl->url()}/serverit/public/images/");
-define("VIDEOPATH", "{$baseurl->url()}/serverit/public/video/");
-define("LINK", "{$baseurl->url()}/serverit/");
-$format = new Format;
 ?>
 <!DOCTYPE html>
 
@@ -44,7 +45,7 @@ $format = new Format;
 
   <title>Server IT Studio || Auth</title>
   <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/serveritlogo.png" />
-  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="<?= LINK;?>views/pages/auth/auth.css">
   <style>
     body {
       background-image: url('<?= IMAGEPATH; ?>serverit2.jpeg');
@@ -79,7 +80,7 @@ $format = new Format;
                   </a>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-12">
-                  <a class="btn btn-warning btn-block mt-4 btn-lg" href="<?= LINK; ?>index.php"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
+                  <a class="btn btn-warning btn-block mt-4 btn-lg" href="<?= LINK; ?>"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
                 </div>
               </div><!-- ./social-buttons -->
             </div>
@@ -252,7 +253,7 @@ $format = new Format;
   <script>
     new WOW().init();
   </script>
-  <script src="auth.js"></script>
+  <script src="<?= LINK; ?>views/pages/auth/auth.js"></script>
 
 </body>
 

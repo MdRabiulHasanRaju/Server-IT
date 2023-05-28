@@ -5,7 +5,7 @@ include("../../partials/header.php"); ?>
 <?php
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     if (isset($_SESSION['name'])) {
-        header("location: " . LINK . "views/pages/profile/profile.php");
+        header("location: " . LINK . "profile");
         die();
     }
 
@@ -142,7 +142,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                                     data-bs-dismiss="modal">
                                                     Close
                                                 </button>
-                                                <button type="button" id="cropImageBtn" class="btn btn-primary">
+                                                <button type="button" id="uploadPic" class="btn btn-primary">
                                                     Upload
                                                 </button>
                                             </div>
@@ -219,7 +219,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
     <?php include("../../partials/footer.php");
 } else {
-    header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+    header("location: " . LINK . "auth?p=1");
     die();
 }
 ob_end_flush(); ?>

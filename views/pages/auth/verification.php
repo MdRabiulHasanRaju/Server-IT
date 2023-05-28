@@ -12,8 +12,8 @@ $format = new Format;
 $active = ''; ?>
 <?php
 if (isset($_GET["email"])) {
-  if (isset($_GET['wrong_otp'])) {
-    $wrong_otp = $_GET['wrong_otp'];
+  if (isset($_SESSION['wrong_otp'])) {
+    $wrong_otp = $_SESSION['wrong_otp'];
   }
   $email = $_GET["email"];
   $ssql = "select otp from verification where email = '$email'";
@@ -38,7 +38,7 @@ if (isset($_GET["email"])) {
 
     <title>Server IT Studio || Auth</title>
     <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/serveritlogo.png" />
-    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="<?=LINK;?>views/pages/auth/auth.css">
     <style>
       body {
         background-image: url('<?= IMAGEPATH; ?>serverit2.jpeg');
@@ -71,7 +71,7 @@ if (isset($_GET["email"])) {
                     </a>
                   </div>
                   <div class="col-xs-4 col-sm-4 col-md-12">
-                    <a class="btn btn-warning btn-block mt-4 btn-lg" href="<?= LINK; ?>index.php"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
+                    <a class="btn btn-warning btn-block mt-4 btn-lg" href="<?= LINK; ?>"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
                   </div>
                 </div><!-- ./social-buttons -->
               </div>
@@ -96,9 +96,7 @@ if (isset($_GET["email"])) {
                       <div class="form-group">
                         <input type="text" class="form-control email" name="otp" placeholder="OTP">
                       </div>
-                      <span class="strength" style="display:block;float:right;margin-left:6px;"><?php if (isset($wrong_otp)) {
-                                                                                                  echo $wrong_otp;
-                                                                                                } ?></span>
+                      <span class="strength" style="display:block;float:right;margin-left:6px;"><?php if (isset($wrong_otp)) {echo $wrong_otp; unset($_SESSION['wrong_otp']);} ?></span>
 
                       <div class="form-group">
                         <button name="otpsubmit" class="btn btn-lg btn-primary btn-block slide-btn" type="submit">Enter OTP</button>
@@ -125,7 +123,7 @@ if (isset($_GET["email"])) {
   <script>
     new WOW().init();
   </script>
-  <script src="auth.js"></script>
+  <script src="<?= LINK; ?>views/pages/auth/auth.js"></script>
 
   </body>
 

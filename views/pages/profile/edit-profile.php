@@ -6,7 +6,7 @@ include("../../partials/header.php"); ?>
 <?php
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     if (!isset($_SESSION['name'])) {
-        header("location: " . LINK . "views/pages/profile/create-profile.php");
+        header("location: " . LINK . "create-profile");
         die();
     }
 
@@ -106,19 +106,19 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                         <ul>
                             <a class="<?php if ($profile_active == 'dashboard')
                                 echo 'profile_active'; ?>"
-                                href="<?= LINK; ?>views/pages/profile/profile.php">
+                                href="<?= LINK; ?>profile">
                                 <i class="fa-solid fa-table"></i>
                                 <li>Dashboard</li>
                             </a>
                             <a class="<?php if ($profile_active == 'editProfile')
                                 echo 'profile_active'; ?>"
-                                href="<?= LINK; ?>views/pages/profile/edit-profile.php">
+                                href="<?= LINK; ?>edit-profile">
                                 <i class="fa-sharp fa-solid fa-user-pen"></i>
                                 <li>Edit Your Profile Info</li>
                             </a>
                             <a class="<?php if ($profile_active == 'changePassword')
                                 echo 'profile_active'; ?>"
-                                href="<?= LINK; ?>views/pages/profile/change-password.php">
+                                href="<?= LINK; ?>change-password">
                                 <i class="fa-solid fa-lock"></i>
                                 <li>Change Your Password</li>
                             </a>
@@ -151,7 +151,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                                     data-bs-dismiss="modal">
                                                     Close
                                                 </button>
-                                                <button type="button" id="cropImageBtn" class="btn btn-primary">
+                                                <button type="button" id="changePic" class="btn btn-primary">
                                                     Change Picture
                                                 </button>
                                             </div>
@@ -225,7 +225,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
     <?php include("../../partials/footer.php");
 } else {
-    header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+    header("location: " . LINK . "auth?p=1");
     die();
 }
 ob_end_flush(); ?>

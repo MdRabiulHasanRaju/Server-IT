@@ -53,7 +53,7 @@
 
                         <p>the page you are looking for not avaible!</p>
 
-                        <a href="<?=LINK;?>index.php" class=" slide-btn">Go to Home</a>
+                        <a href="<?=LINK;?>" class=" slide-btn">Go to Home</a>
                     </div>
                 </div>
             </div>

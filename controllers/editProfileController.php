@@ -16,25 +16,25 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             if (empty(trim($_POST["name"]))) {
                 $name_err = "Name cannot be blank";
                 $_SESSION["name_err"] = $name_err;
-                header("location: " . LINK . "views/pages/profile/edit-profile.php");
+                header("location: " . LINK . "edit-profile");
                 die();
             }
             if (empty(trim($_POST["title"]))) {
                 $title_err = "Title cannot be blank";
                 $_SESSION["title_err"] = $title_err;
-                header("location: " . LINK . "views/pages/profile/edit-profile.php");
+                header("location: " . LINK . "edit-profile");
                 die();
             }
             if (empty(trim($_POST["address"]))) {
                 $address_err = "Address cannot be blank";
                 $_SESSION["address_err"] = $address_err;
-                header("location: " . LINK . "views/pages/profile/edit-profile.php");
+                header("location: " . LINK . "edit-profile");
                 die();
             }
             if (empty(trim($_POST["mobile"]))) {
                 $phone_err = "Phone number cannot be blank";
                 $_SESSION["phone_err"] = $phone_err;
-                header("location: " . LINK . "views/pages/profile/edit-profile.php");
+                header("location: " . LINK . "edit-profile");
                 die();
             }
 
@@ -78,10 +78,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                             $_SESSION["mobile"] = $mobile;
                             $_SESSION["name"] = $name;
                             $_SESSION["address"] = $address;
-                            header("location: " . LINK . "views/pages/profile/profile.php");
+                            header("location: " . LINK . "profile");
                         }
                     } else {
-                        header("location: " . LINK . "views/pages/profile/profile.php");
+                        header("location: " . LINK . "profile");
                     }
                 }
             }
@@ -92,6 +92,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         echo "Post method not working!";
     }
 } else {
-    header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+    header("location: " . LINK . "auth?p=1");
     die();
 }

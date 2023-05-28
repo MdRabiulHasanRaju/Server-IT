@@ -6,7 +6,7 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	if (isset($_POST['submit'])) {
 		if (isset($_SESSION['username'])) {
-			header("location: " . LINK . "views/pages/profile/profile.php");
+			header("location: " . LINK . "profile");
 			exit;
 		}
 		include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		if (empty(trim($_POST['username'])) || empty(trim($_POST['password']))) {
 			$err = "Please enter username and password";
 			$_SESSION["err"] = $err;
-			header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+			header("location: " . LINK . "auth/1");
 			die();
 		} else {
 			$username = htmlspecialchars(trim($_POST['username']));
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 							mysqli_stmt_bind_result($sstmt, $otp);
 							mysqli_stmt_fetch($sstmt);
 							if ($otp) {
-								header("location: " . LINK . "views/pages/auth/verification.php?email=$username");
+								header("location: " . LINK . "verification/$username");
 								die();
 							} else {
 								session_start();
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 								if (mysqli_stmt_execute($stmt)) {
 									if (mysqli_stmt_store_result($stmt)) {
 										if (mysqli_stmt_num_rows($stmt) == 0) {
-											header("location: " . LINK . "views/pages/profile/create-profile.php");
+											header("location: " . LINK . "create-profile");
 											die();
 										} else {
 											mysqli_stmt_bind_result($stmt,$id, $userID, $name, $title, $address, $mobile, $image);
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 											if(empty($image)){
 												$_SESSION['image'] = 'default.png';
 											}
-											header("location: " . LINK . "views/pages/profile/profile.php");
+											header("location: " . LINK . "profile");
 											die();
 										}
 									}
@@ -82,14 +82,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 						} else {
 							$err = "Wrong password!";
 							$_SESSION["err"] = $err;
-							header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+							header("location: " . LINK . "auth/1");
 							die();
 						}
 					}
 				} else {
 					$err = "Please enter valid email!";
 					$_SESSION["err"] = $err;
-					header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+					header("location: " . LINK . "auth/1");
 					die();
 				}
 			}
@@ -97,6 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	}
 } else {
 
-	header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+	header("location: " . LINK . "auth/1");
 	die();
 }

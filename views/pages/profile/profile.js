@@ -65,14 +65,13 @@ window.onload = () => {
             $("#cropImagePop").modal("hide");
         });
 
-        $('#cropImageBtn').click(function(event) {
+        $('#changePic').click(function(event) {
             uploadCrop.croppie('result', {
                 type: 'canvas',
                 size: 'viewport'
             }).then(function(response) {
                 $.ajax({
                     url: "/serverit/controllers/changeProfilePictureController.php",
-                    //url: "/serverit/controllers/uploadController.php",
                     type: "POST",
                     data: {
                         "image": response
@@ -80,7 +79,25 @@ window.onload = () => {
                     success: function(data) {
                         document.getElementById("image-output").src = data;
                         document.getElementById("profilePicsFile").value="";
-                        //document.getElementById("image-form").remove();
+                        $("#cropImagePop").modal("hide");
+                    }
+                });
+            })
+        });
+        $('#uploadPic').click(function(event) {
+            uploadCrop.croppie('result', {
+                type: 'canvas',
+                size: 'viewport'
+            }).then(function(response) {
+                $.ajax({
+                    url: "/serverit/controllers/uploadController.php",
+                    type: "POST",
+                    data: {
+                        "image": response
+                    },
+                    success: function(data) {
+                        document.getElementById("image-output").src = data;
+                        document.getElementById("image-form").remove();
                         $("#cropImagePop").modal("hide");
                     }
                 });

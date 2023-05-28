@@ -15,18 +15,18 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
        if(mysqli_stmt_fetch($stmt)){
         if(empty($name)){
           unset($_SESSION["name"]);
-          header("location: " . LINK . "views/pages/profile/create-profile.php");
+          header("location: " . LINK . "create-profile");
           die();
         }
        }
       if (mysqli_stmt_num_rows($stmt) == 0) {
-        header("location: " . LINK . "views/pages/profile/create-profile.php");
+        header("location: " . LINK . "create-profile");
         die();
       }
     }
   }
 } else {
-  header("location: " . LINK . "views/pages/auth/auth.php");
+  header("location: " . LINK . "auth");
   die();
 }
 ?>
@@ -58,15 +58,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
       <div class="col-md-9">
         <div class="profile-page-link">
           <ul>
-            <a class="<?php if ($profile_active == 'dashboard') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/profile.php">
+            <a class="<?php if ($profile_active == 'dashboard') echo 'profile_active'; ?>" href="<?= LINK; ?>profile">
               <i class="fa-solid fa-table"></i>
               <li>Dashboard</li>
             </a>
-            <a class="<?php if ($profile_active == 'editProfile') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/edit-profile.php">
+            <a class="<?php if ($profile_active == 'editProfile') echo 'profile_active'; ?>" href="<?= LINK; ?>edit-profile">
               <i class="fa-sharp fa-solid fa-user-pen"></i>
               <li>Edit Your Profile Info</li>
             </a>
-            <a class="<?php if ($profile_active == 'changePassword') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/change-password.php">
+            <a class="<?php if ($profile_active == 'changePassword') echo 'profile_active'; ?>" href="<?= LINK; ?>change-password">
               <i class="fa-solid fa-lock"></i>
               <li>Change Your Password</li>
             </a>

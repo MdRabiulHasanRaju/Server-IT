@@ -53,7 +53,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		echo "Post method not working!";
 	}
 } else {
-	header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+	header("location: " . LINK . "auth?p=1");
 	die();
 }
 

@@ -6,7 +6,7 @@ session_start();
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	if (isset($_SESSION['name'])) {
-		header("location: " . LINK . "views/pages/profile/profile.php");
+		header("location: " . LINK . "profile");
 		exit;
 	}
 
@@ -48,7 +48,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		echo "Post method not working!";
 	}
 } else {
-	header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+	header("location: " . LINK . "auth?p=1");
 	die();
 }
 

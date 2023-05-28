@@ -6,7 +6,7 @@ include("../../partials/header.php"); ?>
 <?php
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     if (!isset($_SESSION['name'])) {
-        header("location: " . LINK . "views/pages/profile/create-profile.php");
+        header("location: " . LINK . "create-profile");
         die();
     }
 
@@ -93,15 +93,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 <div class="col-md-9 create-profile">
                     <div class="profile-page-link">
                         <ul>
-                            <a class="<?php if ($profile_active == 'dashboard') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/profile.php">
+                            <a class="<?php if ($profile_active == 'dashboard') echo 'profile_active'; ?>" href="<?= LINK; ?>profile">
                                 <i class="fa-solid fa-table"></i>
                                 <li>Dashboard</li>
                             </a>
-                            <a class="<?php if ($profile_active == 'editProfile') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/edit-profile.php">
+                            <a class="<?php if ($profile_active == 'editProfile') echo 'profile_active'; ?>" href="<?= LINK; ?>edit-profile">
                                 <i class="fa-sharp fa-solid fa-user-pen"></i>
                                 <li>Edit Your Profile Info</li>
                             </a>
-                            <a class="<?php if ($profile_active == 'changePassword') echo 'profile_active'; ?>" href="<?= LINK; ?>views/pages/profile/change-password.php">
+                            <a class="<?php if ($profile_active == 'changePassword') echo 'profile_active'; ?>" href="<?= LINK; ?>change-password">
                                 <i class="fa-solid fa-lock"></i>
                                 <li>Change Your Password</li>
                             </a>
@@ -155,7 +155,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
 <?php include("../../partials/footer.php");
 } else {
-    header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+    header("location: " . LINK . "auth?p=1");
     die();
 }
 ob_end_flush(); ?>

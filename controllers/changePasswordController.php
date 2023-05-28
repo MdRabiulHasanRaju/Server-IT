@@ -16,19 +16,19 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             if (empty(trim($_POST["oldPassword"]))) {
                 $oldPassword_err = "Name cannot be blank";
                 $_SESSION["oldPassword_err"] = $oldPassword_err;
-                header("location: " . LINK . "views/pages/profile/change-password.php");
+                header("location: " . LINK . "change-password");
                 die();
             }
             if (empty(trim($_POST["newPass"]))) {
                 $newPassword_err = "Title cannot be blank";
                 $_SESSION["newPassword_err"] = $newPassword_err;
-                header("location: " . LINK . "views/pages/profile/change-password.php");
+                header("location: " . LINK . "change-password");
                 die();
             }
             if (empty(trim($_POST["confirmNewPass"]))) {
                 $confirmNewPassword_err = "Address cannot be blank";
                 $_SESSION["confirmNewPassword_err"] = $confirmNewPassword_err;
-                header("location: " . LINK . "views/pages/profile/change-password.php");
+                header("location: " . LINK . "change-password");
                 die();
             }
 
@@ -50,13 +50,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                         if ((strlen($newPassword) < 5 || strlen($confirmNewPassword) < 5)) {
                             $newPassword_err = "Password cannot be less than 5 characters!";
                             $_SESSION["newPassword_err"] = $newPassword_err;
-                            header("location: " . LINK . "views/pages/profile/change-password.php");
+                            header("location: " . LINK . "change-password");
                             die();
                         } else {
                             if ($newPassword != $confirmNewPassword) {
                                 $confirmNewPassword_err = "Passwords should match!";
                                 $_SESSION["confirmNewPassword_err"] = $confirmNewPassword_err;
-                                header("location: " . LINK . "views/pages/profile/change-password.php");
+                                header("location: " . LINK . "change-password");
                                 die();
                             } else {
                                 $update_sql = "update users set password=? where id = ?";
@@ -67,11 +67,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                 if (mysqli_stmt_execute($update_stmt)) {
                                     $success = "Your password has been changed.";
                                     $_SESSION["success"] = $success;
-                                    header("location: " . LINK . "views/pages/profile/change-password.php");
+                                    header("location: " . LINK . "change-password");
                                 } else {
                                     $confirmNewPass = "Something went wrong!";
                                     $_SESSION["confirmNewPass"] = $confirmNewPass;
-                                    header("location: " . LINK . "views/pages/profile/change-password.php");
+                                    header("location: " . LINK . "change-password");
                                     die();
                                 }
                             }
@@ -79,7 +79,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     } else {
                         $oldPassword_err = "Old password is incorrect!";
                         $_SESSION["oldPassword_err"] = $oldPassword_err;
-                        header("location: " . LINK . "views/pages/profile/change-password.php");
+                        header("location: " . LINK . "change-password");
                         die();
                     }
                 }
@@ -91,6 +91,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         echo "Post method not working!";
     }
 } else {
-    header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+    header("location: " . LINK . "auth?p=1");
     die();
 }

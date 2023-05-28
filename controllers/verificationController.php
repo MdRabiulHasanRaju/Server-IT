@@ -27,12 +27,13 @@ if (isset($_POST["email"])) {
             mysqli_stmt_bind_result($stmt, $b_otp);
             if (mysqli_stmt_fetch($stmt)) {
                 if ($otp == $b_otp) {
-                    header("location: " . LINK . "views/pages/auth/auth.php?p=1");
+                    header("location: " . LINK . "auth?p=1");
                     $delsql = "delete from verification where otp = $b_otp";
                     $del = $connection->query($delsql);
                 } else {
                     $wrong_otp = "Please Enter Right OTP";
-                    header("location: " . LINK . "views/pages/auth/verification.php?email=$email&&wrong_otp=$wrong_otp");
+                    $_SESSION['wrong_otp'] = $wrong_otp;
+                    header("location: " . LINK . "verification/$email");
                 }
             } else {
                 header("location: " . LINK . "views/error/404.php");
