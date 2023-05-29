@@ -1,6 +1,5 @@
 RewriteEngine ON
 
-ErrorDocument 500 /serverit/views/error/500.php
 ErrorDocument 404 /serverit/views/error/404.php
 
 RewriteRule ^home?$ index.php 
@@ -13,6 +12,9 @@ RewriteRule ^profile?$ views/pages/profile/profile.php
 RewriteRule ^create-profile?$ views/pages/profile/create-profile.php
 RewriteRule ^edit-profile?$ views/pages/profile/edit-profile.php
 RewriteRule ^change-password?$ views/pages/profile/change-password.php
+
+RewriteRule ^courses?$ views/pages/courses/all-courses.php
+RewriteRule ^course-details/([0-9]+) views/pages/courses/course-details.php?id=$1
 
 # RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
 # RewriteRule ^ /%1 [NC,L,R]

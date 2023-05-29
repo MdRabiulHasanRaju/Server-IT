@@ -15,6 +15,7 @@
                 $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
                 $instructorStmt = fetch_data($connection,$instructorSql);
                 mysqli_stmt_bind_result($instructorStmt,$image);?>
+                <a class="course-details-link" href="course-details/<?=$id;?>">
             <div class="item course-item">
               <div class="card">
                 <img class="img-fluid" style="min-height: 150px" alt="100%x280" src="<?=IMAGEPATH,$image;?>" />
@@ -35,19 +36,16 @@
                     </div>
                     <p class="">(0) Students</p>
                   </div>
-
-
                   <div class="price-box">
-                    <h4 class="text-center">Course Fee <?=$price;?> BDT</h4>
+                    <h4 class="text-center">Course Fee <?=$price;?> ৳</h4>
                   </div>
-
-
-
                 </div>
               </div>
             </div>
+            </a>
             <?php }}} ?>
           </div>
+          <a href="<?=LINK;?>courses" class="btn btn-success slide-btn news-btn">VIEW ALL</a>
         </div>
       </div>
     </div>

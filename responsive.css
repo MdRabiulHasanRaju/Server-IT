@@ -230,6 +230,12 @@
     font-size: 12px;
     margin: 0 4px;
   }
+  .top-details h3 {
+    width: 100%;
+  }
+  .top-details-2-2 {
+    margin-top: 30px;
+  }
 }
 
 @media only screen and (max-width: 575px) {
