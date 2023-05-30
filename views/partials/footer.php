@@ -6,7 +6,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="footer-about mt-40">
               <div class="logo">
-                <a href="#"><img class="logoImg" src="<?=LINK;?>public/images/serveritlogo.png" alt="Logo" /></a>
+                <a href="#"><img class="logoImg" src="<?=LINK;?>public/images/header-logo.png" alt="Logo" /></a>
               </div>
               <p>
                 ServerITStudio.com is a dedicated website to provide quality

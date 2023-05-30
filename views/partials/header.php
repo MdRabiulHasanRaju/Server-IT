@@ -30,7 +30,7 @@ $format = new Format;
   <link rel="stylesheet" href="<?= LINK; ?>public/croppie/croppie.css">
   <link rel="stylesheet" href="<?= LINK; ?>style.css" />
   <link rel="stylesheet" href="<?= LINK; ?>responsive.css" />
-  <link rel="icon" href="<?= LINK; ?>public/images/serveritlogo.png" type="image/x-icon" />
+  <link rel="icon" href="<?= LINK; ?>public/images/logo.png" type="image/x-icon" />
 </head>
 
 <body>

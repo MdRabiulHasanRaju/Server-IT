@@ -360,7 +360,6 @@ section.featured-courses {
 }
 .course-item{
   transition: .3s ease;
-  min-width: 300px;
 }
 .course-item:hover{
   transform: scale(1.03);

@@ -44,7 +44,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
   <link rel="stylesheet" href="<?= LINK; ?>public/bootstrap/bootstrap.min.css">
 
   <title>Server IT Studio || Auth</title>
-  <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/serveritlogo.png" />
+  <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/logo.png" />
   <link rel="stylesheet" href="<?= LINK;?>views/pages/auth/auth.css">
   <style>
     body {
@@ -63,7 +63,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
               <!-- brand-logo start -->
               <div class="brand-logo">
                 <a href="<?= LINK; ?>index.php">
-                  <img src="<?= LINK; ?>public/images/serveritlogo.png" width="150" alt="serveritstudio-logo">
+                  <img src="<?= LINK; ?>public/images/header-logo.png" width="150" alt="serveritstudio-logo">
                 </a>
               </div><!-- ./brand-logo -->
               <p>To gain quick access, sign in with your social media account.</p>

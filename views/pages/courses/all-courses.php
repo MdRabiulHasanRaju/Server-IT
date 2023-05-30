@@ -19,7 +19,7 @@ include("../../partials/header.php");
                         $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
                         $instructorStmt = fetch_data($connection, $instructorSql);
                         mysqli_stmt_bind_result($instructorStmt, $image); ?>
-                        <a class="col-md-4 course-details-link mb-4" href="course-details/<?= $id; ?>">
+                        <a class="col-md-3 course-details-link mb-4" href="course-details/<?= $id; ?>">
                             <div class="course-item">
                                 <div class="card">
                                     <img class="img-fluid" style="min-height: 150px" alt="100%x280"
