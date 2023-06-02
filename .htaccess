@@ -14,6 +14,7 @@ RewriteRule ^edit-profile?$ views/pages/profile/edit-profile.php
 RewriteRule ^change-password?$ views/pages/profile/change-password.php
 
 RewriteRule ^courses?$ views/pages/courses/all-courses.php
+RewriteRule ^courses/([0-9]+) views/pages/courses/all-courses.php?page=$1
 RewriteRule ^course-details/([0-9]+) views/pages/courses/course-details.php?id=$1
 
 # RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
