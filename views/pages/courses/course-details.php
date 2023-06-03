@@ -1,13 +1,20 @@
 <?php ob_start();
 session_start();
-$header_active = "Courses";
-include("../../partials/header.php");
-?>
-
-<?php
 if (isset($_GET['id'])) {
     $course_id = $_GET["id"];
 }
+require_once $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
+$title_sql = "select title,sub_title from courses where id=$course_id";
+$title_stmt = mysqli_prepare($connection, $title_sql);
+mysqli_stmt_execute($title_stmt);
+mysqli_stmt_store_result($title_stmt);
+mysqli_stmt_bind_result($title_stmt,$course_title,$course_sub_title);
+mysqli_stmt_fetch($title_stmt);
+$meta_title = "$course_title Training Course in Chittagong - Server IT Studio";
+$meta_description ="$course_sub_title - server it studio Call 880 1945 4668 21";
+$meta_keywords="$course_title, Server IT Studio, server it,server,server studio";
+$header_active = "Courses";
+include("../../partials/header.php");
 ?>
 <?php
 $sql = "select * from courses where id=?";

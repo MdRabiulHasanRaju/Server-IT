@@ -1,6 +1,7 @@
 RewriteEngine ON
 
 ErrorDocument 404 /serverit/views/error/404.php
+RewriteRule ^error/404?$ views/error/404.php 
 
 RewriteRule ^home?$ index.php 
 RewriteRule ^auth?$ views/pages/auth/auth.php

@@ -29,16 +29,21 @@ if (isset($_GET["email"])) {
   <!DOCTYPE html>
 
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="creator" content="@Md Rabiul Hasan">
+  <meta name="description" content="Develop your professional skills through Server IT Studio We provide Graphic Design, Web Design, web Development, Microsoft Office etc Call 880 1945 4668 21">
+  <meta name="keywords" content="Server IT Studio, server it,server,server studio, Web design, web development, graphics design, microsoft office, html, css, javascipt,php">
+  <meta name="title" content="Verification - Server IT Studio">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="<?= LINK; ?>public/fontAwesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="<?= LINK; ?>public/fontAwesome/css/all.min.css">
     <link rel="stylesheet" href="<?= LINK; ?>public/bootstrap/bootstrap.min.css">
 
-    <title>Server IT Studio || Auth</title>
+    <title>Verification - Server IT Studio</title>
     <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/serveritlogo.png" />
     <link rel="stylesheet" href="<?=LINK;?>views/pages/auth/auth.css">
     <style>

@@ -1,5 +1,8 @@
 <?php ob_start();
 session_start();
+$meta_title = "Create Your Profie - Server IT Studio";
+$meta_description = "Develop your professional skills through Server IT Studio We provide Graphic Design, Web Design, web Development, Microsoft Office etc Call 880 1945 4668 21";
+$meta_keywords = "Server IT Studio, server it,server,server studio, Web design, web development, graphics design, microsoft office, html, css, javascipt,php";
 $header_active = "Account";
 include("../../partials/header.php"); ?>
 <?php

@@ -1,5 +1,9 @@
 <?php ob_start();
 session_start();
+
+$meta_title = "Professional IT Training Courses &amp; Certification - Server IT Studio";
+$meta_description ="Study with us completing a certificate course in Web Design, Microsoft Office, Graphic Design, Digital Marketing, Web Development, Training etc grow your business or start your career Call 880 1945 4668 21";
+$meta_keywords="Server IT Studio, server it,server,server studio";
 $header_active = "Courses";
 include("../../partials/header.php");
 ?>
@@ -38,15 +42,19 @@ include("../../partials/header.php");
                 }
                 $per_page = 8;
                 $star_from = ($page - 1) * $per_page;
-                $courseSql = "SELECT `id`,`image`,`title`,`sub_title`,`instructor_id`,`price` FROM `courses` ORDER BY id DESC limit $star_from,$per_page";
+                $courseSql = "SELECT `id`,`cat_id`,`image`,`title`,`sub_title`,`instructor_id`,`price` FROM `courses` ORDER BY id DESC limit $star_from,$per_page";
                 $courseStmt = fetch_data($connection, $courseSql);
                 if ($courseStmt) {
-                    mysqli_stmt_bind_result($courseStmt, $id, $image, $title, $subTitle, $instructorId, $price);
+                    if(mysqli_stmt_num_rows($courseStmt)==0){
+                        header("location: ".LINK."error/404");
+                        die();
+                    }
+                    mysqli_stmt_bind_result($courseStmt, $id, $cat_id, $image, $title, $subTitle, $instructorId, $price);
                     while (mysqli_stmt_fetch($courseStmt)) {
                         $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
                         $instructorStmt = fetch_data($connection, $instructorSql);
                         mysqli_stmt_bind_result($instructorStmt, $image); ?>
-                        <a class="col-md-3 course-details-link mb-4" href="course-details/<?= $id; ?>">
+                        <a class="col-md-3 course-details-link mb-4" href="<?=LINK;?>course-details/<?= $id; ?>">
                             <div class="course-item">
                                 <div class="card">
                                     <img class="img-fluid" style="min-height: 150px" alt="100%x280" src="<?= IMAGEPATH, $image; ?>" />

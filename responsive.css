@@ -95,16 +95,9 @@
   .cart {
     display: none;
   }
-  section.on-slide {
+  .category-section {
     margin-top: 0px;
-  }
-  .on-slide > .container > .row > .card {
-    margin-top: 2px;
-    margin-bottom: 4px;
-    background: #222222;
-    height: auto;
-    box-shadow: 9px 8px 14px -6px black;
-    width: 100px;
+    display: none;
   }
   .our-campus-right {
     display: none;
@@ -124,10 +117,6 @@
   }
   h5.card-title {
     font-size: 12px;
-  }
-
-  p.card-text {
-    font-size: 10px;
   }
   .carousel-caption {
     top: 0%;

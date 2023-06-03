@@ -14,7 +14,7 @@ if (isset($_GET['p'])) {
   $showPage = 1;
 }
 if (isset($_SESSION['username'])) {
-  header("location: ".LINK."profile");
+  header("location: " . LINK . "profile");
   exit;
 }
 $username_err = $password_err = $confirm_password_err = $err = "";
@@ -34,18 +34,23 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
 <!DOCTYPE html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="creator" content="@Md Rabiul Hasan">
+  <meta name="description" content="Develop your professional skills through Server IT Studio We provide Graphic Design, Web Design, web Development, Microsoft Office etc Call 880 1945 4668 21">
+  <meta name="keywords" content="Server IT Studio, server it,server,server studio, Web design, web development, graphics design, microsoft office, html, css, javascipt,php">
+  <meta name="title" content="Authentication - Server IT Studio">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="<?= LINK; ?>public/fontAwesome/css/fontawesome.min.css">
   <link rel="stylesheet" href="<?= LINK; ?>public/fontAwesome/css/all.min.css">
   <link rel="stylesheet" href="<?= LINK; ?>public/bootstrap/bootstrap.min.css">
 
-  <title>Server IT Studio || Auth</title>
+  <title>Authentication - Server IT Studio</title>
   <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/logo.png" />
-  <link rel="stylesheet" href="<?= LINK;?>views/pages/auth/auth.css">
+  <link rel="stylesheet" href="<?= LINK; ?>views/pages/auth/auth.css">
   <style>
     body {
       background-image: url('<?= IMAGEPATH; ?>serverit2.jpeg');
@@ -66,21 +71,21 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
                   <img src="<?= LINK; ?>public/images/header-logo.png" width="150" alt="serveritstudio-logo">
                 </a>
               </div><!-- ./brand-logo -->
-              <p>To gain quick access, sign in with your social media account.</p>
+              <!-- <p>To gain quick access, sign in with your social media account.</p> -->
               <!-- social login buttons start -->
               <div class="row social-buttons">
-                <div class="col-xs-4 col-sm-4 col-md-12">
+                <!-- <div class="col-xs-4 col-sm-4 col-md-12">
                   <a href="#" class="btn btn-block btn-facebook btn-lg">
                     <i class="fa-brands fa-facebook-f"></i> <span class="hidden-xs hidden-sm">Signin with facebook</span>
                   </a>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-12">
+                </div> -->
+                <!-- <div class="col-xs-4 col-sm-4 col-md-12">
                   <a href="#" class="btn btn-block btn-google btn-lg">
                     <i class="fa-brands fa-google-plus"></i> <span class="hidden-xs hidden-sm">Signin with google</span>
                   </a>
-                </div>
+                </div> -->
                 <div class="col-xs-4 col-sm-4 col-md-12">
-                  <a class="btn btn-warning btn-block mt-4 btn-lg" href="<?= LINK; ?>"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
+                  <a class="btn btn-success btn-block mt-4 btn-lg" href="<?= LINK; ?>"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
                 </div>
               </div><!-- ./social-buttons -->
             </div>
@@ -122,7 +127,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
                       </div>
                       <div class="col-xs-6 col-sm-6">
                         <p class="forgotPwd">
-                          <a class="lnk-toggler" data-panel=".panel-forgot" href="#">Forgot password?</a>
+                          <!-- <a class="lnk-toggler" data-panel=".panel-forgot" href="#">Forgot password?</a> -->
                         </p>
                       </div>
                     </div> <!-- ./remember-row -->
