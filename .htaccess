@@ -10,6 +10,7 @@ RewriteRule ^verification/(.+) views/pages/auth/verification.php?email=$1
 
 
 RewriteRule ^profile?$ views/pages/profile/profile.php
+RewriteRule ^profile/([0-9]+) views/pages/profile/profile.php?page=$1
 RewriteRule ^create-profile?$ views/pages/profile/create-profile.php
 RewriteRule ^edit-profile?$ views/pages/profile/edit-profile.php
 RewriteRule ^change-password?$ views/pages/profile/change-password.php
