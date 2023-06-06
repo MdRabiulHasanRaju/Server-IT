@@ -3,13 +3,6 @@ session_start();
 if (isset($_GET['id'])) {
     $course_id = $_GET["id"];
 }
-if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
-    $admission_url = "https://";
-else
-    $admission_url = "http://";
-$admission_url .= $_SERVER['HTTP_HOST'];
-$admission_url .= $_SERVER['REQUEST_URI'];
-$_SESSION['admission_url'] = $admission_url;
 require_once $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
 $title_sql = "select title,sub_title from courses where id=$course_id";
 $title_stmt = mysqli_prepare($connection, $title_sql);
@@ -22,7 +15,7 @@ $meta_description = "$course_sub_title - server it studio Call 880 1945 4668 21"
 $meta_keywords = "$course_title, Server IT Studio, server it,server,server studio";
 $header_active = "Courses";
 include("../../partials/header.php");
-include("../../partials/admission-form.php");
+include $_SERVER['DOCUMENT_ROOT']."/serverit/views/pages/courses/admission-form.php";
 ?>
 <?php
 $sql = "select * from courses where id=?";

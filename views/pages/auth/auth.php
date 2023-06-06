@@ -85,7 +85,17 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
                   </a>
                 </div> -->
                 <div class="col-xs-4 col-sm-4 col-md-12">
-                  <a class="btn btn-success btn-block mt-4 btn-lg" href="<?= LINK; ?>"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
+                  <a href="#" class="lnk-toggler btn btn-block btn-google btn-lg" data-panel=".panel-login">
+                  <i class="fas fa-sign-in-alt"></i></i> <span>Login</span>
+                  </a>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-12">
+                  <a href="#" class="lnk-toggler btn btn-block btn-facebook btn-lg" data-panel=".panel-signup">
+                  <i class="fas fa-user-plus"></i> <span>Sign Up</span>
+                  </a>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-12">
+                  <a class="btn btn-success btn-block mt-4 btn-lg" href="<?= LINK; ?>"><i class="fa-solid fa-house"></i><span>Back to Home</span></a>
                 </div>
               </div><!-- ./social-buttons -->
             </div>

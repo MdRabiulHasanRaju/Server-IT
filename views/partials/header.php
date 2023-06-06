@@ -41,6 +41,7 @@ $format = new Format;
 </head>
 
 <body>
+  <?php include("authNotice.php"); ?>
   <?php include("topbar.php"); ?>
   <div class="header">
     <div class="container">

@@ -48,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 								header("location: " . LINK . "verification/$username");
 								die();
 							} else {
-								session_start();
 								$_SESSION["username"] = $username;
 								$_SESSION["id"] = $id;
 								$_SESSION["loggedin"] = true;

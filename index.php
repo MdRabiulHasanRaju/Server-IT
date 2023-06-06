@@ -2,8 +2,10 @@
 $meta_title = "Professional IT Training Institute in Chittagong - Server IT Studio";
 $meta_description = "Develop your professional skills through Server IT Studio We provide Graphic Design, Web Design, web Development, Microsoft Office etc Call 880 1945 4668 21";
 $meta_keywords = "Server IT Studio, server it,server,server studio, Web design, web development, graphics design, microsoft office, html, css, javascipt,php";
-$header_active = "Home";
-include("views/partials/header.php"); ?>
+$header_active = "Home";?>
+
+<?php include("views/partials/header.php"); ?>
+
 <?php include("views/partials/slider.php"); ?>
 
 <div class="content-body">
@@ -74,7 +76,16 @@ include("views/partials/header.php"); ?>
 <script>
   new WOW().init();
 </script>
-
+<script>
+ setTimeout(()=>{
+    let authModal = document.getElementById('authNoticeModal')
+    if(authModal){
+      let authModalObj = new bootstrap.Modal(authModal);
+      authModalObj.toggle()
+      authModalObj.show();
+    }
+  },3000)
+</script>
 <script src="main.js"></script>
 </body>
 

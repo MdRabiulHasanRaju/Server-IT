@@ -145,7 +145,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             if (mysqli_stmt_store_result($ad_stmt)) {
               if (mysqli_stmt_num_rows($ad_stmt) == 0) { $paginationHide = 1;?>
                 <div class="empty-order">
-                  <h1>Empty Courses!</h1>
+                  <a class="btn slide-btn rounded" style="background:#01918a;" href="<?=LINK;?>courses">Browse Course</a>
                 </div>
                 <?php }
               mysqli_stmt_bind_result($ad_stmt, $course_id, $status, $course_date);

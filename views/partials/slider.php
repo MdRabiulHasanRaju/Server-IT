@@ -1,4 +1,4 @@
-<div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="hover" data-bs-interval="5000">
+<div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="hover" data-bs-interval="6000">
     <div class="carousel-inner">
     <?php 
       $slideSql = "SELECT * FROM `slider`";

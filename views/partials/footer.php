@@ -6,7 +6,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="footer-about mt-40">
               <div class="logo">
-                <a href="#"><img class="logoImg" src="<?=LINK;?>public/images/header-logo.png" alt="Logo" /></a>
+                <a href="#"><img class="logoImg" src="<?=LINK;?>public/images/header-logo.png" alt="server it studio Logo" /></a>
               </div>
               <p>
                 ServerITStudio.com is a dedicated website to provide quality
@@ -45,7 +45,7 @@
                 mysqli_stmt_bind_result($menu_stmt,$id,$menu_name,$link);
                 while(mysqli_stmt_fetch($menu_stmt)){?>
               <li>
-                  <a href=""><i class="fa fa-angle-right"></i><?=$menu_name;?></a>
+                  <a href="<?=LINK,$link;?>"><i class="fa fa-angle-right"></i><?=$menu_name;?></a>
               </li>
               <?php }} ?>
               </ul>
