@@ -6,7 +6,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="footer-about mt-40">
               <div class="logo">
-                <a href="#"><img class="logoImg" src="<?=LINK;?>public/images/header-logo.png" alt="server it studio Logo" /></a>
+                <a href="#"><img class="logoImg" src="<?= LINK; ?>public/images/header-logo.png" alt="server it studio Logo" /></a>
               </div>
               <p>
                 ServerITStudio.com is a dedicated website to provide quality
@@ -15,19 +15,20 @@
               </p>
 
               <ul class="mt-20">
-              <?php 
-              $link_sql = "SELECT * FROM `social_links`";
-              $link_stmt = fetch_data($connection,$link_sql);
-                if($link_stmt){
-                mysqli_stmt_bind_result($link_stmt,$id,$name,$links,$icon);
-                while(mysqli_stmt_fetch($link_stmt)){
+                <?php
+                $link_sql = "SELECT * FROM `social_links`";
+                $link_stmt = fetch_data($connection, $link_sql);
+                if ($link_stmt) {
+                  mysqli_stmt_bind_result($link_stmt, $id, $name, $links, $icon);
+                  while (mysqli_stmt_fetch($link_stmt)) {
                 ?>
-                <li>
-                  <a target="_blank" href="<?=$links;?>">
-                  <?=$icon;?>
-                  </a>
-                </li>
-                <?php }}?>
+                    <li>
+                      <a target="_blank" href="<?= $links; ?>">
+                        <?= $icon; ?>
+                      </a>
+                    </li>
+                <?php }
+                } ?>
               </ul>
             </div>
             <!-- footer about -->
@@ -38,16 +39,17 @@
                 <h6>Pages</h6>
               </div>
               <ul>
-              <?php
-              $menu_sql = "SELECT * FROM `menu`";
-              $menu_stmt = fetch_data($connection,$menu_sql);
-              if($menu_stmt){
-                mysqli_stmt_bind_result($menu_stmt,$id,$menu_name,$link);
-                while(mysqli_stmt_fetch($menu_stmt)){?>
-              <li>
-                  <a href="<?=LINK,$link;?>"><i class="fa fa-angle-right"></i><?=$menu_name;?></a>
-              </li>
-              <?php }} ?>
+                <?php
+                $menu_sql = "SELECT * FROM `menu`";
+                $menu_stmt = fetch_data($connection, $menu_sql);
+                if ($menu_stmt) {
+                  mysqli_stmt_bind_result($menu_stmt, $id, $menu_name, $link);
+                  while (mysqli_stmt_fetch($menu_stmt)) { ?>
+                    <li>
+                      <a href="<?= LINK, $link; ?>"><i class="fa fa-angle-right"></i><?= $menu_name; ?></a>
+                    </li>
+                <?php }
+                } ?>
               </ul>
             </div>
             <!-- footer link -->
@@ -65,51 +67,53 @@
               <div class="footer-title pb-25 mb-3">
                 <h6>Download Server IT Studio for Android</h6>
               </div>
-              <a href="<?=LINK;?>public/app/serverITStudio.apk" class="btn btn-success slide-btn" Download>Download</a>
+              <a href="<?= LINK; ?>public/app/serverITStudio.apk" class="btn btn-success slide-btn" Download>Download</a>
             </div>
 
           </div>
 
-          <?php 
+          <?php
           $topbar_sql = "SELECT * FROM `top_bar`";
-          $topbar_stmt = fetch_data($connection,$topbar_sql);
-          mysqli_stmt_bind_result($topbar_stmt,$id,$address,$email,$number);
-          if(mysqli_stmt_fetch($topbar_stmt)){ ?>
+          $topbar_stmt = fetch_data($connection, $topbar_sql);
+          mysqli_stmt_bind_result($topbar_stmt, $id, $address, $email, $number);
+          if (mysqli_stmt_fetch($topbar_stmt)) { ?>
 
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-address mt-40">
-              <div class="footer-title pb-25">
-                <h6>Contact Us</h6>
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-address mt-40">
+                <div class="footer-title pb-25">
+                  <h6>Contact Us</h6>
+                </div>
+                <ul>
+                  <li>
+                    <div class="icon">
+                      <i class="fa fa-home"></i>
+                    </div>
+                    <div class="cont">
+                      <p><?= $address; ?></p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="icon">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                    <div class="cont">
+                      <p><?= $number; ?></p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="icon">
+                      <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="cont">
+                      <a href="mailto:<?= $email; ?>">
+                        <p><?= $email; ?></p>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <ul>
-                <li>
-                  <div class="icon">
-                    <i class="fa fa-home"></i>
-                  </div>
-                  <div class="cont">
-                    <p><?=$address;?></p>
-                  </div>
-                </li>
-                <li>
-                  <div class="icon">
-                    <i class="fa fa-phone"></i>
-                  </div>
-                  <div class="cont">
-                    <p><?=$number;?></p>
-                  </div>
-                </li>
-                <li>
-                  <div class="icon">
-                    <i class="fa fa-envelope"></i>
-                  </div>
-                  <div class="cont">
-                  <a href="mailto:<?=$email;?>"><p><?=$email;?></p></a>
-                  </div>
-                </li>
-              </ul>
+              <!-- footer address -->
             </div>
-            <!-- footer address -->
-          </div>
           <?php } ?>
         </div>
         <!-- row -->
@@ -119,3 +123,8 @@
     <!-- footer top -->
   </footer>
 </div>
+<script>
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
+</script>

@@ -19,6 +19,7 @@ RewriteRule ^courses?$ views/pages/courses/all-courses.php
 RewriteRule ^courses/([0-9]+) views/pages/courses/all-courses.php?page=$1
 RewriteRule ^course-details/([0-9]+) views/pages/courses/course-details.php?id=$1
 
+RewriteRule ^contact?$ views/pages/contact/contact.php
 # RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
 # RewriteRule ^ /%1 [NC,L,R]
 
