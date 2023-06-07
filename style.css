@@ -402,6 +402,7 @@ section.campus-video {
   color: white;
   align-items: center;
   text-align: center;
+  background-attachment: fixed;
 }
 .campus-video-text>h1 {
   font-size: 36px;
@@ -639,20 +640,18 @@ section.review-part {
   margin-bottom: 15px!important;
   padding: 0;
   margin: 0;
-  text-align: center;
-  width:360px;
 }
 .title-h3::after {
   content: "";
   display: block;
-  width: auto;
-  border-bottom: 3px solid #525252;
-  border-radius: 50%;
-  margin: 8px 0px;
+  width: 50px;
+  border-bottom: 3px solid #ff0000;
+  border-radius: 5px;
+  margin: 10px 0px;
 }
 .title-div{
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 .video-player {
   text-align: right;

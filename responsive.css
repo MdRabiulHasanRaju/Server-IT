@@ -81,9 +81,6 @@
     top: 1px;
     animation: 400ms ease-in-out 0s 1 normal none running menuAnimationAdd;
   }
-  .mobile-menu-bar > i {
-    margin-left: 15px;
-  }
   .menu > ul {
     display: block;
     list-style: none;
@@ -232,10 +229,11 @@
     justify-content: end;
   }
   .search-form-mobile > input {
-    width: 80%;
+    width: 70%;
     padding: 7px 20px;
     border-radius: 5px;
     border: 1px solid #e6e2e2;
+    font-size:14px;
   }
   .search-form-mobile > input:focus-visible{
     outline-color: #ffe7e7;

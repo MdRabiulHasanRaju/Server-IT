@@ -31,7 +31,7 @@ include("../../partials/header.php");
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="mb-3" style="font-size: 30px;padding: 10px;background: white;text-align: center;">All Courses-</h3>
+                <h3 class="mb-3 title-h3" style="font-size: 30px;">Courses-</h3>
             </div>
             <div class="col-12 all-couses">
                 <?php
@@ -54,7 +54,7 @@ include("../../partials/header.php");
                         $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
                         $instructorStmt = fetch_data($connection, $instructorSql);
                         mysqli_stmt_bind_result($instructorStmt, $image); ?>
-                        <a class="col-md-3 course-details-link mb-4" href="<?=LINK;?>course-details/<?= $id; ?>">
+                        <a class="col-md-3 course-details-link mb-5" href="<?=LINK;?>course-details/<?= $id; ?>">
                             <div class="course-item">
                                 <div class="card">
                                     <img class="img-fluid" style="min-height: 150px" alt="100%x280" src="<?= IMAGEPATH, $image; ?>" />
