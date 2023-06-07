@@ -97,7 +97,10 @@ $format = new Format;
           </ul>
         </div>
         <div class="mobile-menu-bar col-sm-10">
-          <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+          <form action="" class="search-form-mobile">
+            <input type="text" placeholder="Search..." />
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+          </form>
           <i class="fa-solid fa-bars menu-bar"></i>
         </div>
         <div class="menu col-sm-6">

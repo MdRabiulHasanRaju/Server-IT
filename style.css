@@ -111,19 +111,26 @@ a {
 }
 .search-form{
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .search>form>input {
   border: 1px solid white;
   background: #F2F2F2;
-  padding: 15px 20px;
+  padding: 15px 30px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.search>form>input:focus-visible{
+  outline:unset;
 }
 
 .search>form>i {
   color: #FF0000;
   font-size: 19px;
   position: relative;
-  left: -25px;
-  top: 12px;
+  right: 30px;
 }
 .category>p>i {
   color: #424141;
@@ -174,6 +181,7 @@ a {
   right: -1%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 @keyframes fadeIn {
   0%{opacity:0}
@@ -227,7 +235,7 @@ a {
   animation: FadeINleft .3s;
 }
 .search>form>input:hover {
-  border: 1px solid #FF0000;
+  border: 1px solid #ffe7e7;
   transition-duration: 500ms;
 }
 

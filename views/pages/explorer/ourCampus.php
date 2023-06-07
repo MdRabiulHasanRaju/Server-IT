@@ -3,8 +3,29 @@
     .our-campus {
       background: url("<?=IMAGEPATH;?>node.png") 0% 0% / cover rgba(0, 0, 0, 0.9);
     }
+    section.browse-courses {
+      display: block!important;
+    position: absolute;
+    margin: 0!important;
+    padding: 0!important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
+  }
+  section.browse-courses {
+   display: none;
+}
+.mobile-browse-course {
+    background-color: #009197;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+    display: grid;
+}
 </style>
+<section class="browse-courses">
+  <a href="<?=LINK;?>courses" class="btn btn-success slide-btn mobile-browse-course"><i class="fa-solid fa-folder-tree"></i> Browse Course</a>
+</section>
 <section class="our-campus" id="our-campus">
   <div class="container">
     <?php

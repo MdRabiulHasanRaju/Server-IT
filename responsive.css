@@ -14,7 +14,7 @@
     position: relative;
     z-index: 3;
   }
-  .logo>a {
+  .logo > a {
     padding: 15px 0;
   }
   .category {
@@ -225,6 +225,28 @@
   .top-details-2-2 {
     margin-top: 30px;
   }
+  .search-form-mobile {
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: end;
+  }
+  .search-form-mobile > input {
+    width: 80%;
+    padding: 7px 20px;
+    border-radius: 5px;
+    border: 1px solid #e6e2e2;
+  }
+  .search-form-mobile > input:focus-visible{
+    outline-color: #ffe7e7;
+  }
+  .search-form-mobile > i {
+    position: relative;
+    right: 34px;
+  }
+  .sticky-bar {
+    padding-top: 9px;
+}
 }
 
 @media only screen and (max-width: 575px) {

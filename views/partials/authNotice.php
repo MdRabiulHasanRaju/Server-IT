@@ -40,7 +40,7 @@ if (!isset($_SESSION['loggedin']) && isset($_SESSION['loggedin']) != true) {
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <div class="modal-title authNotice-title">
-                                        <img class="authNotice-logo" src="<?= LINK; ?>/public/images/header-logo.png" alt="Server IT Studio - Logo">
+                                        <img class="authNotice-logo" src="<?= LINK; ?>/public/images/logo.png" alt="Server IT Studio - Logo">
                                         <p>Login to your account</p>
                                     </div>
                                     <button id="adclose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
