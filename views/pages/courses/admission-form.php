@@ -40,7 +40,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <div class="modal-title admission-page-title">
-                                <img class="admission-page-logo" src="<?= LINK; ?>/public/images/header-logo.png" alt="Server IT Studio - Logo">
+                                <img class="admission-page-logo" src="<?= LINK; ?>/public/images/header-logo-min.png" alt="Server IT Studio - Logo">
                                 <h3>Fill out the form below with accurate information.</h3>
                                 <p>Our representative will contact you shortly after you complete the form.</p>
                             </div>

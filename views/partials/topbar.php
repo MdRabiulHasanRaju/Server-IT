@@ -9,18 +9,18 @@
           if(mysqli_stmt_fetch($topbar_stmt)){ ?>
         <ul>
           <li>
-            <a href="">
+            <a href="https://goo.gl/maps/NHuDSZ8DdW1ga2ou5" name="Address">
               <i class="fa-solid fa-location-dot"></i> 
              <?=$address;?>
             </a>
           </li>
           <li>
-            <a href="mailto:<?=$email;?>" 
+            <a href="mailto:<?=$email;?>" name="mail"
               ><i class="fa-regular fa-envelope"></i> <?=$email;?></a
             >
           </li>
           <li>
-            <a href=""
+            <a href="tel:<?=$number;?>" name="phone"
               ><i class="fa-sharp fa-solid fa-phone"></i> <?=$number;?></a
             >
           </li>
@@ -47,7 +47,7 @@
             while(mysqli_stmt_fetch($link_stmt)){
             ?>
             <li>
-              <a target="_blank" href="<?=$links;?>">
+              <a target="_blank" name="<?=$name;?>" href="<?=$links;?>">
                <?=$icon;?>
               </a>
             </li>

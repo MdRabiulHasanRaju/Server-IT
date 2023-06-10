@@ -392,7 +392,7 @@ section.featured-courses {
   color: #FF0000;
 }
 section.campus-video {
-  background: rgb(0 0 0 / 70%) url(public/images/team-serverit.jpg);
+  background: rgb(0 0 0 / 70%) url(public/images/team-serverit-min.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: multiply;
@@ -990,4 +990,18 @@ h2.insert-title {
 .all-couses {
 	display: contents;
 	text-align: center;
+}
+.owl-carousel {
+  display: block;
+}
+
+.owl-carousel .course-details-link:not(:first-child) {
+  display: none;
+}
+
+.owl-carousel img {
+  width: 100%;
+}
+.carousel-item{
+  display:none;
 }

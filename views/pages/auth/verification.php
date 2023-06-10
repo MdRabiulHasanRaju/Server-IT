@@ -44,11 +44,11 @@ if (isset($_GET["email"])) {
     <link rel="stylesheet" href="<?= LINK; ?>public/bootstrap/bootstrap.min.css">
 
     <title>Verification - Server IT Studio</title>
-    <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/serveritlogo.png" />
+    <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/logo-min.png" />
     <link rel="stylesheet" href="<?=LINK;?>views/pages/auth/auth.css">
     <style>
       body {
-        background-image: url('<?= IMAGEPATH; ?>serverit2.jpeg');
+        background-image: url('<?= IMAGEPATH; ?>serverit2-min.jpeg');
       }
     </style>
   </head>
@@ -62,7 +62,7 @@ if (isset($_GET["email"])) {
               <div class="headline">
                 <!-- brand-logo start -->
                 <div class="brand-logo">
-                  <img src="<?= LINK; ?>public/images/serveritlogo.png" width="150" alt="serveritstudio-logo">
+                  <img src="<?= LINK; ?>public/images/header-logo-min.png" width="150" alt="serveritstudio-logo">
                 </div><!-- ./brand-logo -->
                 <p>To gain quick access, sign in with your social media account.</p>
                 <!-- social login buttons start -->

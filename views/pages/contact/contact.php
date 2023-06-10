@@ -78,7 +78,7 @@ include("../../partials/header.php");
             </div>
             <div class="contact-map">
                 <div class="col-md-6 google-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.8656585501585!2d91.78024547483585!3d22.358700879644655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd94b007e74f5%3A0x37902ac49758f433!2sServer%20IT%20Studio!5e0!3m2!1sen!2sbd!4v1681164990494!5m2!1sen!2sbd" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe name="google-map-server-it-studio" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.8656585501585!2d91.78024547483585!3d22.358700879644655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd94b007e74f5%3A0x37902ac49758f433!2sServer%20IT%20Studio!5e0!3m2!1sen!2sbd!4v1681164990494!5m2!1sen!2sbd" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="col-md-6 address">
                     <?php

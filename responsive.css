@@ -136,6 +136,7 @@
   .title-h3 {
     font-size: 20px !important;
     width: 100%;
+    text-align:left;
   }
 
   img.img-fluid {
@@ -204,10 +205,6 @@
   }
   .auth-des > p {
   }
-  section.review-part .title-h3::after {
-    content: "";
-    display: none;
-  }
   .card-body > i {
     font-size: 15px;
   }
@@ -245,6 +242,10 @@
   .sticky-bar {
     padding-top: 9px;
 }
+section.review-part .title-h3::after {
+    content: "";
+    display: none;
+ }
 }
 
 @media only screen and (max-width: 575px) {

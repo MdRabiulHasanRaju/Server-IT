@@ -6,7 +6,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="footer-about mt-40">
               <div class="logo">
-                <a href="#"><img class="logoImg" src="<?= LINK; ?>public/images/header-logo.png" alt="server it studio Logo" /></a>
+                <a href="<?=LINK;?>"><img class="logoImg" src="<?= LINK; ?>public/images/header-logo.png" alt="server it studio Logo" /></a>
               </div>
               <p>
                 ServerITStudio.com is a dedicated website to provide quality
@@ -23,7 +23,7 @@
                   while (mysqli_stmt_fetch($link_stmt)) {
                 ?>
                     <li>
-                      <a target="_blank" href="<?= $links; ?>">
+                      <a target="_blank" href="<?= $links; ?>" name="<?=$name;?>">
                         <?= $icon; ?>
                       </a>
                     </li>
@@ -46,7 +46,7 @@
                   mysqli_stmt_bind_result($menu_stmt, $id, $menu_name, $link);
                   while (mysqli_stmt_fetch($menu_stmt)) { ?>
                     <li>
-                      <a href="<?= LINK, $link; ?>"><i class="fa fa-angle-right"></i><?= $menu_name; ?></a>
+                      <a href="<?= LINK, $link; ?>" name="<?=$menu_name;?>" ><i class="fa fa-angle-right"></i><?= $menu_name; ?></a>
                     </li>
                 <?php }
                 } ?>
@@ -60,7 +60,7 @@
                 <!-- <h6>Support</h6> -->
                 <h6>Find Us on Map</h6>
               </div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.8656585501585!2d91.78024547483585!3d22.358700879644655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd94b007e74f5%3A0x37902ac49758f433!2sServer%20IT%20Studio!5e0!3m2!1sen!2sbd!4v1681164990494!5m2!1sen!2sbd" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe name="google-map-server-it-studio" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.8656585501585!2d91.78024547483585!3d22.358700879644655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd94b007e74f5%3A0x37902ac49758f433!2sServer%20IT%20Studio!5e0!3m2!1sen!2sbd!4v1681164990494!5m2!1sen!2sbd" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <!-- support -->
             <div class="footer-link support mt-3">

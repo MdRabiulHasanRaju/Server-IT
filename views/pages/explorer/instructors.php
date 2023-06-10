@@ -12,18 +12,20 @@
             if($instructorsStmt){
             mysqli_stmt_bind_result($instructorsStmt,$id,$name,$expertise,$about,$image);
             while(mysqli_stmt_fetch($instructorsStmt)){ ?>
-            <div class="item course-item">
-              <div class="card">
-                <img class="img-fluid" alt="" src="<?=IMAGEPATH,$image;?>" />
-                <div class="card-body">
-                  <div class="instructor-info">
-                    <h4 class="card-title"><?=$name;?></h4>
-                    <p class="card-text">
-                    <?=$expertise;?>
-                    </p>
+            <div class="course-details-link">
+                <div class="item course-item">
+                  <div class="card">
+                    <img class="img-fluid" alt="" src="<?=IMAGEPATH,$image;?>" />
+                    <div class="card-body">
+                      <div class="instructor-info">
+                        <h4 class="card-title"><?=$name;?></h4>
+                        <p class="card-text">
+                        <?=$expertise;?>
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
           <?php }} ?>
           </div>
