@@ -117,7 +117,7 @@ a {
 .search>form>input {
   border: 1px solid white;
   background: #F2F2F2;
-  padding: 15px 30px;
+  padding: 15px 20px;
   width: 100%;
   border-radius: 5px;
   font-size: 13px;
@@ -129,7 +129,7 @@ a {
 .search>form>i {
   color: #FF0000;
   font-size: 19px;
-  position: relative;
+  position: absolute;
   right: 30px;
 }
 .category>p>i {
@@ -990,6 +990,39 @@ h2.insert-title {
 .all-couses {
 	display: contents;
 	text-align: center;
+}
+div#realtimesearch {
+  display: none;
+  position: absolute;
+  background: red;
+  z-index: 2;
+  padding: 10px;
+  top: 57px;
+  width: 93%;
+  text-align: left;
+}
+p#showsearch {
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+p#showsearch>a {color: white;}
+
+p#showsearch>a:after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #dddddd;
+  padding-top: 10px;
+  padding-bottom: 0!important;
+  margin-bottom: 0;
+}
+
+p#showsearch>a>i {
+  color: black;
+  padding: 0 4px;
+}
+p#showsearch>a:hover {
+  color: black!important;
 }
 .owl-carousel {
   display: block;

@@ -1,6 +1,6 @@
 <?php
-if(!isset($connection)){
-include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
+if (!isset($connection)) {
+  include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
 }
 include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Baseurl.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/serverit/utility/Format.php";
@@ -19,7 +19,11 @@ $format = new Format;
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="creator" content="@Md Rabiul Hasan">
-  <meta name="description" content="<?php if (!$meta_description) {header("location:" . LINK . "error/404?metaDataError");} else {echo $meta_description;}; ?>">
+  <meta name="description" content="<?php if (!$meta_description) {
+                                      header("location:" . LINK . "error/404?metaDataError");
+                                    } else {
+                                      echo $meta_description;
+                                    }; ?>">
   <meta name="keywords" content="<?= $meta_keywords; ?>">
   <meta name="title" content="<?= $meta_title; ?>">
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -59,11 +63,21 @@ $format = new Format;
           <?php } ?>
         </div>
         <div class="search col-sm-2">
-          <form action="" class="search-form">
-            <input type="text" placeholder="Search..." />
+          <form action="/serverit/search" class="search-form" method="GET">
+            <input id="searchid" name="searchValue" type="text" placeholder="Search Course..." />
             <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
           </form>
+          <div id="realtimesearch" class="real-time-search-box">
+          <div class="show-content">
+            <p id="showsearch"></p>
+          </div>
         </div>
+        </div>
+        <script>
+          if(window.innerWidth<768){
+            document.getElementsByClassName("search")[0].remove();
+          }
+        </script>
         <div class="category col-sm-2">
           <div class="cat-bar">
             <div class="dot-bar">
@@ -97,10 +111,15 @@ $format = new Format;
           </ul>
         </div>
         <div class="mobile-menu-bar col-sm-10">
-          <form action="" class="search-form-mobile">
-            <input type="text" placeholder="Search..." />
+          <form action="/serverit/search" class="search-form-mobile" method="GET">
+            <input id="searchid" name="searchValue" type="text" placeholder="Search Course.." />
             <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
           </form>
+          <div id="realtimesearch" class="real-time-search-box">
+          <div class="show-content">
+            <p id="showsearch"></p>
+          </div>
+        </div>
           <i class="fa-solid fa-bars menu-bar"></i>
         </div>
         <div class="menu col-sm-6">

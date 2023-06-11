@@ -9,8 +9,9 @@ include("../../partials/header.php");
 ?>
 <style>
     nav.pagination-nav {
-        width: fit-content;
-        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     a.page {
@@ -49,7 +50,7 @@ include("../../partials/header.php");
                         header("location: " . LINK . "error/404");
                         die();
                     }
-                    mysqli_stmt_bind_result($courseStmt, $id, $cat_id, $image, $title, $subTitle, $instructorId, $price,$discount_price);
+                    mysqli_stmt_bind_result($courseStmt, $id, $cat_id, $image, $title, $subTitle, $instructorId, $price, $discount_price);
                     while (mysqli_stmt_fetch($courseStmt)) {
                         $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
                         $instructorStmt = fetch_data($connection, $instructorSql);

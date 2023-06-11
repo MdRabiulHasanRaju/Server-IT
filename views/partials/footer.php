@@ -128,3 +128,4 @@
     window.history.replaceState(null, null, window.location.href);
   }
 </script>
+<script src="<?=LINK;?>views/partials/realTimeSearch.js"></script>

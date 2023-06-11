@@ -22,6 +22,9 @@ RewriteRule ^course-details/([0-9]+) views/pages/courses/course-details.php?id=$
 
 RewriteRule ^contact?$ views/pages/contact/contact.php
 
+RewriteRule ^search?$ views/pages/search/search.php
+
+
 Options All -Indexes
 # RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
 # RewriteRule ^ /%1 [NC,L,R]
