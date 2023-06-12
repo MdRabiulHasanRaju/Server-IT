@@ -6,7 +6,8 @@ $header_active = "Home";?>
 
 <?php include("views/partials/header.php"); ?>
 
-<?php include("views/partials/slider.php"); ?>
+<?php //include("views/partials/slider.php"); ?>
+<?php include("views/partials/banner.php"); ?>
 
 <div class="content-body">
   <!-- on-slide-section -->

@@ -246,6 +246,13 @@ section.review-part .title-h3::after {
     content: "";
     display: none;
  }
+ .home-content h1 {
+    font-size: 21px;
+ }
+ .home {
+    background-position: top right;
+}
+ 
 }
 
 @media only screen and (max-width: 575px) {
