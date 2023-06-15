@@ -19,8 +19,10 @@
                                 <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
                                     <div class="home-contact">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" name="email" placeholder="Enter your email address">
-                                            <input name="submit" type="submit" class="form-control" value="Use It Free">
+                                            <form action="/serverit/search" method="GET">
+                                            <input type="text" class="form-control" name="searchValue" placeholder="What do you want to learn?">
+                                            <input name="submit" type="submit" class="form-control" value="Search">
+                                            </form>
                                         </div><!-- /input-group -->
                                     </div>
                                 </div>

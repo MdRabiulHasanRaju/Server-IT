@@ -334,15 +334,20 @@ h5.card-title {
   margin: 0;
 }
 
+
+
+
+
+
   /*For Home Section*/
 .home{
-    background: url(public/images/serveritstudio-main-slider-min.jpg) no-repeat center center;
+    background:url(public/images/serveritstudio-main-slider-min.jpg) no-repeat center center;
     color:#000;
-    background-size:cover;
-    -webkit-background-size:cover;
-    -moz-background-size:cover;
-    -o-background-size:cover;
-    -ms-background-size:cover;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
 }
 .home-wrapper{
     padding: 150px 0px;
@@ -363,7 +368,7 @@ h5.card-title {
     margin-top: 90px;
 }
 
-.home-contact>.input-group>input{
+.home-contact>.input-group>form>input{
     font-size:15px;
 }
 .home-contact .input-group{display: block;}
@@ -895,6 +900,7 @@ h2.insert-title {
   text-align: left;
   line-height: 0.8cm;
   font-size: 13px;
+  text-align: justify;
 }
 .top-color {
   height: 20px;
@@ -920,12 +926,11 @@ h2.insert-title {
   font-size: 24px;
   font-weight: bold;
   padding: 10px 0px;
-  border-bottom: 1px solid gainsboro;
 }
 .middle-details-1 > ul > li {
-  list-style: inside;
-  line-height: 0.8cm;
+  list-style: lower-roman;
   color: gray;
+  text-align: justify;
   padding: 10px;
   font-size: 13px;
 }
@@ -938,11 +943,11 @@ h2.insert-title {
   padding: 10px 0px;
 }
 .middle-details-2 > ul > li {
-  list-style: inside;
-  line-height: 0.8cm;
+  list-style: lower-roman;
   color: gray;
   padding: 10px;
   font-size: 13px;
+  text-align: justify;
 }
 .middle-details-3 {
   background: #fdfdfd;
@@ -952,7 +957,6 @@ h2.insert-title {
   font-size: 24px;
   font-weight: bold;
   padding: 10px 0px;
-  border-bottom: 1px solid gainsboro;
 }
 .middle-details-2 > p {
   line-height: 0.8cm;
@@ -964,6 +968,7 @@ h2.insert-title {
   font-size: 13px;
   font-family: unset;
   color: gray;
+  text-align: justify;
 }
 .bottom-details-1 {
   padding: 15px;
@@ -975,7 +980,6 @@ h2.insert-title {
   font-weight: bold;
   padding: 10px 0px;
   color: #ff4c6b;
-  border-bottom: 1px solid #f5eaec;
 }
 
 .instructor-details-2 {

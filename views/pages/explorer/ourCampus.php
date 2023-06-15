@@ -19,7 +19,7 @@
           <p>
             <?php echo $format->short_text($des); ?>
           </p>
-          <a href="" class="btn btn-success slide-btn">READ MORE</a>
+          <a href="about" class="btn btn-success slide-btn">READ MORE</a>
         </div>
         <div class="col-md-6 our-campus-right">
           <img src="<?= IMAGEPATH, $image; ?>" alt="our campus" />

@@ -70,7 +70,7 @@ if (mysqli_stmt_execute($stmt)) {
                             <div class="row top-details-2">
                                 <!--Motivation of this course start-->
                                 <div class="top-details-2-1 col-md-6 ">
-                                    <h5><?= $motivational_title; ?></h5>
+                                    <h5 class="title-h3"><?= $motivational_title; ?></h5>
                                     <?= $motivational_des; ?>
                                     <a href="#purchaseid">
                                         <button class="btn btn-primary slide-btn"><i class="fas fa-shopping-cart"></i> Enroll Now</button>
@@ -88,28 +88,28 @@ if (mysqli_stmt_execute($stmt)) {
 
                             <!--course_purpose start-->
                             <div class="middle-details-1">
-                                <h1>By the end of this course, you'll be able to…</h1>
+                                <h1 class="title-h3">By the end of this course, you'll be able to…</h1>
                                 <?= $purpose; ?>
                             </div>
                             <!--course_purpose end-->
 
                             <!--Who is this course for? start-->
                             <div class="middle-details-2">
-                                <h1>Who is this course for?</h1>
+                                <h1 class="title-h3">Who is this course for?</h1>
                                 <?= $for_whom; ?>
                             </div>
                             <!--Who is this course for? end-->
 
                             <!--No prior knowledge needed! start-->
                             <div class="middle-details-3">
-                                <h1>No prior knowledge needed!</h1>
+                                <h1 class="title-h3">No prior knowledge needed!</h1>
                                 <?= $pre_idea; ?>
                             </div>
                             <!--No prior knowledge needed! end-->
 
                             <!--Instructor start-->
                             <div class="bottom-details-1">
-                                <h1>Your Instructor</h1>
+                                <h1 class="title-h3">Your Instructor</h1>
                                 <div class="instructor-details-2">
                                     <?php
                                     $ins_sql = "select * from instructors where id=$instructor_id";
@@ -120,7 +120,6 @@ if (mysqli_stmt_execute($stmt)) {
                                     <img src="<?= IMAGEPATH, $ins_image; ?>" alt="instuctor image" />
                                     <p><?= $ins_name; ?></p>
                                     <p><?= $ins_expertise; ?></p>
-                                    <p><?= $ins_about; ?></p>
                                 </div>
                             </div>
                             <!--Instructor end-->
@@ -174,54 +173,7 @@ ob_end_flush(); ?>
 <script>
     new WOW().init();
 </script>
-<script>
-    $(document).ready(function() {
-        $("#admission").on("click", function() {
-            $("#admissionForm").modal("show");
-        });
-        let formId = document.getElementById("formID");
-        formId.addEventListener("submit", (e) => {
-            e.preventDefault();
-            let user_name = document.getElementById("name").value;
-            let mobile = document.getElementById("mobile").value;
-            let course_id = document.getElementById("course_id").value;
-            let courseName = document.getElementById("courseName").value;
-            $.ajax({
-                url: "/serverit/controllers/admissionController.php",
-                type: "POST",
-                data: {
-                    "name": user_name,
-                    "mobile": mobile,
-                    "course_id": course_id,
-                    "courseName": courseName,
-                },
-                success: function(data) {
-                    var jsonData = JSON.parse(data);
-                    if (jsonData.success == 1) {
-                        window.location = jsonData.success_msg;
-                    } else if (jsonData.name == 0) {
-                        document.getElementById("admission_name").innerHTML = "";
-                        document.getElementById("admission_mobile").innerHTML = "";
-                        let error = jsonData.error_msg;
-                        document.getElementById("admission_name").innerHTML = error;
-                        
-                    }
-                    else if (jsonData.mobile == 0) {
-                        document.getElementById("admission_name").innerHTML = "";
-                        document.getElementById("admission_mobile").innerHTML = "";
-                        let error = jsonData.error_msg;
-                        document.getElementById("admission_mobile").innerHTML = error;
-
-                    }
-                },
-
-            });
-
-
-        })
-
-    });
-</script>
+<script src="<?=LINK;?>views/pages/courses/admissionForm.js"></script>
 <script src="<?= LINK; ?>main.js"></script>
 </body>
 

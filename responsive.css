@@ -1,265 +1,278 @@
 @media only screen and (max-width: 768px) {
-  .top-bar {
-    display: none;
+  p{
+      font-size:15px!important;
   }
-  .search {
-    display: none;
+  .card-title {
+  font-size: 18px;
   }
-  .logo > a > img {
-    width: 100px;
-  }
-  .logo {
-    margin-top: 10px;
-    width: 150px;
-    position: relative;
-    z-index: 3;
-  }
-  .logo > a {
-    padding: 15px 0;
-  }
-  .category {
-    display: none;
-  }
-  .menu {
-    display: none;
-    text-align: center;
-  }
-  .mobile-menu-bar {
-    display: block;
-    text-align: right;
-    z-index: 2;
-    font-size: 20px;
-    margin-top: 5px;
-  }
-  .header {
-    height: 65px;
-    position: relative;
-    top: 10px;
-  }
-  @keyframes menuAnimationAdd {
-    0% {
-      height: 0px;
-      overflow: hidden;
-    }
-    100% {
-      height: 220px;
-      overflow: hidden;
-    }
-  }
-  @keyframes menuAnimationRemove {
-    0% {
-      height: 220px;
-      overflow: hidden;
-    }
-    100% {
-      height: 0px;
-      overflow: hidden;
-    }
-  }
-  .menu-remove {
-    z-index: 2;
-    clear: both;
-    background: white;
-    position: relative;
+.top-bar {
+  display: none;
+}
+.search {
+  display: none;
+}
+.logo > a > img {
+  width: 100px;
+}
+.logo {
+  margin-top: 10px;
+  width: 150px;
+  position: relative;
+  z-index: 3;
+}
+.logo > a {
+  padding: 15px 0;
+}
+.category {
+  display: none;
+}
+.menu {
+  display: none;
+  text-align: center;
+}
+.mobile-menu-bar {
+  display: block;
+  text-align: right;
+  z-index: 2;
+  font-size: 20px;
+  margin-top: 5px;
+}
+.header {
+  height: 65px;
+  position: relative;
+  top: 10px;
+}
+@keyframes menuAnimationAdd {
+  0% {
     height: 0px;
-    top: 0px;
-    width: 100%;
-    left: 0%;
-    animation: 300ms ease-in-out 0s 1 normal none running menuAnimationRemove;
     overflow: hidden;
-    display: block;
   }
-  .menu-add {
-    z-index: 2;
-    clear: both;
-    background: white;
-    display: block;
-    position: relative;
-    width: 100%;
-    left: 0%;
+  100% {
     height: 220px;
-    top: 1px;
-    animation: 400ms ease-in-out 0s 1 normal none running menuAnimationAdd;
+    overflow: hidden;
   }
-  .menu > ul {
-    display: block;
-    list-style: none;
+}
+@keyframes menuAnimationRemove {
+  0% {
+    height: 220px;
+    overflow: hidden;
   }
-  .menu > ul > li {
-    padding: 5px 0px;
-    border-bottom: 1px solid rgb(243, 243, 243);
+  100% {
+    height: 0px;
+    overflow: hidden;
   }
-  .cart {
-    display: none;
-  }
-  .category-section {
-    margin-top: 0px;
-    display: none;
-  }
-  .our-campus-right {
-    display: none;
-  }
-  .our-campus {
-    color: white;
-  }
-  .carousel-caption > h1 {
-    font-size: 18px;
-  }
-  .carousel-caption > p {
-    font-size: 10px;
-  }
-  .logo,
-  .mobile-menu-bar {
-    display: inline-block;
-  }
-  h5.card-title {
-    font-size: 12px;
-  }
-  .carousel-caption {
-    top: 0%;
-  }
-  .our-campus-left > h1 {
-    font-size: 20px;
-  }
+}
+.menu-remove {
+  z-index: 2;
+  clear: both;
+  background: white;
+  position: relative;
+  height: 0px;
+  top: 0px;
+  width: 100%;
+  left: 0%;
+  animation: 300ms ease-in-out 0s 1 normal none running menuAnimationRemove;
+  overflow: hidden;
+  display: block;
+}
+.menu-add {
+  z-index: 2;
+  clear: both;
+  background: white;
+  display: block;
+  position: relative;
+  width: 100%;
+  left: 0%;
+  height: 220px;
+  top: 1px;
+  animation: 400ms ease-in-out 0s 1 normal none running menuAnimationAdd;
+}
+.menu > ul {
+  display: block;
+  list-style: none;
+}
+.menu > ul > li {
+  padding: 5px 0px;
+  border-bottom: 1px solid rgb(243, 243, 243);
+}
+.cart {
+  display: none;
+}
+.category-section {
+  margin-top: 0px;
+  display: none;
+}
+.our-campus-right {
+  display: none;
+}
+.our-campus {
+  color: white;
+}
+.carousel-caption > h1 {
+  font-size: 18px;
+}
+.carousel-caption > p {
+  font-size: 10px;
+}
+.logo,
+.mobile-menu-bar {
+  display: inline-block;
+}
+h5.card-title {
+  font-size: 12px;
+}
+.carousel-caption {
+  top: 0%;
+}
+.our-campus-left > h1 {
+  font-size: 20px;
+}
 
-  .our-campus-left > p {
-    font-size: 12px;
-  }
+.our-campus-left > p {
+  font-size: 12px;
+}
 
-  .slide-btn {
-    font-size: 10px;
-    padding: 10px 10px;
-  }
-  .cart-num {
-    background: none;
-  }
-  .title-h3 {
-    font-size: 20px !important;
-    width: 100%;
-    text-align:left;
-  }
+.slide-btn {
+  font-size: 10px;
+  padding: 10px 10px;
+}
+.cart-num {
+  background: none;
+}
+.title-h3 {
+  font-size: 20px !important;
+  width: 100%;
+  text-align:left;
+}
 
-  img.img-fluid {
-    width: 60% !important;
-    height: auto !important;
-    border-bottom-right-radius: 9px;
-    border-bottom-left-radius: 9px;
-  }
-  .card {
-    background: black;
-    align-items: center;
-    color: white;
-  }
-  .campus-video-text > h1 {
-    font-size: 24px;
-  }
+img.img-fluid {
+  width: 60% !important;
+  height: auto !important;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 9px;
+}
+.card {
+  background: black;
+  align-items: center;
+  color: white;
+}
+.campus-video-text > h1 {
+  font-size: 24px;
+}
 
-  .campus-video-text > p {
-    font-size: 13px;
-  }
+.campus-video-text > p {
+  font-size: 13px;
+}
 
-  section.campus-video {
-    height: 350px;
-  }
-  section.instructors {
-    padding: 40px 0px;
-  }
+section.campus-video {
+  height: 350px;
+}
+section.instructors {
+  padding: 40px 0px;
+}
 
-  .instructor-info > h4 {
-    font-size: 18px;
-  }
+.instructor-info > h4 {
+  font-size: 18px;
+}
 
-  section.latest-news {
-    padding: 30px 0px;
-  }
+section.latest-news {
+  padding: 30px 0px;
+}
 
-  .news-btn {
-    top: -13px;
-  }
+.news-btn {
+  top: -13px;
+}
 
-  .post-news-1 > a > img {
-    width: 100%;
-  }
+.post-news-1 > a > img {
+  width: 100%;
+}
 
-  .post-news {
-    /* text-align: center; */
-    display: flex;
-  }
+.post-news {
+  /* text-align: center; */
+  display: flex;
+}
 
-  .latest-news > .container > .row > .col-md-6 {
-    margin: 30px 0px;
-  }
-  .review-part h3 {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0%);
-  }
-  .review-desktop-version {
-    display: none !important;
-  }
-  .review-mobile-version {
-    display: block !important;
-  }
-  .card-body {
-    top: 0;
-  }
-  .auth-des > p {
-  }
-  .card-body > i {
-    font-size: 15px;
-  }
-  .profile-page-link > ul > a {
-    padding: 5px;
-    font-size: 12px;
-    margin: 0 4px;
-  }
-  .top-details h3 {
-    width: 100%;
-  }
-  .top-details-2-2 {
-    margin-top: 30px;
-  }
-  .search-form-mobile {
-    display: flex;
-    width: 70%;
-    align-items: center;
-    justify-content: end;
-  }
-  .search-form-mobile > input {
-    width: 70%;
-    padding: 7px 20px;
-    border-radius: 5px;
-    border: 1px solid #e6e2e2;
-    font-size:14px;
-  }
-  .search-form-mobile > input:focus-visible{
-    outline-color: #ffe7e7;
-  }
-  .search-form-mobile > i {
-    position: relative;
-    right: 34px;
-  }
-  .sticky-bar {
-    padding-top: 9px;
+.latest-news > .container > .row > .col-md-6 {
+  margin: 30px 0px;
+}
+.review-part h3 {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+.review-desktop-version {
+  display: none !important;
+}
+.review-mobile-version {
+  display: block !important;
+}
+.card-body {
+  top: 0;
+}
+.auth-des > p {
+}
+.card-body > i {
+  font-size: 15px;
+}
+.profile-page-link > ul > a {
+  padding: 5px;
+  font-size: 12px;
+  margin: 0 4px;
+}
+.top-details h3 {
+  width: 100%;
+}
+.top-details-2-2 {
+  margin-top: 30px;
+}
+.search-form-mobile {
+  display: flex;
+  width: 70%;
+  align-items: center;
+  justify-content: end;
+}
+.search-form-mobile > input {
+  width: 70%;
+  padding: 7px 20px;
+  border-radius: 5px;
+  border: 1px solid #e6e2e2;
+  font-size:14px;
+}
+.search-form-mobile > input:focus-visible{
+  outline-color: #ffe7e7;
+}
+.search-form-mobile > i {
+  position: relative;
+  right: 34px;
+}
+.sticky-bar {
+  padding-top: 9px;
 }
 section.review-part .title-h3::after {
-    content: "";
-    display: none;
- }
- .home-content h1 {
-    font-size: 21px;
- }
- .home {
-    background-position: top right;
+  content: "";
+  display: none;
 }
- 
+.home-content h1 {
+  font-size: 21px;
+}
+.home {
+  background-position: top right;
+}
+.middle-details-1 > ul > li {
+  font-size: 15px;
+}
+
+.middle-details-2 > ul > li {
+  font-size: 15px;
+}
+
 }
 
 @media only screen and (max-width: 575px) {
-  .mobile-menu-bar {
-    margin-top: -50px;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-  }
+.mobile-menu-bar {
+  margin-top: -50px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
 }

@@ -18,7 +18,7 @@
               <a class="course-details-link" href="course-details/<?= $id; ?>">
                 <div class="item course-item">
                   <div class="card">
-                    <img class="img-fluid" style="min-height: 150px" alt="100%x280" src="<?= IMAGEPATH, $image; ?>" />
+                    <img class="img-fluid" style="min-height: 150px" alt="<?= $title; ?>" src="<?= IMAGEPATH, $image; ?>" />
                     <div class="card-body">
                       <h4 class="card-title"><?= $title; ?></h4>
                       <p class="card-text">
