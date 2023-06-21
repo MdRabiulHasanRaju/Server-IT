@@ -43,14 +43,14 @@ include("../../partials/header.php");
                 }
                 $per_page = 8;
                 $star_from = ($page - 1) * $per_page;
-                $courseSql = "SELECT `id`,`cat_id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price` FROM `courses` ORDER BY id DESC limit $star_from,$per_page";
+                $courseSql = "SELECT `id`,`cat_id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price`,total_students FROM `courses` ORDER BY id DESC limit $star_from,$per_page";
                 $courseStmt = fetch_data($connection, $courseSql);
                 if ($courseStmt) {
                     if (mysqli_stmt_num_rows($courseStmt) == 0) {
                         header("location: " . LINK . "error/404");
                         die();
                     }
-                    mysqli_stmt_bind_result($courseStmt, $id, $cat_id, $image, $title, $subTitle, $instructorId, $price, $discount_price);
+                    mysqli_stmt_bind_result($courseStmt, $id, $cat_id, $image, $title, $subTitle, $instructorId, $price, $discount_price,$total_students);
                     while (mysqli_stmt_fetch($courseStmt)) {
                         $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
                         $instructorStmt = fetch_data($connection, $instructorSql);
@@ -76,7 +76,7 @@ include("../../partials/header.php");
                                                     <i class="fa-regular fa-star"></i>
                                                     <i class="fa-regular fa-star"></i>
                                                 </div>
-                                                <p class="">(0) Students</p>
+                                                <p class="">(<?=$total_students;?>) Students</p>
                                             </div>
                                             <div class="price-box">
                                                 <h4 class="text-center">Course Fee

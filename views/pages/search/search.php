@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         $per_page = 8;
         $star_from = ($page - 1) * $per_page;
 
-        $courseSql = "select id,cat_id,image,title,sub_title,instructor_id,price,discount_price from courses where title like ? or sub_title like ? or motivational_title like ? or motivational_des like ? or tags like ? limit $star_from,$per_page";
+        $courseSql = "select id,cat_id,image,title,sub_title,instructor_id,price,discount_price,total_students from courses where title like ? or sub_title like ? or motivational_title like ? or motivational_des like ? or tags like ? limit $star_from,$per_page";
 
         $stmt = mysqli_prepare($connection, $courseSql);
         mysqli_stmt_bind_param($stmt, 'sssss', $search1, $search2, $search3, $search4, $search5);
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
                 <h3 style="min-height: 400px;display:flex;align-items:center;justify-content:center;">Opps..Nothing Found!</h3>
             </div>
         <?php } else {
-            mysqli_stmt_bind_result($stmt, $id, $cat_id, $image, $title, $subTitle, $instructorId, $price, $discount_price);
+            mysqli_stmt_bind_result($stmt, $id, $cat_id, $image, $title, $subTitle, $instructorId, $price, $discount_price,$total_students);
         ?>
             <style>
                 nav.pagination-nav {
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
                                                             <i class="fa-regular fa-star"></i>
                                                             <i class="fa-regular fa-star"></i>
                                                         </div>
-                                                        <p class="">(0) Students</p>
+                                                        <p class="">(<?=$total_students;?>) Students</p>
                                                     </div>
                                                     <div class="price-box">
                                                         <h4 class="text-center">Course Fee

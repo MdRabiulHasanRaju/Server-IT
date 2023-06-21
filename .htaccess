@@ -26,6 +26,7 @@ RewriteRule ^search?$ views/pages/search/search.php
 
 RewriteRule ^about?$ views/pages/about/about.php
 
+RewriteRule ^admission?$ views/pages/admission/admission.php
 
 Options All -Indexes
 # RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]

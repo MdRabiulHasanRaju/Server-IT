@@ -7,10 +7,10 @@
       <div class="col-12">
         <div class="owl-carousel owl-theme">
           <?php
-          $courseSql = "SELECT `id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price` FROM `courses`";
+          $courseSql = "SELECT `id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price`,`total_students` FROM `courses`";
           $courseStmt = fetch_data($connection, $courseSql);
           if ($courseStmt) {
-            mysqli_stmt_bind_result($courseStmt, $id, $image, $title, $subTitle, $instructorId, $price, $discount_price);
+            mysqli_stmt_bind_result($courseStmt, $id, $image, $title, $subTitle, $instructorId, $price, $discount_price,$total_students);
             while (mysqli_stmt_fetch($courseStmt)) {
               $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
               $instructorStmt = fetch_data($connection, $instructorSql);
@@ -34,7 +34,7 @@
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                           </div>
-                          <p class="">(0) Students</p>
+                          <p class="">(<?=$total_students;?>) Students</p>
                         </div>
                         <div class="price-box">
                           <h4 class="text-center">Course Fee

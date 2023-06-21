@@ -1,8 +1,8 @@
 <?php ob_start();
 session_start();
 
-$meta_title = "Professional IT Training Courses &amp; Certification - Server IT Studio";
-$meta_description = "Study with us completing a certificate course in Web Design, Microsoft Office, Graphic Design, Digital Marketing, Web Development, Training etc grow your business or start your career Call 880 1945 4668 21";
+$meta_title = "About Us - Server IT Studio";
+$meta_description = "Established in 2023, the Leading IT Training Institute in Chittagong offers a diverse selection of courses and quality training programs. Grow your business or start your career Call 880 1945 4668 21";
 $meta_keywords = "Server IT Studio, server it,server,server studio";
 $header_active = "About";
 include("../../partials/header.php");

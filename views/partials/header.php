@@ -134,7 +134,7 @@ $format = new Format;
                     if (isset($header_active) && $header_active == $menu_name) {
                       echo "class='myactive'";
                     }
-                    if (isset($menu_name) && $menu_name == "Student Forum") {
+                    if (isset($menu_name) && $menu_name == "Admission") {
                       echo "class='btn btn-warning'";
                     } ?>>
                   <a href="<?= LINK; ?><?= $link; ?>"><?= $menu_name; ?></a> <i class="fa-solid fa-caret-down"></i>

@@ -47,7 +47,8 @@ if (mysqli_stmt_execute($stmt)) {
             $admission_box_des,
             $price,
             $discount_price,
-            $tags
+            $tags,
+            $total_students
         );
         if (mysqli_stmt_fetch($stmt)) { ?>
             <section class="course-details-page">
@@ -144,7 +145,7 @@ if (mysqli_stmt_execute($stmt)) {
                                     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { ?>
                                         <button id="admission" class="btn btn-primary slide-btn">Admission</button>
                                     <?php } else { ?>
-                                        <a href="<?= LINK; ?>auth">
+                                        <a href="<?= LINK; ?>admission">
                                             <button class="btn btn-primary slide-btn">Admission</button>
                                         </a>
                                     <?php } ?>
