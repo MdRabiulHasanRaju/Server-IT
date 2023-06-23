@@ -29,14 +29,14 @@ if (isset($_GET["email"])) {
   <!DOCTYPE html>
 
   <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="creator" content="@Md Rabiul Hasan">
-  <meta name="description" content="Develop your professional skills through Server IT Studio We provide Graphic Design, Web Design, web Development, Microsoft Office etc Call 880 1945 4668 21">
-  <meta name="keywords" content="Server IT Studio, server it,server,server studio, Web design, web development, graphics design, microsoft office, html, css, javascipt,php">
-  <meta name="title" content="Verification - Server IT Studio">
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="creator" content="@Md Rabiul Hasan">
+    <meta name="description" content="Develop your professional skills through Server IT Studio We provide Graphic Design, Web Design, web Development, Microsoft Office etc Call 880 1945 4668 21">
+    <meta name="keywords" content="Server IT Studio, server it,server,server studio, Web design, web development, graphics design, microsoft office, html, css, javascipt,php">
+    <meta name="title" content="Verification - Server IT Studio">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="<?= LINK; ?>public/fontAwesome/css/fontawesome.min.css">
@@ -45,7 +45,7 @@ if (isset($_GET["email"])) {
 
     <title>Verification - Server IT Studio</title>
     <link rel="shortcut icon" type="image/icon" href="<?= LINK; ?>public/images/logo-min.png" />
-    <link rel="stylesheet" href="<?=LINK;?>views/pages/auth/auth.css">
+    <link rel="stylesheet" href="<?= LINK; ?>views/pages/auth/auth.css">
     <style>
       body {
         background-image: url('<?= IMAGEPATH; ?>serverit2-min.jpeg');
@@ -62,23 +62,14 @@ if (isset($_GET["email"])) {
               <div class="headline">
                 <!-- brand-logo start -->
                 <div class="brand-logo">
-                  <img src="<?= LINK; ?>public/images/header-logo-min.png" width="150" alt="serveritstudio-logo">
+                  <a href="<?= LINK; ?>index.php">
+                    <img src="<?= LINK; ?>public/images/header-logo-min.png" width="150" alt="serveritstudio-logo">
+                  </a>
                 </div><!-- ./brand-logo -->
-                <p>To gain quick access, sign in with your social media account.</p>
                 <!-- social login buttons start -->
                 <div class="row social-buttons">
                   <div class="col-xs-4 col-sm-4 col-md-12">
-                    <a href="#" class="btn btn-block btn-facebook btn-lg">
-                      <i class="fa-brands fa-facebook-f"></i> <span class="hidden-xs hidden-sm">Signin with facebook</span>
-                    </a>
-                  </div>
-                  <div class="col-xs-4 col-sm-4 col-md-12">
-                    <a href="#" class="btn btn-block btn-google btn-lg">
-                      <i class="fa-brands fa-google-plus"></i> <span class="hidden-xs hidden-sm">Signin with google</span>
-                    </a>
-                  </div>
-                  <div class="col-xs-4 col-sm-4 col-md-12">
-                    <a class="btn btn-warning btn-block mt-4 btn-lg" href="<?= LINK; ?>"><i class="fa-solid fa-house"></i><span class="hidden-xs hidden-sm">Back to Home</span></a>
+                    <a class="btn btn-warning btn-block mt-4 btn-lg" href="<?= LINK; ?>"><i class="fa-solid fa-house"></i><span>Back to Home</span></a>
                   </div>
                 </div><!-- ./social-buttons -->
               </div>
@@ -103,7 +94,8 @@ if (isset($_GET["email"])) {
                       <div class="form-group">
                         <input type="text" class="form-control email" name="otp" placeholder="OTP" required>
                       </div>
-                      <span style="color:red;"><?php echo $wrong_otp; unset($_SESSION['wrong_otp']); ?></span>
+                      <span style="color:red;"><?php echo $wrong_otp;
+                                                unset($_SESSION['wrong_otp']); ?></span>
 
                       <div class="form-group">
                         <button name="otpsubmit" class="btn btn-lg btn-primary btn-block slide-btn" type="submit">Enter OTP</button>

@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.row {
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+p{
+    margin: 0;
+}
+.header {
+    text-align: center!important;
+    width: auto;
+}
+.header>span {
+    font-size: 26px;
+    color: white;
+}
+nav.navbar.bg-body-tertiary {
+    background: black!important;
+    padding: 20px 0;
+}
+footer.footer {
+    padding: 20px 0;
+    text-align: center;
+    background: black;
+    color: white;
+}
+.action{
+    font-weight: bold;
+    transition: .3s;
+}
+.action:hover{
+    background-color: red;
+    color: white;
+    padding: 5px;
+}

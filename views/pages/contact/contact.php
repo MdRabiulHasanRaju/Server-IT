@@ -168,6 +168,7 @@ include("../../partials/header.php");
                         <span style="display:none; width: fit-content;padding:5px 18px; font-size: 16px;" id="successMessage" class="btn btn-primary text-right"><i class="fas fa-check-circle"></i></span>
                     </div>
                 </form>
+                <script src="<?= LINK; ?>views/pages/contact/contact.js"></script>
             </div>
         </div>
     </div>
@@ -180,7 +181,6 @@ ob_end_flush(); ?>
 <script src="<?= LINK; ?>public/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="<?= LINK; ?>public/WOW-master/dist/wow.min.js"></script>
 <script src="<?= LINK; ?>public/bootstrap/popper.min.js"></script>
-<script src="<?= LINK; ?>views/pages/contact/contact.js"></script>
 <script>
     new WOW().init();
 </script>

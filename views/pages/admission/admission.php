@@ -134,18 +134,6 @@ include("../../partials/header.php");
 </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <?php include("../../partials/footer.php");
 ob_end_flush(); ?>
 <script src="<?= LINK; ?>public/jquery/jquery.js"></script>

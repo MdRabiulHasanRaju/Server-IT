@@ -1,26 +1,26 @@
-const getID = (id) => document.getElementById(id);
+const GetID = (id) => document.getElementById(id);
 const formData = (input) => input.value;
 
-let contactSubmit = getID("contactSubmit");
-let resubmit = getID("resubmit");
-let formID = getID("formID");
+let contactSubmit = GetID("contactSubmit");
+let resubmit = GetID("resubmit");
+let formID = GetID("formID");
 let all_input = [...(document.getElementsByClassName('form-control'))];
 
-let spinner = getID("spinner");
-let successMessage = getID("successMessage");
-let alertMessage = getID("alertMessage");
+let spinner = GetID("spinner");
+let successMessage = GetID("successMessage");
+let alertMessage = GetID("alertMessage");
 
 const admissionFormHandler = (e) => {
     e.preventDefault();
     runSpinner();
 
-    let customerName = getID("customerName").value;
+    let customerName = GetID("customerName").value;
 					
-    let email = getID("email").value;
+    let email = GetID("email").value;
     
-    let mobile = getID("mobile").value;
+    let mobile = GetID("mobile").value;
     
-    let courseName = getID("courseName").value;
+    let courseName = GetID("courseName").value;
 
     let ajax = new XMLHttpRequest();
 
