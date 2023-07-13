@@ -7,6 +7,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Admission Date</th>
+                <th scope="col">ID</th>
                 <th scope="col">Full Name</th>
                 <th scope="col">Student's Phone</th>
                 <th scope="col">Gaurdian's Phone</th>
@@ -26,12 +27,13 @@
             $stmt = mysqli_prepare($connection, $sql);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
-            mysqli_stmt_bind_result($stmt, $id, $name, $student_phone, $gaurdian_phone, $address, $course_name, $course_duration, $fee, $paid, $due, $date_of_birth, $admission_date);
+            mysqli_stmt_bind_result($stmt, $id, $name,$student_id,$image, $student_phone, $gaurdian_phone, $address, $course_name, $course_duration, $fee, $paid, $due, $date_of_birth, $admission_date);
             while (mysqli_stmt_fetch($stmt)) { ?>
 
                 <tr>
                     <th scope="row"><?= $id; ?></th>
                     <td><?= $admission_date; ?></td>
+                    <td><?= $student_id; ?></td>
                     <td><?= $name; ?></td>
                     <td><?= $student_phone; ?></td>
                     <td><?= $gaurdian_phone; ?></td>

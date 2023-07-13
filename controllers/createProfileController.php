@@ -94,6 +94,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		echo "Post method not working!";
 	}
 } else {
-	header("location: " . LINK . "auth?p=1");
+	header("location: " . LINK . "auth/1");
 	die();
 }

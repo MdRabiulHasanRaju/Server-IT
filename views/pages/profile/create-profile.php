@@ -222,7 +222,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
     <?php include("../../partials/footer.php");
 } else {
-    header("location: " . LINK . "auth?p=1");
+    header("location: " . LINK . "auth/1");
     die();
 }
 ob_end_flush(); ?>
