@@ -22,6 +22,10 @@ include("../../partials/header.php");
         padding: 20px 0px;
     }
 
+    .contact-map {
+        margin-bottom: 40px;
+    }
+
     .google-map>iframe {
         height: 320px;
     }
@@ -34,7 +38,7 @@ include("../../partials/header.php");
     }
 
     .contact-form {
-        padding: 50px 0;
+        padding: 20px 0;
     }
 
     .contact-form>form>.form-group>.form-control {
@@ -46,10 +50,12 @@ include("../../partials/header.php");
         font-size: 14px;
 
     }
+
     .contact-form>form>.form-group>.form-control {
         font-size: 14px;
 
     }
+
     .contact-form>form>.form-group {
         display: flex;
         align-items: center;
@@ -63,8 +69,8 @@ include("../../partials/header.php");
         color: #555 !important;
     }
 
-    .submit-button{
-        display: block!important;
+    .submit-button {
+        display: block !important;
     }
 </style>
 <section class="contact-us">
@@ -88,7 +94,7 @@ include("../../partials/header.php");
                     if (mysqli_stmt_fetch($topbar_stmt)) { ?>
 
                         <div class="footer-title pb-25">
-                            <h6 style="color:black!important;">Head Office - Chittagong</h6>
+                            <h6 style="color:black!important;">Alonkar Branch - Chattogram</h6>
                         </div>
                         <ul>
                             <li>
@@ -128,6 +134,63 @@ include("../../partials/header.php");
                     <?php } ?>
                 </div>
             </div>
+            <div class="contact-map">
+                <div class="col-md-6 google-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29521.624481922467!2d91.80043977522212!3d22.345960297813427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ad27a5f2b3ddbd%3A0x94e897a86845b1d1!2sServer%20IT%20Studio%2C%20Chawkbazar%20Branch!5e0!3m2!1sen!2sbd!4v1696175815772!5m2!1sen!2sbd" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-md-6 address">
+                    <?php
+                    $topbar_sql = "SELECT * FROM `top_bar`";
+                    $topbar_stmt = fetch_data($connection, $topbar_sql);
+                    mysqli_stmt_bind_result($topbar_stmt, $id, $address, $email, $number);
+                    if (mysqli_stmt_fetch($topbar_stmt)) { ?>
+
+                        <div class="footer-title pb-25">
+                            <h6 style="color:black!important;">Chawkbazar Branch - Chattogram</h6>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="cont">
+                                    <p>
+                                    K.B Plaza, Gulzar Tower Opposite, Chawkbazar, Chattogram, Bangladesh
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div class="cont">
+                                    <p>
+                                        <?= $number; ?>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="cont">
+                                    <a href="mailto:<?= $email; ?>">
+                                        <p>
+                                            <?= $email; ?>
+                                        </p>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+
+                    <?php } ?>
+                </div>
+            </div>
+
+
+
+
+
             <div class="col-md-8 offset-md-2 contact-form">
                 <div class="footer-title pb-25">
                     <h6 style="color:black!important;">Inbox Your Queries</h6>
@@ -143,13 +206,13 @@ include("../../partials/header.php");
                     <div class="form-group">
                         <select name="courseName" id="courseName" class="form-control" required>
                             <option disabled selected value> -- Select a Course to Know about -- </option>
-                            <?php 
-                                $sql = "select title from courses";
-                                $stmt = fetch_data($connection,$sql);
-                                mysqli_stmt_bind_result($stmt,$course_title);
-                                while(mysqli_stmt_fetch($stmt)){?>
-                                <option value="<?=$course_title;?>"><?=$course_title;?></option>
-                                <?php }?>
+                            <?php
+                            $sql = "select title from courses";
+                            $stmt = fetch_data($connection, $sql);
+                            mysqli_stmt_bind_result($stmt, $course_title);
+                            while (mysqli_stmt_fetch($stmt)) { ?>
+                                <option value="<?= $course_title; ?>"><?= $course_title; ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">

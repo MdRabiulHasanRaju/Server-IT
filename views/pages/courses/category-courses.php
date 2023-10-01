@@ -1,6 +1,8 @@
 <?php ob_start();
 session_start();
-
+if (isset($_GET['cat_id'])) {
+    $category_id = $_GET["cat_id"];
+}
 $meta_title = "Professional IT Training Courses &amp; Certification - Server IT Studio";
 $meta_description = "Study with us completing a certificate course in Web Design, Microsoft Office, Graphic Design, Digital Marketing, Web Development, Training etc grow your business or start your career Call 880 1945 4668 21";
 $meta_keywords = "Server IT Studio, server it,server,server studio";
@@ -32,7 +34,21 @@ include("../../partials/header.php");
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="mb-3 title-h3" style="font-size: 30px;">Courses-</h3>
+                <?php
+                    $catSql = "select cat_name from category where id=$category_id";
+                    $catStmt = fetch_data($connection,$catSql);
+                    if ($catStmt) {
+                        if (mysqli_stmt_num_rows($catStmt) == 0) {
+                            header("location: " . LINK . "error/404");
+                            die();
+                        }
+                        mysqli_stmt_bind_result($catStmt,$cat_name);
+                        while(mysqli_stmt_fetch($catStmt)){?>
+                        <h3 class="mb-3 title-h3" style="font-size: 30px;"><?=$cat_name;?>-</h3>
+                      <?php  }
+                    }
+                ?>
+                
             </div>
             <div class="col-12 all-couses">
                 <?php
@@ -43,7 +59,7 @@ include("../../partials/header.php");
                 }
                 $per_page = 8;
                 $star_from = ($page - 1) * $per_page;
-                $courseSql = "SELECT `id`,`cat_id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price`,total_students FROM `courses` ORDER BY id DESC limit $star_from,$per_page";
+                $courseSql = "SELECT `id`,`cat_id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price`,total_students FROM `courses` where cat_id=$category_id ORDER BY id DESC limit $star_from,$per_page";
                 $courseStmt = fetch_data($connection, $courseSql);
                 if ($courseStmt) {
                     if (mysqli_stmt_num_rows($courseStmt) == 0) {

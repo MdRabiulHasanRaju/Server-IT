@@ -292,13 +292,14 @@ a {
   margin: 0 auto;
   text-align: center;
   height: 150px;
+  margin-top: 10px;
   position: relative;
 }
 
 .category-section {
   display: flex;
   position: relative;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .card-body {position: relative;text-align: center;}
 h5.card-title {

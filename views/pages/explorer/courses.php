@@ -34,7 +34,8 @@
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                           </div>
-                          <p class="">(<?=$total_students;?>) Students</p>
+                          <!-- <p class="">(<?=$total_students;?>) Students</p> -->
+                          <p class="">Enroll Now</p>
                         </div>
                         <div class="price-box">
                           <h4 class="text-center">Course Fee
