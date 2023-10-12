@@ -1,7 +1,22 @@
 <style>
+    .home{
+    background:url(public/images/serveritstudio-main-slider-min.jpg) no-repeat center center;
+    color:#000;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
+}
 .banner-browse-btn {
     font-size: 14px;
     padding: 14px 23px;
+}
+@media (max-width:768px){
+    .home{
+    background:url(public/images/Serveritstudio-mobile-banner.jpg) no-repeat center center;
+    background-size: cover;
+}
 }
 </style>
 <header id="home" class="home">
