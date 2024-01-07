@@ -49,8 +49,10 @@
                         <a class="<?php if($page=='report'){ echo 'active-menu';}?>" href="report.php"><i class="fa fa-file-pdf-o "></i>Report Section</a>
                     </li>
 					
-					 
-					
+                    <li>
+                        <a class="<?php if($page=='lead'){ echo 'active-menu';}?>" href="lead.php"><i class="fa fa-users "></i>Lead</a>
+                    </li>
+
 					<li>
                         <a class="<?php if($page=='setting'){ echo 'active-menu';}?>" href="setting.php"><i class="fa fa-cogs "></i>Account Setting</a>
                     </li>
