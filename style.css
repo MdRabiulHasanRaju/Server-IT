@@ -341,7 +341,6 @@ h5.card-title {
 
 
   /*For Home Section*/
-
 .home-wrapper{
     padding: 150px 0px;
     overflow:hidden;
@@ -408,13 +407,15 @@ h5.card-title {
     padding-bottom: 20px;
 }
 .overlay-fluid-block {
-    background-color: rgba(0, 0, 0, 0.50);
+    background-color: rgba(0, 0, 0, 0.80);
     width: 100%;
 }
 
 .our-campus-right>img {
-  width: 70%;
-  box-shadow:1px 1px 31px -14px black;
+    width: 70%;
+    box-shadow: 1px 1px 31px -14px black;
+    border: 12px solid white;
+    border-radius: 15px;
 }
 section.our-campus {
   padding: 40px 0;

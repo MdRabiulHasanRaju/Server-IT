@@ -4,6 +4,12 @@
       <!-- post-news -->
       <div class="col-md-6">
         <h3 class="mb-3 title-h3" style="font-size: 30px">Notice Board</h3>
+        <div class="fb-post" 
+           data-href="https://web.facebook.com/serverITStudio/posts/pfbid0Y2dfbnxaaVbd3Bu3agd8nC8bG9XYyg28WRDvNdRJehjaoCvxWq9HKDdifjHAM6iyl" 
+           data-width="auto"
+           data-show-text=""
+           >
+        </div>
         <?php
         $postSql = "SELECT * FROM `posts`";
         $postStmt = mysqli_prepare($connection, $postSql);
@@ -28,8 +34,7 @@
             </div>
         <?php }
         } ?>
-
-        <a href="" class="btn btn-success slide-btn news-btn">VIEW ALL</a>
+        <!--<a href="" class="btn btn-success slide-btn news-btn">VIEW ALL</a>-->
       </div>
       <!-- post-news -->
       <!-- course-news -->
@@ -60,12 +65,18 @@
       <div class="col-md-6">
         <h3 class="mb-3 title-h3" style="font-size: 30px">Social Posts</h3>
         <div class="fb-post" 
-           data-href="https://www.facebook.com/serverITStudio/posts/pfbid02st23NWLvXE8EGrYxmFwYMCgQaKhdVTWDQAtwC64zv9Vtm1SyJ1SNTM6LfnTeycLfl" 
+           data-href="https://www.facebook.com/serverITStudio/posts/pfbid0248MgbugCFE2qg2MmwgMhiHfwTBEKqRtqayvQq3woP7YKG1trYFTHt93u5RyCXqPTl" 
            data-width="auto"
            data-show-text=""
            >
         </div>
-        <a href="" class="btn btn-success slide-btn news-btn">VIEW ALL</a>
+        <div class="fb-post" 
+           data-href="https://www.facebook.com/serverITStudio/posts/pfbid02iYTJkBQZXc3xHnbYbSKBDvTC7fQWfh5yxomCq55V99TQnUWgip31WE1KkKXpWutyl" 
+           data-width="auto"
+           data-show-text=""
+           >
+        </div>
+        <!--<a href="" class="btn btn-success slide-btn news-btn">VIEW ALL</a>-->
       </div>
       <!-- course-news -->
     </div>

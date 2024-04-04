@@ -129,7 +129,8 @@ $format = new Format;
             $menu_stmt = fetch_data($connection, $menu_sql);
             if ($menu_stmt) {
               mysqli_stmt_bind_result($menu_stmt, $id, $menu_name, $link);
-              while (mysqli_stmt_fetch($menu_stmt)) { ?>
+              while (mysqli_stmt_fetch($menu_stmt)) { 
+                if($menu_name!="Privacy & Policy" && $menu_name!="Documents"){?>
                 <li <?php
                     if (isset($header_active) && $header_active == $menu_name) {
                       echo "class='myactive'";
@@ -137,9 +138,12 @@ $format = new Format;
                     if (isset($menu_name) && $menu_name == "Admission") {
                       echo "class='btn btn-warning'";
                     } ?>>
-                  <a href="<?= LINK; ?><?= $link; ?>"><?= $menu_name; ?></a> <i class="fa-solid fa-caret-down"></i>
+                    <a href="<?= LINK; ?><?= $link; ?>">
+                      <?= $menu_name;?>
+                    </a><i class="fa-solid fa-caret-down"></i>
+
                 </li>
-            <?php }
+            <?php }}
             } ?>
           </ul>
         </div>

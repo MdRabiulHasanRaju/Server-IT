@@ -32,6 +32,13 @@ RewriteRule ^admission?$ views/pages/admission/admission.php
 RewriteRule ^students/([a-z0-9A-Z]+) views/pages/students/student.php?studentID=$1
 
 RewriteRule ^privacy?$ views/pages/privacy/privacy.php
+
+RewriteRule ^documents?$ views/pages/documents/documents.php
+
+RewriteRule ^certificate-verification?$ views/pages/certificate/certificate.php
+RewriteRule ^certificate-verification/([a-z0-9A-Z]+) views/pages/certificate/certificate.php?studentID=$1
+
+
 Options All -Indexes
 # RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
 # RewriteRule ^ /%1 [NC,L,R]

@@ -95,9 +95,17 @@ include("../../partials/header.php");
                     Server IT. Studio is committed to educating students in the ever-changing field of computer technology. Our mission is to provide students with a comprehensive education that provides them with the knowledge and skills they need to succeed in the competitive world of computing. Our knowledgeable instructors use cutting-edge teaching techniques and cutting-edge technology to provide students with a practical, hands-on education in a variety of computer-related domains such as programming, web development, database management, graphics design and more. Join us today to learn about the exciting opportunities available in the world of computer technology.
                 </p>
             </div>
-            <div class="sis-images wow bounceInDown" data-wow-duration="2s">
-                <img src="/serverit/public/images/serveritstudio_campus-min.jpg" alt="campus - server it studio">
+            <div class="col-md-6 sis-images wow bounceInDown" data-wow-duration="2s">
+                <img src="/serverit/public/images/serveritstudio-class_room_2.jpg" alt="campus - server it studio">
             </div>
+            <div class="col-md-6 sis-images wow bounceInDown" data-wow-duration="2s">
+                <img src="/serverit/public/images/serveritstudio_campus-min.jpg" alt="campus - server it studio"> <br><br><br><br>
+                <img src="/serverit/public/images/main-slider-1.jpg" alt="campus - server it studio">
+            </div>
+            <div class="col-md-12 sis-images wow bounceInDown" style="margin-top:-60px" data-wow-duration="2s">
+                <img src="/serverit/public/images/team-serverit-1.jpg" alt="campus - server it studio">
+            </div>
+            
             <div class="col-12">
                 <h3 class="title-h3" style="font-size: 30px;">SERVER IT STUDIO TEAM</h3>
             </div>
