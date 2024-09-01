@@ -238,7 +238,7 @@ echo '
 </tr>
 
 <tr>
-<th>Balance: 
+<th>Due: 
 </th>
 <td>'.'৳. '.$sr['balance'].'
 </td>

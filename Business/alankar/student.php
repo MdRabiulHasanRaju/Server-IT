@@ -175,7 +175,7 @@ echo $errormsg;
 						<div class="form-group">
 								<label class="col-sm-2 control-label" for="Old">Contact* </label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" id="contact" name="contact" value="<?php echo $contact;?>" maxlength="10" />
+									<input type="text" class="form-control" id="contact" name="contact" value="<?php echo $contact;?>" maxlength="11" />
 								</div>
 							</div>
 							

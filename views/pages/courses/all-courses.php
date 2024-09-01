@@ -59,7 +59,7 @@ include("../../partials/header.php");
                             <div class="course-item">
                                 <div class="card">
                                     <img class="img-fluid" style="min-height: 150px" alt="<?= $title; ?>" src="<?= IMAGEPATH, $image; ?>" />
-                                    <div class="card-body">
+                                    <div class="card-body" style="min-height: 200px; display: grid;">
                                         <h4 class="card-title">
                                             <?= $title; ?>
                                         </h4>

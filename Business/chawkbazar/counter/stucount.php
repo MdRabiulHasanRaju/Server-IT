@@ -3,7 +3,7 @@
     $servername="localhost";
     $uname="root";
     $pass="";
-    $database="server_it_admin";
+    $database="server_it_chawkbazar";
 
     $conn=mysqli_connect($servername,$uname,$pass,$database);
 

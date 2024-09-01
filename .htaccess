@@ -38,6 +38,31 @@ RewriteRule ^documents?$ views/pages/documents/documents.php
 RewriteRule ^certificate-verification?$ views/pages/certificate/certificate.php
 RewriteRule ^certificate-verification/([a-z0-9A-Z]+) views/pages/certificate/certificate.php?studentID=$1
 
+<IfModule mod_expires.c>
+ExpiresActive On
+
+# Images
+# ExpiresByType image/jpeg "access plus 1 year"
+# ExpiresByType image/gif "access plus 1 year"
+# ExpiresByType image/png "access plus 1 year"
+# ExpiresByType image/webp "access plus 1 year"
+# ExpiresByType image/svg+xml "access plus 1 year"
+# ExpiresByType image/x-icon "access plus 1 year"
+
+# Video
+# ExpiresByType video/mp4 "access plus 1 year"
+# ExpiresByType video/mpeg "access plus 1 year"
+
+# CSS, JavaScript
+ExpiresByType text/css "access plus 1 minute"
+ExpiresByType text/javascript "access plus 1 minute"
+ExpiresByType application/javascript "access plus 1 minute"
+
+# Others
+# ExpiresByType application/pdf "access plus 1 month"
+# ExpiresByType application/x-shockwave-flash "access plus 1 month"
+
+</IfModule>
 
 Options All -Indexes
 # RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]

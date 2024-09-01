@@ -1,4 +1,5 @@
 <?php
+header_remove('x-powered-by');
 if (!isset($connection)) {
   include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
 }
@@ -49,7 +50,7 @@ $format = new Format;
   <?php include("topbar.php"); ?>
   <div class="header">
     <div class="container">
-      <div class="row">
+      <div class="row header-row">
         <div class="logo col-sm-2">
           <?php
           $imageSql = "SELECT `name`,`image` FROM `images` WHERE `name`='header-logo'";

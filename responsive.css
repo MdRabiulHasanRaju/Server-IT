@@ -102,9 +102,7 @@
   margin-top: 0px;
   display: none;
 }
-.our-campus-right {
-  display: none;
-}
+.our-campus-right {display: flex;justify-content: center;}
 .our-campus {
   color: white;
 }
@@ -152,9 +150,10 @@ img.img-fluid {
   border-bottom-left-radius: 9px;
 }
 .card {
-  background: black;
+  background: #fdfdfd;
   align-items: center;
-  color: white;
+  color: #000000;
+  border: 1px solid #e3e3e3;
 }
 .campus-video-text > h1 {
   font-size: 24px;
@@ -274,5 +273,8 @@ section.review-part .title-h3::after {
   display: flex;
   align-items: center;
   justify-content: end;
+}
+.header-row{
+  justify-content: unset;
 }
 }

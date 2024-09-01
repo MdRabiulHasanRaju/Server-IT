@@ -10,7 +10,7 @@
 }
 .row{margin: 0;}
 a {
-   text-decoration: none!important; 
+   text-decoration: none!important;
    color: black;
 }
 
@@ -175,6 +175,7 @@ a {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .search {
   position: relative;
@@ -287,8 +288,8 @@ a {
 .category-class {
   display: grid;
   align-items: center;
-  background: #000000;
-  color: white;
+  background: #fbfbfb;
+  color: #000000;
   margin: 0 auto;
   text-align: center;
   height: 150px;
@@ -299,7 +300,7 @@ a {
 .category-section {
   display: flex;
   position: relative;
-  margin-top: 10px;
+  padding: 20px 0;
 }
 .card-body {position: relative;text-align: center;}
 h5.card-title {
@@ -407,15 +408,16 @@ h5.card-title {
     padding-bottom: 20px;
 }
 .overlay-fluid-block {
-    background-color: rgba(0, 0, 0, 0.80);
+    background-color: rgba(0, 0, 0, 0.40);
     width: 100%;
 }
 
 .our-campus-right>img {
     width: 70%;
     box-shadow: 1px 1px 31px -14px black;
-    border: 12px solid white;
+    border: 6px solid white;
     border-radius: 15px;
+    min-height: 100px;
 }
 section.our-campus {
   padding: 40px 0;
@@ -522,10 +524,9 @@ section.instructors{
 }
 .instructor, .card{
   box-sizing: border-box;
-  box-shadow: 3px 2px 15px -9px black;
   border-radius: 8px;
   outline: none;
-  border: none;
+  border: 1px solid #efefef;
 }
 .post-news-1>a>img {
   width: 100%;
@@ -1111,8 +1112,12 @@ p#showsearch>a:hover {
 }
 
 .owl-carousel img {
-  width: 100%;
+  width: 270px;
 }
 .carousel-item{
   display:none;
+}
+.header-row{
+  display: flex;
+  justify-content: center;
 }

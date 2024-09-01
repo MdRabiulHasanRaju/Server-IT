@@ -14,13 +14,13 @@ $header_active = "Home";?>
   <?php include("views/pages/explorer/category.php"); ?>
   <!-- on-slide-section -->
 
-  <!-- Our Campus Section -->
-  <?php include("views/pages/explorer/ourCampus.php"); ?>
-  <!-- Our Campus Section -->
-
   <!-- Featured Courses -->
   <?php include("views/pages/explorer/courses.php"); ?>
   <!-- Featured Courses -->
+
+  <!-- Our Campus Section -->
+    <?php include("views/pages/explorer/ourCampus.php"); ?>
+  <!-- Our Campus Section -->
 
   <!--Campus Video-->
   <?php include("views/pages/explorer/campusVideo.php"); ?>
