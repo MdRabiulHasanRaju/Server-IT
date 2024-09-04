@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 title-div">
-        <h3 class="title-h3 mb-3" style="font-size: 30px">Featured Courses</h3>
+        <h3 class="title-h3 mb-3" style="font-size: 30px;color:white">Featured Courses</h3>
       </div>
       <div class="col-12">
         <div class="owl-carousel owl-theme">

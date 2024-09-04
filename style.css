@@ -343,7 +343,7 @@ h5.card-title {
 
   /*For Home Section*/
 .home-wrapper{
-    padding: 150px 0px;
+    padding: 100px 0px;
     overflow:hidden;
 }
 .home-content h1{
@@ -438,7 +438,9 @@ section.our-campus {
 }
 section.featured-courses {
   padding: 60px 0;
-  background: #F5F5F5;
+  background: url(public/images/banner-1.png);
+  background-attachment: fixed;
+  background-position: center;
 }
 .course-item{
   transition: .3s ease;
@@ -1105,6 +1107,7 @@ p#showsearch>a:hover {
 }
 .owl-carousel {
   display: block;
+  padding: 0 8px;
 }
 
 .owl-carousel .course-details-link:not(:first-child) {
