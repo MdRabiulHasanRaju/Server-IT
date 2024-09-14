@@ -1,7 +1,7 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat','Hind Siliguri', sans-serif;
   box-sizing: border-box;
 }
 .mycontainer{
@@ -355,7 +355,7 @@ h5.card-title {
 .home-content p{
     margin-bottom: 30px;
     color: #fff;
-    font-size: 15px;
+    font-size: 18px;
 }
 .home-content .home-contact{
     margin-top: 90px;
@@ -408,7 +408,6 @@ h5.card-title {
     padding-bottom: 20px;
 }
 .overlay-fluid-block {
-    background-color: rgba(0, 0, 0, 0.40);
     width: 100%;
 }
 
@@ -526,9 +525,9 @@ section.instructors{
 }
 .instructor, .card{
   box-sizing: border-box;
-  border-radius: 8px;
   outline: none;
-  border: 1px solid #efefef;
+  border: unset;
+  box-shadow: 1px 9px 24px -23px black;
 }
 .post-news-1>a>img {
   width: 100%;
@@ -1124,3 +1123,4 @@ p#showsearch>a:hover {
   display: flex;
   justify-content: center;
 }
+

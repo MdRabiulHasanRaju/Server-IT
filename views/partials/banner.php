@@ -9,6 +9,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
+
 }
 
     .banner-browse-btn {
@@ -25,23 +26,34 @@
     .banner-right{
         width: 30%;
     }
+    a.btn.btn-success.slide-btn.rounded.banner-browse-btn.wow.slideInLeft {
+    background: red;
+    }
     @media (max-width:768px) {
         .home {
-            background: url(public/images/Serveritstudio-mobile-banner.jpg) no-repeat center center;
-            background-size: cover;
+            /* background: url(public/images/Serveritstudio-mobile-banner.jpg) no-repeat center center; */
+            background-size: unset;
+            background: #ffffff;
+            padding-top: 30px;
         }
 
         .banner-browse-btn {
             margin-top: 5px;
         }
-        .home-wrapper{
-        flex-direction: column-reverse;
-    }
+.home-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px;
+}
     .banner-left{
         width: 100%;
     }
     .banner-right{
-        width: 100%;
+        width: 85%;
+    }
+    .feature-video-mobile{
+        width: 90%;
+        height: 200px !important;
     }
     }
 </style>
@@ -56,17 +68,21 @@
                     <div class="col-md-10">
                         <div class="home-content">
                             <!-- <h1 class="wow bounceInUp" data-wow-duration="2s">Bringing Your Digital Future to Life With Server IT Studio</h1> -->
-                            <h1 class="wow bounceInUp" data-wow-duration="2s">Premium Course with Affordable <span style="color:#ffe200;text-decoration: underline;">
-                                    Price
-                            </span></h1>
+                            <h1 class="wow bounceInUp" data-wow-duration="2s">
+                                <!--Premium Course with Affordable -->
+                                <!--<span style="color:#ffe200;text-decoration: underline;">-->
+                                <!--    Price-->
+                                <!--</span>-->
+                            প্রিমিয়াম কোর্স
+                            </h1>
                             <p style="padding: 5px" class="wow bounceInDown" data-wow-duration="2s">
                                 <!-- Server IT Studio is a computer training facility and IT solution for your business. We provide IT training as well as technological services such as website creation, digital marketing, and graphic design to help your company develop to the next level. -->
                                 
                                 সার্ভার আইটি স্টুডিও একটি কম্পিউটার প্রশিক্ষণ কেন্দ্র এবং আমরা আইটি প্রশিক্ষণের পাশাপাশি ওয়েবসাইট তৈরি, ডিজিটাল মার্কেটিং এবং গ্রাফিক ডিজাইন এর মতো প্রযুক্তিগত সেবা প্রদান করে থাকি।
 
                             </p>
-                            <a href="<?= LINK; ?>courses" class="btn btn-success slide-btn rounded banner-browse-btn wow slideInLeft" data-wow-duration="2s"><i class="fa-solid fa-folder-tree"></i> <!--ব্রাউজ-->দেখুন আমাদের কোর্সগুলো</a>
-                            <a style="color:white;background:#30b930;" href="<?= LINK; ?>certificate-verification" class="btn btn-success slide-btn rounded banner-browse-btn wow slideInRight"><i class="fa-solid fa-folder-tree"></i> সার্টিফিকেট যাচাই করুন </a>
+                            <a href="<?= LINK; ?>courses" class="btn btn-success slide-btn rounded banner-browse-btn wow slideInLeft" data-wow-duration="2s"><i class="fa-solid fa-folder-tree"></i> <!--ব্রাউজ-->কোর্স কিনুন</a>
+                            <a style="color:black;background:white;border: 1px solid #898989;" href="<?= LINK; ?>certificate-verification" class="btn btn-success slide-btn rounded banner-browse-btn wow slideInRight"><i class="fa-solid fa-folder-tree"></i> সার্টিফিকেট যাচাই </a>
                             <!-- <div class="row">
                                 <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
                                     <div class="home-contact">
@@ -85,28 +101,8 @@
 
                     </div>
                     <div class="banner-right">
-                        <iframe style="border-radius:20px;height:350px" width="100%" height="" src="https://www.youtube-nocookie.com/embed/6Kh5oRhGEp4?autoplay=1&amp;si=W1FHj9ufehV8p6jW&amp;controls=0" title="YouTube video player" frameborder="0" allow="autoplay ; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe class="feature-video-mobile" style="height:350px;border: 2px solid #616161;" width="100%" height="" src="https://www.youtube-nocookie.com/embed/6Kh5oRhGEp4?autoplay=1&amp;si=W1FHj9ufehV8p6jW&amp;controls=0" title="YouTube video player" frameborder="0" allow="autoplay ; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                 </div>

@@ -6,7 +6,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="footer-about mt-40">
               <div class="logo">
-                <a href="<?=LINK;?>"><img class="logoImg" src="<?= LINK; ?>public/images/header-logo.png" alt="server it studio Logo" /></a>
+                <a href="<?= LINK; ?>"><img class="logoImg" src="<?= LINK; ?>public/images/header-logo.png" alt="server it studio Logo" /></a>
               </div>
               <p>
                 ServerITStudio.com is a dedicated website to provide quality
@@ -23,7 +23,7 @@
                   while (mysqli_stmt_fetch($link_stmt)) {
                 ?>
                     <li>
-                      <a target="_blank" href="<?= $links; ?>" name="<?=$name;?>">
+                      <a target="_blank" href="<?= $links; ?>" name="<?= $name; ?>">
                         <?= $icon; ?>
                       </a>
                     </li>
@@ -46,7 +46,7 @@
                   mysqli_stmt_bind_result($menu_stmt, $id, $menu_name, $link);
                   while (mysqli_stmt_fetch($menu_stmt)) { ?>
                     <li>
-                      <a href="<?= LINK, $link; ?>" name="<?=$menu_name;?>" ><i class="fa fa-angle-right"></i><?= $menu_name; ?></a>
+                      <a href="<?= LINK, $link; ?>" name="<?= $menu_name; ?>"><i class="fa fa-angle-right"></i><?= $menu_name; ?></a>
                     </li>
                 <?php }
                 } ?>
@@ -123,9 +123,24 @@
     <!-- footer top -->
   </footer>
 </div>
+<!-- <script>
+  document.onreadystatechange = function() {
+    if (document.readyState !== "complete") {
+      document.querySelector(
+        "body").style.visibility = "hidden";
+      document.querySelector(
+        "#preloader").style.visibility = "visible";
+    } else {
+      document.querySelector(
+        "#preloader").style.display = "none";
+      document.querySelector(
+        "body").style.visibility = "visible";
+    }
+  };
+</script> -->
 <script>
   if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
   }
 </script>
-<script src="<?=LINK;?>views/partials/realTimeSearch.js"></script>
+<script src="<?= LINK; ?>views/partials/realTimeSearch.js"></script>

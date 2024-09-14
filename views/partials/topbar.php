@@ -8,12 +8,12 @@
           mysqli_stmt_bind_result($topbar_stmt,$id,$address,$email,$number);
           if(mysqli_stmt_fetch($topbar_stmt)){ ?>
         <ul>
-          <li>
+          <!-- <li>
             <a href="https://goo.gl/maps/NHuDSZ8DdW1ga2ou5" name="Address">
               <i class="fa-solid fa-location-dot"></i> 
-             <?=$address;?>
+             <?//=$address;?>
             </a>
-          </li>
+          </li> -->
           <li>
             <a href="mailto:<?=$email;?>" name="mail"
               ><i class="fa-regular fa-envelope"></i> <?=$email;?></a

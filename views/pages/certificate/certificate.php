@@ -121,6 +121,9 @@ include("../../partials/header.php");
         .student-profile-content {
             margin-top: 30px;
         }
+        .about-text>h1 {
+            font-size: 20px;
+        }
     }
 </style>
 <?php

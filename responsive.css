@@ -71,7 +71,7 @@
   top: 0px;
   width: 100%;
   left: 0%;
-  animation: 300ms ease-in-out 0s 1 normal none running menuAnimationRemove;
+  animation: 100ms ease-in-out 0s 1 normal none running menuAnimationRemove;
   overflow: hidden;
   display: block;
 }
@@ -85,14 +85,14 @@
   left: 0%;
   height: 220px;
   top: 1px;
-  animation: 400ms ease-in-out 0s 1 normal none running menuAnimationAdd;
+  animation: 100ms ease-in-out 0s 1 normal none running menuAnimationAdd;
 }
 .menu > ul {
   display: block;
   list-style: none;
 }
 .menu > ul > li {
-  padding: 5px 0px;
+  padding: 5px 15px;
   border-bottom: 1px solid rgb(243, 243, 243);
 }
 .cart {
@@ -101,6 +101,8 @@
 .category-section {
   margin-top: 0px;
   display: none;
+  background: url(public/images/banner-2.png) no-repeat center center;
+  background-attachment: fixed;
 }
 .our-campus-right {display: flex;justify-content: center;}
 .our-campus {
@@ -141,19 +143,20 @@ h5.card-title {
   font-size: 20px !important;
   width: 100%;
   text-align:left;
+  color: black!important;
 }
 
 img.img-fluid {
-  width: 60% !important;
+  /* width: 60% !important; */
   height: auto !important;
-  border-bottom-right-radius: 9px;
-  border-bottom-left-radius: 9px;
+  /* border-bottom-right-radius: 9px; */
+  /* border-bottom-left-radius: 9px; */
 }
 .card {
   background: #fdfdfd;
   align-items: center;
   color: #000000;
-  border: 1px solid #e3e3e3;
+  border: unset;
 }
 .campus-video-text > h1 {
   font-size: 24px;
@@ -253,8 +256,8 @@ section.review-part .title-h3::after {
 }
 .home-content h1 {
   font-size: 25px;
-  background: rgb(0,0,0,0.1);
-  border-radius: 6px;
+  color: black;
+  margin-bottom: 10px;
 }
 .home {
   background-position: top right;
@@ -281,5 +284,22 @@ section.review-part .title-h3::after {
 }
 .home-content p{
   display: none;
+}
+.home-content {
+    padding: 10px 0;
+    border-radius: 9px;
+    background-attachment: fixed;
+    background-position: top;
+}
+.category-class {
+  color: #ffffff;
+  border: 1px solid #e3e3e3;
+  background: transparent;
+}
+section#featured-courses {
+    background: unset;
+}
+.menu-bar {
+    font-size: 30px;
 }
 }

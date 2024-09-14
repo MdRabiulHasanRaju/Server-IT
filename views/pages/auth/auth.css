@@ -328,6 +328,10 @@ content: "\f00c";
 }
 
 @media (max-width: 767px) {
+  button.btn.btn-lg.btn-primary.btn-block.slide-btn {
+    padding: 15px 10px!important;
+    font-size: 15px;
+}
 
 .authfy-panel-left, 
 .authfy-panel-right {
