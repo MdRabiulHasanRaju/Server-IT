@@ -98,7 +98,7 @@ include("php/header.php");
     <legend  class="scheduler-border">Search:</legend>
 <form class="form-inline" role="form" id="searchform">
   <div class="form-group">
-    <label for="email">Name</label>
+    <label for="email">ID</label>
     <input type="text" class="form-control" id="student" name="student">
   </div>
   
@@ -227,13 +227,13 @@ mydatatable();
 function mydatatable()
 {
         
-              $("#subjectresult").html('<table class="table table-striped table-bordered table-hover" id="tSortable22"><thead><tr><th>Name/Contact</th><th>Total Fees</th><th>Due</th><th>Course Name</th><th>DOJ</th><th>Action</th></tr></thead><tbody></tbody></table>');
+              $("#subjectresult").html('<table class="table table-striped table-bordered table-hover" id="tSortable22"><thead><tr><th>ID</th><th>Name/Contact</th><th>Total Fees</th><th>Due</th><th>Course Name</th><th>DOJ</th><th>Action</th></tr></thead><tbody></tbody></table>');
 			  
 			    $("#tSortable22").dataTable({
-							      'sPaginationType' : 'full_numbers',
-							     "bLengthChange": false,
-                  "bFilter": false,
-                  "bInfo": false,
+							       'sPaginationType' : 'full_numbers',
+							       "bLengthChange": false,
+                     "bFilter": false,
+                     "bInfo": false,
 							       'bProcessing' : true,
 							       'bServerSide': true,
 							       'sAjaxSource': "datatable.php?"+$('#searchform').serialize()+"&type=feesearch",
@@ -309,13 +309,13 @@ display:none;
                                 <table class="table table-striped table-bordered table-hover" id="tSortable22">
                                     <thead>
                                         <tr>
-                                          
+                                            <th>ID</th>                                            
                                             <th>Name/Contact</th>                                            
                                             <th>Total Fees</th>
-											<th>Due</th>
-											<th>Course Name</th>
-											<th>DOJ</th>
-											<th>Action</th>
+                                            <th>Due</th>
+                                            <th>Course Name</th>
+                                            <th>DOJ</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>

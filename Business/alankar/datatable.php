@@ -53,7 +53,8 @@ $aColumns = array( 's.id','s.sname','s.balance','s.fees','b.grade','s.contact','
 	$condArr = array();
 	if(isset($_GET['student']) && $_GET['student']!="")
 	{
-	$condArr[] = "s.sname like '%".mysqli_real_escape_string($conn,$_GET['student'])."%'";
+	$_GET['student'] = substr($_GET['student'],5);
+	$condArr[] = "s.id like '%".mysqli_real_escape_string($conn,$_GET['student'])."%'";
 	
 	}
 	
@@ -169,6 +170,7 @@ $aColumns = array( 's.id','s.sname','s.balance','s.fees','b.grade','s.contact','
 		
 		
 		$row = array(
+					"SIT30".$aRow['id'],
                     html_entity_decode($aRow['sname'].'<br/>'.$aRow['contact']),
                     $aRow['fees'],
 					$aRow['balance'],
@@ -239,7 +241,8 @@ $aColumns = array( 's.id','s.sname','s.balance','s.fees','b.grade','s.contact','
 	$condArr = array();
 	if(isset($_GET['student']) && $_GET['student']!="")
 	{
-	$condArr[] = "s.sname like '%".mysqli_real_escape_string($conn,$_GET['student'])."%'";
+	$_GET['student'] = substr($_GET['student'],5);
+	$condArr[] = "s.id like '%".mysqli_real_escape_string($conn,$_GET['student'])."%'";
 	
 	}
 	
@@ -355,6 +358,7 @@ $aColumns = array( 's.id','s.sname','s.balance','s.fees','b.grade','s.contact','
 		
 		
 		$row = array(
+					"SIT30".$aRow['id'],
                     html_entity_decode($aRow['sname'].'<br/>'.$aRow['contact']),
                     $aRow['fees'],
 					$aRow['balance'],

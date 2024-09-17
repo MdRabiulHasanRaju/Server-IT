@@ -480,6 +480,7 @@ yearRange: "1970:<?php echo date('Y');?>"
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>ID</th>
                                             <th>Name | Contact</th>
 											<th>Course Name</th>
                                             <th>Joined On</th>
@@ -502,6 +503,7 @@ yearRange: "1970:<?php echo date('Y');?>"
 									
 									echo '<tr '.(($r['balance']>0)?'class="primary"':'').'>
                                             <td>'.$i.'</td>
+                                            <td>SIT30'.$r['id'].'</td>
 											<td>'.$r['sname'].'<br/>'.$r['contact'].'</td>
 											<td>'.$CourseResult['grade'].''.'</td>
                                             <td>'.date("d M y", strtotime($r['joindate'])).'</td>
