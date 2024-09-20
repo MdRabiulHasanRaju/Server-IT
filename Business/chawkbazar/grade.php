@@ -63,14 +63,14 @@ $_GET['action']="";
 
 if(isset($_REQUEST['act']) && @$_REQUEST['act']=="1")
 {
-$errormsg = "<div class='alert alert-success'> Grade has been added successfully</div>";
+$errormsg = "<div class='alert alert-success'> Batch has been added successfully</div>";
 }else if(isset($_REQUEST['act']) && @$_REQUEST['act']=="2")
 {
-$errormsg = "<div class='alert alert-success'> Grade has been updated successfully</div>";
+$errormsg = "<div class='alert alert-success'> Batch has been updated successfully</div>";
 }
 else if(isset($_REQUEST['act']) && @$_REQUEST['act']=="3")
 {
-$errormsg = "<div class='alert alert-success'> Grade has been deleted successfully</div>";
+$errormsg = "<div class='alert alert-success'> Batch has been deleted successfully</div>";
 }
 
 ?>
@@ -80,7 +80,7 @@ $errormsg = "<div class='alert alert-success'> Grade has been deleted successful
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Courses - Server IT Studio</title>
+    <title>Batch - Server IT Studio</title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="css/bootstrap.css" rel="stylesheet" />
@@ -108,10 +108,10 @@ include("php/header.php");
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">All Course Name  
+                        <h1 class="page-head-line">All Batch Name  
 						<?php
 						echo (isset($_GET['action']) && @$_GET['action']=="add" || @$_GET['action']=="edit")?
-						' <a href="grade.php" class="btn btn-success btn-sm pull-right" style="border-radius:0%">Go Back </a>':'<a href="grade.php?action=add" class="btn btn-danger btn-sm pull-right" style="border-radius:0%"><i class="glyphicon glyphicon-plus"></i> Add New Grade </a>';
+						' <a href="grade.php" class="btn btn-success btn-sm pull-right" style="border-radius:0%">Go Back </a>':'<a href="grade.php?action=add" class="btn btn-danger btn-sm pull-right" style="border-radius:0%"><i class="glyphicon glyphicon-plus"></i> Add New Batch </a>';
 						?>
 						</h1>
                      
@@ -135,7 +135,7 @@ include("php/header.php");
                     <div class="col-sm-8 col-sm-offset-2">
                <div class="panel panel-success">
                         <div class="panel-heading">
-                           <?php echo ($action=="add")? "Add Grade": "Edit Grade"; ?>
+                           <?php echo ($action=="add")? "Add Batch": "Edit Batch"; ?>
                         </div>
 						<form action="grade.php" method="post" id="signupForm1" class="form-horizontal">
                         <div class="panel-body">
@@ -144,7 +144,7 @@ include("php/header.php");
 						
 						
 						<div class="form-group">
-								<label class="col-sm-2 control-label" for="Old">Course Name </label>
+								<label class="col-sm-2 control-label" for="Old">Batch Name </label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="grade" name="grade" value="<?php echo $grade;?>"  />
 								</div>
@@ -202,7 +202,7 @@ include("php/header.php");
 					
 				},
 				messages: {
-					grade: "Please enter class name",
+					grade: "Please enter batch name",
 					
 					
 				},
@@ -260,7 +260,7 @@ include("php/header.php");
 		 
 		<div class="panel panel-default">
                         <div class="panel-heading">
-                            Manage Grade Level
+                            Manage Batch
                         </div>
                         <div class="panel-body">
                              <div class="table-sorting table-responsive">
@@ -269,7 +269,7 @@ include("php/header.php");
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Course Name</th>
+                                            <th>Batch Name</th>
                                             <th>Detail</th>
 											<th>Action</th>
                                         </tr>

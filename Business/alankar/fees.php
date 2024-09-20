@@ -108,11 +108,11 @@ include("php/header.php");
   </div>
   
   <div class="form-group">
-    <label for="email"> Course Name </label>
+    <label for="email"> Batch Name </label>
     <select  class="form-control" id="grade" name="grade" >
-		<option value="" >Select Course</option>
+		<option value="" >Select Batch</option>
                                     <?php
-									$sql = "select * from grade where delete_status='0' order by grade.grade asc";
+									$sql = "select * from grade where delete_status='0' and detail='current' order by grade.grade asc";
 									$q = $conn->query($sql);
 									
 									while($r = $q->fetch_assoc())

@@ -93,17 +93,18 @@ include("php/header.php");
 									$i=1;
 									while($r = $q->fetch_assoc())
 									{
-									
-									echo '<tr '.'>
-                                            <td>'.$i.'</td>
-											<td>'.$r['user_name'].'</td>
-											<td>'.$r['mobile'].'</td>
-											<td>'.$r['course_name'].''.'</td>
-                                            <td>'.$r['email'].'</td>
-											<td>'.$r['status'].'</td>
-                                            <td>'.date("d M y", strtotime($r['date'])).'</td>
-                                        </tr>';
-										$i++;
+                                        if(!$r['user_id']){
+        									echo '<tr '.'>
+                                                    <td>'.$i.'</td>
+        											<td>'.$r['user_name'].'</td>
+        											<td>'.$r['mobile'].'</td>
+        											<td>'.$r['course_name'].''.'</td>
+                                                    <td>'.$r['email'].'</td>
+        											<td>'.$r['status'].'</td>
+                                                    <td>'.date("d M y", strtotime($r['date'])).'</td>
+                                                </tr>';
+        										$i++;
+    									}
 									}
 									?>
 									
