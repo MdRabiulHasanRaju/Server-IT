@@ -153,13 +153,69 @@ include("php/header.php");
         <?php
         } else {
         ?>
-
-
-
-
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Expense List
+                <?php
+                    $total_sql = "SELECT SUM( amount) FROM expense";
+                    $totalAmountStmt = $conn->query($total_sql);
+                    $totalAmount = $totalAmountStmt->fetch_assoc()
+                ?>
+                    Expense List (Total Expense: <b><?=$totalAmount['SUM( amount)'].' ৳';?></b>) From - 24 Apr 2024
+
+                    <form id="expenseFilter" action="" method="post">
+                        <select name="monthAmount" id="monthAmount">
+                            <option value="" required readonly disabled selected>Choose Month</option>
+                            <option value="Jan">January</option>
+                            <option value="Fab">February</option>
+                            <option value="Mar">March</option>
+                            <option value="Apr">April</option>
+                            <option value="May">May</option>
+                            <option value="Jun">June</option>
+                            <option value="Jul">July</option>
+                            <option value="Aug">August</option>
+                            <option value="Sep">September</option>
+                            <option value="Oct">October</option>
+                            <option value="Nov">November</option>
+                            <option value="Dec">December</option>
+                        </select>
+                        <select name="yearAmount" id="yearAmount">
+                            <option required="required" value="" required readonly disabled selected>Choose Year</option>
+                            <option value="24">2024</option>
+                            <option value="25">2025</option>
+                        </select>
+                        <input type="submit" value="Filter">
+                    </form>
+                    <h5 id="amountShow"></h5>
+
+<script>
+    $(document).ready(function() {
+    let formId = document.getElementById("expenseFilter");
+    formId.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let monthAmount = document.getElementById("monthAmount").value;
+        let yearAmount = document.getElementById("yearAmount").value;
+        $.ajax({
+            url: "/serverit/Business/alankar/php/expenseFilter.php",
+            type: "POST",
+            data: {
+                "monthAmount": monthAmount,
+                "yearAmount": yearAmount,
+            },
+            success: function(data) {
+                var jsonData = JSON.parse(data);
+                if (jsonData.success == 1) {
+                   // window.location = jsonData.success_msg;
+                    document.getElementById("amountShow").innerHTML = jsonData.success_msg;
+                }
+            },
+
+        });
+
+
+    })
+
+});
+</script>
                 </div>
                 <div class="panel-body">
                     <div class="table-sorting table-responsive">
@@ -181,7 +237,7 @@ include("php/header.php");
                                 while ($r = $q->fetch_assoc()) {
                                     echo '<tr ' . '>
                                                     <td>' . $i . '</td>
-        											<td>' . $r['amount'] . '</td>
+        											<td>' . $r['amount'] . ' ৳</td>
         											<td>' . $r['expense_by'] . '' . '</td>
                                                     <td>' . $r['description'] . '</td>
                                                     <td>' . date("d M y", strtotime($r['date'])) . '</td>
