@@ -8,6 +8,9 @@ $header_active = "Courses";
 include("../../partials/header.php");
 ?>
 <style>
+    .card {
+    width: 97%;
+    }
     nav.pagination-nav {
         display: flex;
         align-items: center;

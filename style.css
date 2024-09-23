@@ -4,6 +4,24 @@
   font-family: 'Montserrat','Hind Siliguri', sans-serif;
   box-sizing: border-box;
 }
+h4 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 13px;
+}
+h1 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 20px;
+}
+p ,h1, h2, h3 ,h4 ,h5, h6{
+  margin: 0;
+  padding: 0;
+}
 .mycontainer{
   width: 1300px;
   margin: auto;
@@ -770,11 +788,12 @@ section.review-part {
 }
 img.profile-sidebar-img.img-thumbnail.img-fluid.rounded-circle {
   width: 150px;
-  margin-left: 20%;
 }
 
 .inside-profile-sidebar-2 {
-  margin-top: -60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .profile-sidebar-recent {
   border-top: 1px solid #ddd9d9;
@@ -992,11 +1011,11 @@ h2.insert-title {
 }
 .bottom-details-2 {
   padding: 40px;
-  background: #282020;
+  background: #ededed;
   border-radius: 6px;
 }
 .bottom-details-2 h1 {
-  color: white;
+  color: black;
   font-weight: bold;
   text-align: center;
   font-size: 29px;

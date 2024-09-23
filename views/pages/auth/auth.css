@@ -21,6 +21,24 @@ font-size: 1.6em;
 font-weight: 400;
 color: #44525f;
 }
+h4 {
+  font-size: 16px!important;
+}
+
+p {
+  font-size: 13px!important;
+}
+h1 {
+  font-size: 28px!important;
+}
+
+h3 {
+  font-size: 20px!important;
+}
+p ,h1, h2, h3 ,h4 ,h5, h6{
+  margin: 0;
+  padding: 0;
+}
 
 ul {
 padding: 0;
@@ -81,19 +99,7 @@ box-shadow: 0px 2px 3px #9c9c9c;
 /* 03. Section Panel UI CSS */
 /*--------------------*/
 
-.authfy-container {
-margin-top: 97px;
-margin-bottom: 97px;
-}
-
-.authfy-panel-left {
-background-color: rgba(38, 43, 72, 0.92);
-color: #ffffff;
-border-top-left-radius: 4px;
-border-bottom-left-radius: 4px;
--webkit-box-shadow: 0px 3px 6px #1d2030;
-box-shadow: 0px 3px 6px #1d2030;
-}
+.authfy-panel-left {background-color: rgba(38, 43, 72, 0.92);color: #ffffff;border-top-left-radius: 4px;border-bottom-left-radius: 4px;-webkit-box-shadow: 0px 3px 6px #1d2030;box-shadow: 0px 3px 6px #1d2030;margin: 0;padding: 0;}
 
 .authfy-panel-right {
 background-color: #ffffff;
@@ -107,16 +113,9 @@ box-shadow: 0px 2px 6px 0px #1d2030;
 .authfy-panel-left .brand-col {
 height: 472px;
 }
-.authfy-panel-left .brand-col {
-display: table;
-width: 100%;
-padding: 25px;
-}
+.authfy-panel-left .brand-col {width: 100%;padding: 25px;display: flex;align-items: center;justify-content: center;}
 
-.authfy-panel-left .brand-col .headline {
-display: table-cell;
-vertical-align: middle;
-}
+.authfy-panel-left .brand-col .headline {display: grid;place-items: center;justify-content: center;}
 
 .authfy-panel-left .brand-col .headline h1, 
 .authfy-panel-left .brand-col .headline h2, 
@@ -160,23 +159,18 @@ transform: translateX(0);
 -webkit-transform: translateX(0);
 }
 
-.brand-col .social-buttons a {
-color: #ffffff; 
-margin-top: 15px;
-}
+.brand-col .social-buttons a {color: #ffffff;display: block;margin-top: 7px!important;font-size: 13px;}
 
 .brand-col .social-buttons a:hover {
 color: white;
 opacity: 0.9; 
 }
 
-.brand-col .social-buttons .btn-facebook {background: #3b5998;}
+.brand-col .social-buttons .btn-facebook {background: #3b5998;display: block;font-size: 13px;}
 .brand-col .social-buttons .btn-twitter {background: #00aced;}
-.brand-col .social-buttons .btn-google {background: #c32f10;}
+.brand-col .social-buttons .btn-google {background: #c32f10;display: block;font-size: 13px;}
 
-.brand-col .social-buttons a > span {
-padding-left: 5px;
-}
+.brand-col .social-buttons a > span {padding-left: 5px;}
 
 .panel-login {
 margin-top: 20px;
@@ -240,10 +234,7 @@ z-index: 2;
 }
 
 .panel-login .pwdMask .pwd-toggle, 
-.panel-signup .pwdMask .pwd-toggle {
-top: 15px;
-right: 15px;
-}
+.panel-signup .pwdMask .pwd-toggle {top: 19px;right: 12px;}
 
 .pwdMask .pwd-toggle:hover, 
 .pwdMask .pwd-toggle:focus {
@@ -256,9 +247,7 @@ cursor: pointer;
 color: #4f77ff;
 }
 
-.panel-signup .term-policy a {
-text-decoration: underline;
-}
+.panel-signup .term-policy a {text-decoration: underline;font-size: 16px;}
 
 /*--------------------*/
 /* 04. Check box UI CSS */
@@ -431,4 +420,20 @@ content: "\f00c";
   font-size: 13px;
   width: 156px;
   float: right;
+}
+.row.social-buttons {
+  margin: 0;
+}
+a.lnk-toggler {
+  font-size: 17px;
+}
+
+span.fa.fa-eye-slash.pwd-toggle {
+  font-size: 14px;
+}
+input.form-control{
+  font-size: 13px!important;
+}
+input.form-control::placeholder{
+  font-size: 13px;
 }

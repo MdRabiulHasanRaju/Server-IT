@@ -74,7 +74,7 @@ $header_active = "Home";?>
 <script src="<?= LINK; ?>public/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="<?= LINK; ?>public/WOW-master/dist/wow.min.js"></script>
 <script src="<?= LINK; ?>public/bootstrap/popper.min.js"></script>
-<script>
+
   new WOW().init();
 </script>
 <script>

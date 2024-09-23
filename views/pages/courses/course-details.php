@@ -1,7 +1,7 @@
 <?php ob_start();
 session_start();
 if (isset($_GET['id'])) {
-    $course_id = $_GET["id"];
+  $course_id = $_GET["id"];
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
 $title_sql = "select title,sub_title from courses where id=$course_id";
@@ -15,166 +15,417 @@ $meta_description = "$course_sub_title - server it studio Call 880 1945 4668 21"
 $meta_keywords = "$course_title, Server IT Studio, server it,server,server studio";
 $header_active = "Courses";
 include("../../partials/header.php");
-include $_SERVER['DOCUMENT_ROOT']."/serverit/views/pages/courses/admission-form.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/serverit/views/pages/courses/admission-form.php";
 ?>
+<style>
+  .accordion {
+    --bs-accordion-active-bg: #ededed;
+  }
+
+  .courseDetails {
+    padding: 20px 0;
+    ;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+
+  h6 {
+    font-weight: bold;
+  }
+
+  .courseInstructor {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    gap: 5px;
+  }
+
+  .courseInstructor>h6 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .courseInstructor>p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .courseDescription {
+    padding-bottom: 20px;
+    text-align: justify;
+  }
+
+  .courseDescription>h3 {
+    padding-bottom: 15px;
+    padding-top: 35px;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .courseDescription>p {
+    font-size: 15px;
+  }
+
+  .courseContent>h4 {
+    padding-bottom: 15px;
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .courseContent>h6 {
+    padding-bottom: 12px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .courseDetailsRow {
+    justify-content: space-between;
+  }
+  a.btn.btn-danger {
+    font-size: 18px;
+    padding: 8px 18px;
+    display: block;
+}
+
+  @media screen and (max-width:768px) {
+    .courseDetailsRow {
+      flex-direction: column-reverse;
+    }
+
+    .col-md-4.courseDetailsSectionRight {
+      display: grid;
+      place-content: center;
+    }
+
+    ul.list-group.list-group-flush {
+      width: 95%;
+    }
+
+    img.card-img-top {
+      width: 95%;
+    }
+  }
+</style>
 <?php
-$sql = "select * from courses where id=?";
+$sql = "select id ,cat_id,image,title,sub_title,description,course_content,instructor_id,price,discount_price,tags,total_students from courses_table where id=?";
 $stmt = mysqli_prepare($connection, $sql);
 mysqli_stmt_bind_param($stmt, "i", $param_id);
 $param_id = $course_id;
 if (mysqli_stmt_execute($stmt)) {
-    mysqli_stmt_store_result($stmt);
-    if (mysqli_stmt_num_rows($stmt) == 0) {
-        header("location: " . LINK . "error/404");
-        die();
-    } else {
-        mysqli_stmt_bind_result(
-            $stmt,
-            $id,
-            $cat_id,
-            $image,
-            $title,
-            $sub_title,
-            $motivational_title,
-            $motivational_des,
-            $summary,
-            $purpose,
-            $for_whom,
-            $pre_idea,
-            $instructor_id,
-            $admission_title,
-            $admission_box_title,
-            $admission_box_des,
-            $price,
-            $discount_price,
-            $tags,
-            $total_students
-        );
-        if (mysqli_stmt_fetch($stmt)) { ?>
-            <section class="course-details-page">
-                <div class="container">
-                    <div class="row lefts FadeIN-Right">
-                        <div class="course-details">
-                            <div class="background" style="background:url(<?= IMAGEPATH, $image; ?>);background-size: cover;border-radius: 6px;">
-                                <div class="top-details">
-                                    <h1>
-                                        <?= $title; ?>
-                                    </h1>
-                                    <h3>
-                                        <?= $sub_title; ?>
-                                    </h3>
-                                    <a href="#purchaseid">
-                                        <button class="btn btn-primary slide-btn"><i class="fas fa-shopping-cart"></i> Enroll Now</button>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row top-details-2">
-                                <!--Motivation of this course start-->
-                                <div class="top-details-2-1 col-md-6 ">
-                                    <h5 class="title-h3"><?= $motivational_title; ?></h5>
-                                    <?= $motivational_des; ?>
-                                    <a href="#purchaseid">
-                                        <button class="btn btn-primary slide-btn"><i class="fas fa-shopping-cart"></i> Enroll Now</button>
-                                    </a>
-                                </div>
-                                <!--Motivation of this course start-->
+  mysqli_stmt_store_result($stmt);
+  if (mysqli_stmt_num_rows($stmt) == 0) {
+    header("location: " . LINK . "error/404");
+    die();
+  } else {
+    mysqli_stmt_bind_result(
+      $stmt,
+      $id,
+      $cat_id,
+      $image,
+      $title,
+      $sub_title,
+      $description,
+      $course_content,
+      $instructor_id,
+      $price,
+      $discount_price,
+      $tags,
+      $total_students
+    );
+    if (mysqli_stmt_fetch($stmt)) { ?>
 
-                                <!--Course summary start-->
-                                <div class="top-details-2-2 col-md-6 ">
-                                    <div class="top-color"></div>
-                                    <?= $summary; ?>
-                                </div>
-                                <!--Course summary end-->
-                            </div>
+      <section class="container courseDetails">
+        <div class="col-md-12" style="padding-bottom:20px">
+          <div class="row courseDetailsRow">
+            <div class="col-md-8 courseDetailsSectionLeft">
+              <div class="courseInstructor">
+                <?php
+                $ins_sql = "select * from instructors where id=$instructor_id";
+                $ins_stmt = fetch_data($connection, $ins_sql);
+                mysqli_stmt_bind_result($ins_stmt, $ins_id, $ins_name, $ins_expertise, $ins_about, $ins_image);
+                mysqli_stmt_fetch($ins_stmt);
+                ?>
+                <img style="min-height:80px; width: 100px;border-radius:50%;border: 1px solid #ededed ;" src="<?= IMAGEPATH, $ins_image; ?>" alt="Instructor Image" />
+                <h6>Instructor:</h6>
+                <p><?= $ins_name; ?></p>
+              </div>
 
-                            <!--course_purpose start-->
-                            <div class="middle-details-1">
-                                <h1 class="title-h3">By the end of this course, you'll be able to…</h1>
-                                <?= $purpose; ?>
-                            </div>
-                            <!--course_purpose end-->
-
-                            <!--Who is this course for? start-->
-                            <div class="middle-details-2">
-                                <h1 class="title-h3">Who is this course for?</h1>
-                                <?= $for_whom; ?>
-                            </div>
-                            <!--Who is this course for? end-->
-
-                            <!--No prior knowledge needed! start-->
-                            <div class="middle-details-3">
-                                <h1 class="title-h3">No prior knowledge needed!</h1>
-                                <?= $pre_idea; ?>
-                            </div>
-                            <!--No prior knowledge needed! end-->
-
-                            <!--Instructor start-->
-                            <div class="bottom-details-1">
-                                <h1 class="title-h3">Your Instructor</h1>
-                                <div class="instructor-details-2">
-                                    <?php
-                                    $ins_sql = "select * from instructors where id=$instructor_id";
-                                    $ins_stmt = fetch_data($connection, $ins_sql);
-                                    mysqli_stmt_bind_result($ins_stmt, $ins_id, $ins_name, $ins_expertise, $ins_about, $ins_image);
-                                    mysqli_stmt_fetch($ins_stmt);
-                                    ?>
-                                    <img src="<?= IMAGEPATH, $ins_image; ?>" alt="instuctor image" />
-                                    <p><?= $ins_name; ?></p>
-                                    <p><?= $ins_expertise; ?></p>
-                                </div>
-                            </div>
-                            <!--Instructor end-->
-
-                            <!--purchase part start-->
-                            <div class="bottom-details-2" id="purchaseid">
-                                <h1>
-                                    <?= $admission_title; ?>
-                                </h1>
-                                <div class="purchase">
-                                    <h2>
-                                        <?= $admission_box_title; ?>
-                                    </h2>
-                                    <?= $admission_box_des; ?>
-                                    <p class="price1">৳
-                                        <?= $discount_price; ?> <del>৳
-                                            <?= $price; ?>
-                                        </del>
-                                    </p>
-
-                                    <?php
-                                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { ?>
-                                        <button id="admission" class="btn btn-primary slide-btn">Admission</button>
-                                    <?php } else { ?>
-                                        <a href="<?= LINK; ?>admission">
-                                            <button class="btn btn-primary slide-btn">Admission</button>
-                                        </a>
-                                    <?php } ?>
-
-
-                                </div>
-                            </div>
-                            <!--purchase part start-->
-                        </div>
+              <div class="courseContent">
+                <h4>Course Content</h4>
+                <h6>Level Advanced - Classes 15</h6>
+                <div class="accordion courseContentList" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <h6 style="display: flex; align-items: center; gap: 15px">
+                          Introduction to HTML
+                          <img
+                            style="width: 20px; min-height: 15px"
+                            src="<?= IMAGEPATH; ?>course_details/countdown.png"
+                            alt="arrow-image" />
+                          3 Classes
+                        </h6>
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <img
+                              style="width: 20px; min-height: 15px"
+                              src="<?= IMAGEPATH; ?>course_details/list.png"
+                              alt="offline-class-icon" />
+                            <b>Basics of HTML</b>
+                          </li>
+                          <li class="list-group-item">
+                            <img
+                              style="width: 20px; min-height: 15px"
+                              src="<?= IMAGEPATH; ?>course_details/list.png"
+                              alt="offline-class-icon" />
+                            <b>Structuring a webpage</b>
+                          </li>
+                          <li class="list-group-item">
+                            <img
+                              style="width: 20px; min-height: 15px"
+                              src="<?= IMAGEPATH; ?>course_details/list.png"
+                              alt="offline-class-icon" />
+                            <b>HTML5 features</b>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <h6 style="display: flex; align-items: center; gap: 15px">
+                          Introduction to HTML
+                          <img
+                            style="width: 20px; min-height: 15px"
+                            src="<?= IMAGEPATH; ?>course_details/countdown.png"
+                            alt="arrow-image" />
+                          3 Classes
+                        </h6>
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <img
+                              style="width: 20px; min-height: 15px"
+                              src="<?= IMAGEPATH; ?>course_details/list.png"
+                              alt="offline-class-icon" />
+                            <b>Basics of HTML</b>
+                          </li>
+                          <li class="list-group-item">
+                            <img
+                              style="width: 20px; min-height: 15px"
+                              src="<?= IMAGEPATH; ?>course_details/list.png"
+                              alt="offline-class-icon" />
+                            <b>Structuring a webpage</b>
+                          </li>
+                          <li class="list-group-item">
+                            <img
+                              style="width: 20px; min-height: 15px"
+                              src="<?= IMAGEPATH; ?>course_details/list.png"
+                              alt="offline-class-icon" />
+                            <b>HTML5 features</b>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <h6 style="display: flex; align-items: center; gap: 15px">
+                          Introduction to HTML
+                          <img
+                            style="width: 20px; min-height: 15px"
+                            src="<?= IMAGEPATH; ?>course_details/countdown.png"
+                            alt="arrow-image" />
+                          3 Classes
+                        </h6>
+                      </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">
+                            <img
+                              style="width: 20px; min-height: 15px"
+                              src="<?= IMAGEPATH; ?>course_details/list.png"
+                              alt="offline-class-icon" />
+                            <b>Basics of HTML</b>
+                          </li>
+                          <li class="list-group-item">
+                            <img
+                              style="width: 20px; min-height: 15px"
+                              src="<?= IMAGEPATH; ?>course_details/list.png"
+                              alt="offline-class-icon" />
+                            <b>Structuring a webpage</b>
+                          </li>
+                          <li class="list-group-item">
+                            <img
+                              style="width: 20px; min-height: 15px"
+                              src="<?= IMAGEPATH; ?>course_details/list.png"
+                              alt="offline-class-icon" />
+                            <b>HTML5 features</b>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </section>
+
+              </div>
+
+
+              <div class="courseDescription">
+                <h3><?= $sub_title; ?></h3>
+                <p>
+                  <?= $description; ?>
+                </p>
+              </div>
+
+            </div>
+            <div class="col-md-4 courseDetailsSectionRight">
+              <div style="border:1px solid #ededed" class="card" style="width: 100%">
+                <img style="min-height: 190px;"
+                  src="<?= IMAGEPATH, $image; ?>"
+                  class="card-img-top"
+                  alt="graphic-design" />
+                <div style="display: grid;place-items: center;gap: 5px;" class="card-body">
+                  <h5 class="card-title" style="font-size: 25px;">
+                    ৳ <?= $discount_price; ?> <sub><del>৳ <?= $price; ?> </del></sub>
+                  </h5>
+                  <a
+                    href="#purchaseid"
+                    type="button"
+                    class="btn btn-danger"
+                    style="
+                --bs-btn-padding-y: 0.25rem;
+                --bs-btn-padding-x: 0.5rem;
+                --bs-btn-font-size: 1rem;
+              ">
+                    কোর্সট কিনুন
+                  </a>
+                  <h6 style="font-size: 16px;" class="card-text">
+                    <?= $title; ?>
+                  </h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li style="display: flex; align-items: center;justify-content: space-between;gap:5px;" class="list-group-item">
+                    <div style="display: flex; align-items: center;gap:5px;">
+                      <img style="width: 20px; min-height: 15px" src="<?= IMAGEPATH; ?>course_details/instructor.png" alt="instructor">
+                      <h6>Instructor</h6>
+                    </div>
+                    <h6><?= $ins_name; ?></h6>
+                  </li>
+                  <li style="display: flex; align-items: center;justify-content: space-between;" class="list-group-item">
+                    <div style="display: flex; align-items: center;gap:5px;">
+                      <img style="width: 20px; min-height: 15px" src="<?= IMAGEPATH; ?>course_details/level.png" alt="level">
+                      <h6>Level</h6>
+                    </div>
+                    <h6>Advanced</h6>
+                  </li>
+                  <li style="display: flex; align-items: center;justify-content: space-between;" class="list-group-item">
+                    <div style="display: flex; align-items: center;gap:5px;">
+                      <img style="width: 20px; min-height: 15px" src="<?= IMAGEPATH; ?>course_details/clock.png" alt="clock">
+                      <h6>Duration</h6>
+                    </div>
+                    <h6>3 Months</h6>
+                  </li>
+                  <li style="display: flex; align-items: center;justify-content: space-between;" class="list-group-item">
+                    <div style="display: flex; align-items: center;gap:5px;">
+                      <img style="width: 20px; min-height: 15px" src="<?= IMAGEPATH; ?>course_details/training.png" alt="training">
+                      <h6>Class</h6>
+                    </div>
+                    <h6>20</h6>
+                  </li>
+                  <li style="display: flex; align-items: center;justify-content: space-between;" class="list-group-item">
+                    <div style="display: flex; align-items: center;gap:5px;">
+                      <img style="width: 20px; min-height: 15px" src="<?= IMAGEPATH; ?>course_details/certificate.png" alt="certificate">
+                      <h6>Certificate</h6>
+                    </div>
+                    <h6>Yes</h6>
+                  </li>
+                </ul>
+                <div style="display: flex; align-items: center;justify-content: center;gap:10px;" class="card-body">
+                  <h6 style="display: flex; align-items: center;justify-content: center;gap:10px;">
+                    <img style="width: 25px; min-height: 20px" src="<?= IMAGEPATH; ?>course_details/share.png" alt="share">
+                    Share With
+                  </h6>
+                  <a href="#"><img style="width: 30px; min-height: 25px" src="<?= IMAGEPATH; ?>course_details/facebook.png" alt="facebook"></a>
+                  <a href="#"><img style="width: 30px; min-height: 25px" src="<?= IMAGEPATH; ?>course_details/whatsapp.png" alt="whatsapp"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--purchase part start-->
+        <div class="bottom-details-2" id="purchaseid">
+          <h1>
+            Go from Beginner to Expert
+          </h1>
+          <div class="purchase">
+            <h2>
+              Enroll the Complete Bundle
+            </h2>
+            Own it forever!
+            Limited Time!
+            <p class="price1">৳
+              <?= $discount_price; ?> <del>৳
+                <?= $price; ?>
+              </del>
+            </p>
+
+            <?php
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { ?>
+              <button id="admission" class="btn btn-primary slide-btn">Admission</button>
+            <?php } else { ?>
+              <a href="<?= LINK; ?>admission">
+                <button class="btn btn-primary slide-btn">Admission</button>
+              </a>
+            <?php } ?>
+
+
+          </div>
+        </div>
+        <!--purchase part start-->
+      </section>
+
 <?php
-        }
     }
+  }
 }
 ?>
 <?php include("../../partials/footer.php");
 ob_end_flush(); ?>
 <script src="<?= LINK; ?>public/jquery/jquery.js"></script>
 <script src="<?= LINK; ?>public/owl/owl.carousel.min.js"></script>
-<script src="<?= LINK; ?>public/bootstrap/bootstrap.min.js"></script>
+<!-- <script src="<?= LINK; ?>public/bootstrap/bootstrap.min.js"></script> -->
 <script src="<?= LINK; ?>public/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="<?= LINK; ?>public/WOW-master/dist/wow.min.js"></script>
 <script src="<?= LINK; ?>public/bootstrap/popper.min.js"></script>
 <script>
-    new WOW().init();
+  new WOW().init();
 </script>
-<script src="<?=LINK;?>views/pages/courses/admissionForm.js"></script>
+<script src="<?= LINK; ?>views/pages/courses/admissionForm.js"></script>
 <script src="<?= LINK; ?>main.js"></script>
 </body>
 

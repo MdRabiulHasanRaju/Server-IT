@@ -60,6 +60,7 @@ include("../../partials/header.php");
         display: flex;
         align-items: center;
         column-gap: 10px;
+        padding: 2px;
     }
 
     select {
@@ -82,7 +83,7 @@ include("../../partials/header.php");
                     number for any training-related information. You can also contact me by email or Facebook Messenger.
                 </p>
             </div>
-            <div class="contact-map">
+            <div class="col-md-12 row contact-map">
                 <div class="col-md-6 google-map">
                     <iframe name="google-map-server-it-studio" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.8656585501585!2d91.78024547483585!3d22.358700879644655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd94b007e74f5%3A0x37902ac49758f433!2sServer%20IT%20Studio!5e0!3m2!1sen!2sbd!4v1681164990494!5m2!1sen!2sbd" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -134,7 +135,7 @@ include("../../partials/header.php");
                     <?php } ?>
                 </div>
             </div>
-            <div class="contact-map">
+            <div class="col-md-12 row contact-map">
                 <div class="col-md-6 google-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29521.624481922467!2d91.80043977522212!3d22.345960297813427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ad27a5f2b3ddbd%3A0x94e897a86845b1d1!2sServer%20IT%20Studio%2C%20Chawkbazar%20Branch!5e0!3m2!1sen!2sbd!4v1696175815772!5m2!1sen!2sbd" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -216,7 +217,7 @@ include("../../partials/header.php");
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea cols="30" rows="10" id="description" name="description" class="form-control" placeholder="Write Your Queries" required></textarea>
+                        <textarea style="min-height:150px" cols="30" rows="10" id="description" name="description" class="form-control" placeholder="Write Your Queries" required></textarea>
                     </div>
                     <div class="form-group submit-button">
 

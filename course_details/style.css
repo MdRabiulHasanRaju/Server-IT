@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.courseDetails{
+    padding: 20px 0;;
+}
+p ,h1, h2, h3 ,h4 ,h5, h6{
+    margin: 0;
+    padding: 0;
+}
+.courseInstructor {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    gap: 5px;
+}
+.courseDescription {
+    padding-bottom: 20px;
+    text-align: justify;
+}
+
+.courseDescription>h3 {
+    padding-bottom: 10px;
+}
+
+.courseContent>h4 {
+    padding-bottom: 15px;
+}
+
+.courseContent>h6 {
+    padding-bottom: 12px;
+}
+
+.courseDetailsRow{
+    justify-content: space-between;
+}
+@media screen and (max-width:768px){
+    .courseDetailsRow{
+        flex-direction: column-reverse;
+    }
+    .col-md-4.courseDetailsSectionRight {display: grid;place-content: center;}
+}

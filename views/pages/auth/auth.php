@@ -59,10 +59,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="authfy-container col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
-        <div class="col-sm-5 authfy-panel-left">
+  <div class="container-fluid" style="display: flex; align-items: center;justify-content: center;height: 100%;">
+    <div class="row" style="margin: 0;padding:0;">
+      <!-- <div class="authfy-container col-md-12 col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3"> -->
+      <div class="authfy-container col-md-12 row" style="margin: 0;padding:0;"> 
+        <div class="col-md-5 authfy-panel-left">
           <div class="brand-col">
             <div class="headline">
               <!-- brand-logo start -->
@@ -102,7 +103,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
           </div>
         </div>
 
-        <div class="col-sm-7 authfy-panel-right">
+        <div class="col-md-7 authfy-panel-right">
           <!-- login start -->
           <div class="authfy-login">
 
@@ -129,12 +130,12 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
                                             unset($_SESSION['err']); ?></span>
                     <!-- start remember-row -->
                     <div class="row remember-row">
-                      <div class="col-xs-6 col-sm-6">
+                      <!-- <div class="col-xs-6 col-sm-6">
                         <label class="checkbox text-left">
                           <input type="checkbox" value="remember-me">
                           <span class="label-text">Remember me</span>
                         </label>
-                      </div>
+                      </div> -->
                       <div class="col-xs-6 col-sm-6">
                         <p class="forgotPwd">
                           <!-- <a class="lnk-toggler" data-panel=".panel-forgot" href="#">Forgot password?</a> -->
@@ -261,7 +262,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
 
   <script src="<?= LINK; ?>public/jquery/jquery.js"></script>
   <script src="<?= LINK; ?>public/owl/owl.carousel.min.js"></script>
-  <script src="<?= LINK; ?>public/bootstrap/bootstrap.min.js"></script>
+  <!-- <script src="<?= LINK; ?>public/bootstrap/bootstrap.min.js"></script> -->
   <script src="<?= LINK; ?>public/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="<?= LINK; ?>public/WOW-master/dist/wow.min.js"></script>
   <script src="<?= LINK; ?>public/bootstrap/popper.min.js"></script>

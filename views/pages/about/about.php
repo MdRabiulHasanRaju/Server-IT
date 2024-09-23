@@ -109,8 +109,9 @@ include("../../partials/header.php");
             <div class="col-12">
                 <h3 class="title-h3" style="font-size: 30px;">SERVER IT STUDIO TEAM</h3>
             </div>
-            <div class="team">
+            <div class="col-md-12 team">
                 <h1>Meet the team</h1>
+            <div class="row">
                 <?php
                 $instructorsSql = "SELECT * FROM `instructors`";
                 $instructorsStmt = fetch_data($connection, $instructorsSql);
@@ -128,6 +129,7 @@ include("../../partials/header.php");
                 <?php }
                 } ?>
 
+            </div>
             </div>
         </div>
     </div>
