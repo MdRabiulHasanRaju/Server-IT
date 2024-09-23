@@ -65,13 +65,11 @@ include("php/header.php");
                     </div>
 					
 					
-					 <div class="col-md-4">
-                        <div class="main-box mb-secondary" style="background:red;">
-                            <a href="report.php">
+                    <div class="col-md-4">
+                        <div class="main-box mb-secondary" style="background:green;color:white">
                                 <i class="fa fa-th-large fa-5x"></i>
-                                <h4>Available Courses: <?php include 'counter/totalgrade.php'?></h4>
-                                <h5>Filter Students</h5>
-                            </a>
+                                <h4>Fund Balance: <?php include 'counter/fundBalance.php'?></h4>
+                                <h5><?=$fund>0?"<b>Positive Fund Balance</b>":"<b style='color:orange'>Negative Fund Balance</b>";?></h5>
                         </div>
                     </div>
                   

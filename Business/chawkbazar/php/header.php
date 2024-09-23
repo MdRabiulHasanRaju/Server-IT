@@ -39,7 +39,7 @@
                     </li>
 
                     <li>
-                        <a class="<?php if($page=='grade'){ echo 'active-menu';}?>" href="grade.php"><i class="fa fa-th-large"></i>Courses</a>
+                        <a class="<?php if($page=='grade'){ echo 'active-menu';}?>" href="grade.php"><i class="fa fa-th-large"></i>Batch</a>
                     </li>
                     
 					<li>
@@ -47,6 +47,14 @@
                     </li>
 					 <li>
                         <a class="<?php if($page=='report'){ echo 'active-menu';}?>" href="report.php"><i class="fa fa-file-pdf-o "></i>Report Section</a>
+                    </li>
+
+                    <li>
+                        <a class="<?php if($page=='income'){ echo 'active-menu';}?>" href="income.php"><i class="fa fa-users "></i>Income Statement</a>
+                    </li>
+
+                    <li>
+                        <a class="<?php if($page=='expense'){ echo 'active-menu';}?>" href="expense.php"><i class="fa fa-users "></i>Expense Statement</a>
                     </li>
 					
 					 

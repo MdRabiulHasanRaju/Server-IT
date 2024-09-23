@@ -29,4 +29,5 @@ while ($date_r = $dateStmt->fetch_assoc()) {
 echo json_encode(array(
     'success'=>"1",
     'success_msg'=>$month .' '.$year. ' = ' . $amount_income . " ৳",
+    'search_input'=>$month .' '.$year,
 ));

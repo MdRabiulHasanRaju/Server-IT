@@ -112,7 +112,7 @@ include("php/header.php");
     <select  class="form-control" id="grade" name="grade" >
 		<option value="" >Select Course</option>
                                     <?php
-									$sql = "select * from grade where delete_status='0' order by grade.grade asc";
+									$sql = "select * from grade where delete_status='0' and detail='current' order by grade.grade asc";
 									$q = $conn->query($sql);
 									
 									while($r = $q->fetch_assoc())

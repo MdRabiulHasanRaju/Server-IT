@@ -5,7 +5,7 @@ if (!isset($connection)) {
 
 DEFINE('DB_PSWD', '');
 DEFINE('DB_HOST', 'localhost');
-DEFINE('DB_NAME1', 'server_it_admin');
+DEFINE('DB_NAME1', 'server_it_chawkbazar');
 
 date_default_timezone_set('Asia/Dhaka');
 $conn =  new mysqli(DB_HOST, DB_USER, DB_PSWD, DB_NAME1);
@@ -15,19 +15,19 @@ if ($conn->connect_error)
 
 $month = $_POST['monthAmount'];
 $year = $_POST['yearAmount'];
-$amount_expense = 0;
-$dateSql = "SELECT `amount`,`date` FROM `expense`";
+$amount_income = 0;
+$dateSql = "SELECT `paid`,`submitdate` FROM `fees_transaction`";
 $dateStmt = $conn->query($dateSql);
 while ($date_r = $dateStmt->fetch_assoc()) {
 
-    $r_month = date("M", strtotime($date_r['date']));
-    $r_year = date("y", strtotime($date_r['date']));
+    $r_month = date("M", strtotime($date_r['submitdate']));
+    $r_year = date("y", strtotime($date_r['submitdate']));
     if ($month == $r_month && $year == $r_year) {
-        $amount_expense = $amount_expense + (int)$date_r['amount'];
+        $amount_income = $amount_income + (int)$date_r['paid'];
     }
 }
 echo json_encode(array(
     'success'=>"1",
-    'success_msg'=>$month .' '.$year. ' = ' . $amount_expense . " ৳",
+    'success_msg'=>$month .' '.$year. ' = ' . $amount_income . " ৳",
     'search_input'=>$month .' '.$year,
 ));
