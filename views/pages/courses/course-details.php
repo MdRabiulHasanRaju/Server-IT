@@ -4,7 +4,7 @@ if (isset($_GET['id'])) {
   $course_id = $_GET["id"];
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . "/serverit/lib/Database.php";
-$title_sql = "select title,sub_title from courses where id=$course_id";
+$title_sql = "select title,sub_title from courses_table where id=$course_id";
 $title_stmt = mysqli_prepare($connection, $title_sql);
 mysqli_stmt_execute($title_stmt);
 mysqli_stmt_store_result($title_stmt);
@@ -12,7 +12,7 @@ mysqli_stmt_bind_result($title_stmt, $course_title, $course_sub_title);
 mysqli_stmt_fetch($title_stmt);
 $meta_title = "$course_title Training Course in Chittagong - Server IT Studio";
 $meta_description = "$course_sub_title - server it studio Call 880 1945 4668 21";
-$meta_keywords = "$course_title, Server IT Studio, server it,server,server studio";
+$meta_keywords = "$course_title,$course_sub_title, Server IT Studio, server it,server,server studio";
 $header_active = "Courses";
 include("../../partials/header.php");
 include $_SERVER['DOCUMENT_ROOT'] . "/serverit/views/pages/courses/admission-form.php";
@@ -92,11 +92,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/views/pages/courses/admission-for
   .courseDetailsRow {
     justify-content: space-between;
   }
-  a.btn.btn-danger {
-    font-size: 18px;
-    padding: 8px 18px;
-    display: block;
-}
+
 
   @media screen and (max-width:768px) {
     .courseDetailsRow {
@@ -118,7 +114,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/serverit/views/pages/courses/admission-for
   }
 </style>
 <?php
-$sql = "select id ,cat_id,image,title,sub_title,description,course_content,instructor_id,price,discount_price,tags,total_students from courses_table where id=?";
+$sql = "select id ,cat_id,image,title,sub_title,description,course_content,level,duration,numberOfClass,instructor_id,price,discount_price,tags,total_students from courses_table where id=?";
 $stmt = mysqli_prepare($connection, $sql);
 mysqli_stmt_bind_param($stmt, "i", $param_id);
 $param_id = $course_id;
@@ -137,6 +133,9 @@ if (mysqli_stmt_execute($stmt)) {
       $sub_title,
       $description,
       $course_content,
+      $level,
+      $duration,
+      $numberOfClass,
       $instructor_id,
       $price,
       $discount_price,
@@ -161,134 +160,58 @@ if (mysqli_stmt_execute($stmt)) {
                 <p><?= $ins_name; ?></p>
               </div>
 
+
               <div class="courseContent">
                 <h4>Course Content</h4>
-                <h6>Level Advanced - Classes 15</h6>
+                <h6>Level <?=$level;?> - Classes <?=$numberOfClass;?></h6>
                 <div class="accordion courseContentList" id="accordionExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <h6 style="display: flex; align-items: center; gap: 15px">
-                          Introduction to HTML
-                          <img
-                            style="width: 20px; min-height: 15px"
-                            src="<?= IMAGEPATH; ?>course_details/countdown.png"
-                            alt="arrow-image" />
-                          3 Classes
-                        </h6>
-                      </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
-                        <ul class="list-group">
-                          <li class="list-group-item">
-                            <img
-                              style="width: 20px; min-height: 15px"
-                              src="<?= IMAGEPATH; ?>course_details/list.png"
-                              alt="offline-class-icon" />
-                            <b>Basics of HTML</b>
-                          </li>
-                          <li class="list-group-item">
-                            <img
-                              style="width: 20px; min-height: 15px"
-                              src="<?= IMAGEPATH; ?>course_details/list.png"
-                              alt="offline-class-icon" />
-                            <b>Structuring a webpage</b>
-                          </li>
-                          <li class="list-group-item">
-                            <img
-                              style="width: 20px; min-height: 15px"
-                              src="<?= IMAGEPATH; ?>course_details/list.png"
-                              alt="offline-class-icon" />
-                            <b>HTML5 features</b>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <h6 style="display: flex; align-items: center; gap: 15px">
-                          Introduction to HTML
-                          <img
-                            style="width: 20px; min-height: 15px"
-                            src="<?= IMAGEPATH; ?>course_details/countdown.png"
-                            alt="arrow-image" />
-                          3 Classes
-                        </h6>
-                      </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
-                        <ul class="list-group">
-                          <li class="list-group-item">
-                            <img
-                              style="width: 20px; min-height: 15px"
-                              src="<?= IMAGEPATH; ?>course_details/list.png"
-                              alt="offline-class-icon" />
-                            <b>Basics of HTML</b>
-                          </li>
-                          <li class="list-group-item">
-                            <img
-                              style="width: 20px; min-height: 15px"
-                              src="<?= IMAGEPATH; ?>course_details/list.png"
-                              alt="offline-class-icon" />
-                            <b>Structuring a webpage</b>
-                          </li>
-                          <li class="list-group-item">
-                            <img
-                              style="width: 20px; min-height: 15px"
-                              src="<?= IMAGEPATH; ?>course_details/list.png"
-                              alt="offline-class-icon" />
-                            <b>HTML5 features</b>
-                          </li>
-                        </ul>
+                  <?php
+                  if($course_content){
+                  $course_content = explode('/', $course_content);
+                  $i=0;
+                  foreach ($course_content as $courseContentList) {
+                    
+                    $courseContentList = explode(':', $courseContentList);
+
+                    //get Item Title
+                    $courseItemTitle = $courseContentList[0];
+
+                    //get Item Description
+                    $courseItemDes = $courseContentList[1];
+
+                    $courseItemDescriptions = explode(',', $courseItemDes);
+                  ?>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button <?=$i==0?'':'collapsed'; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $i; ?>" aria-expanded="<?=$i==0?'true':'false'; ?>" aria-controls="<?= $i; ?>">
+                          <h6 style="display: flex; align-items: center; gap: 15px">
+                            <?= $courseItemTitle; ?>
+                            (<?=count($courseItemDescriptions);?> Topics)
+                          </h6>
+                        </button>
+                      </h2>
+                      <div id="<?= $i; ?>" class="accordion-collapse collapse <?=$i==0?'show':''; ?>" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <ul class="list-group">
+                            <?php
+                            foreach ($courseItemDescriptions as $courseItemDes) { ?>
+
+                              <li class="list-group-item">
+                                <img
+                                  style="width: 20px; min-height: 15px"
+                                  src="<?= IMAGEPATH; ?>course_details/list.png"
+                                  alt="offline-class-icon" />
+                                <b><?= $courseItemDes; ?></b>
+                              </li>
+                            <?php } ?>
+
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <h6 style="display: flex; align-items: center; gap: 15px">
-                          Introduction to HTML
-                          <img
-                            style="width: 20px; min-height: 15px"
-                            src="<?= IMAGEPATH; ?>course_details/countdown.png"
-                            alt="arrow-image" />
-                          3 Classes
-                        </h6>
-                      </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
-                        <ul class="list-group">
-                          <li class="list-group-item">
-                            <img
-                              style="width: 20px; min-height: 15px"
-                              src="<?= IMAGEPATH; ?>course_details/list.png"
-                              alt="offline-class-icon" />
-                            <b>Basics of HTML</b>
-                          </li>
-                          <li class="list-group-item">
-                            <img
-                              style="width: 20px; min-height: 15px"
-                              src="<?= IMAGEPATH; ?>course_details/list.png"
-                              alt="offline-class-icon" />
-                            <b>Structuring a webpage</b>
-                          </li>
-                          <li class="list-group-item">
-                            <img
-                              style="width: 20px; min-height: 15px"
-                              src="<?= IMAGEPATH; ?>course_details/list.png"
-                              alt="offline-class-icon" />
-                            <b>HTML5 features</b>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+                  <?php $i++; }} ?>
+
                 </div>
 
               </div>
@@ -303,7 +226,7 @@ if (mysqli_stmt_execute($stmt)) {
 
             </div>
             <div class="col-md-4 courseDetailsSectionRight">
-              <div style="border:1px solid #ededed" class="card" style="width: 100%">
+              <div style="border:1px solid #e8e8e8" class="card" style="width: 100%">
                 <img style="min-height: 190px;"
                   src="<?= IMAGEPATH, $image; ?>"
                   class="card-img-top"
@@ -312,6 +235,9 @@ if (mysqli_stmt_execute($stmt)) {
                   <h5 class="card-title" style="font-size: 25px;">
                     ৳ <?= $discount_price; ?> <sub><del>৳ <?= $price; ?> </del></sub>
                   </h5>
+                  <h6 style="font-size: 18px;" class="card-text">
+                    <?= $title; ?>
+                  </h6>
                   <a
                     href="#purchaseid"
                     type="button"
@@ -323,9 +249,6 @@ if (mysqli_stmt_execute($stmt)) {
               ">
                     কোর্সট কিনুন
                   </a>
-                  <h6 style="font-size: 16px;" class="card-text">
-                    <?= $title; ?>
-                  </h6>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li style="display: flex; align-items: center;justify-content: space-between;gap:5px;" class="list-group-item">
@@ -340,21 +263,21 @@ if (mysqli_stmt_execute($stmt)) {
                       <img style="width: 20px; min-height: 15px" src="<?= IMAGEPATH; ?>course_details/level.png" alt="level">
                       <h6>Level</h6>
                     </div>
-                    <h6>Advanced</h6>
+                    <h6><?=$level;?></h6>
                   </li>
                   <li style="display: flex; align-items: center;justify-content: space-between;" class="list-group-item">
                     <div style="display: flex; align-items: center;gap:5px;">
                       <img style="width: 20px; min-height: 15px" src="<?= IMAGEPATH; ?>course_details/clock.png" alt="clock">
                       <h6>Duration</h6>
                     </div>
-                    <h6>3 Months</h6>
+                    <h6><?=$duration;?></h6>
                   </li>
                   <li style="display: flex; align-items: center;justify-content: space-between;" class="list-group-item">
                     <div style="display: flex; align-items: center;gap:5px;">
                       <img style="width: 20px; min-height: 15px" src="<?= IMAGEPATH; ?>course_details/training.png" alt="training">
                       <h6>Class</h6>
                     </div>
-                    <h6>20</h6>
+                    <h6><?=$numberOfClass;?></h6>
                   </li>
                   <li style="display: flex; align-items: center;justify-content: space-between;" class="list-group-item">
                     <div style="display: flex; align-items: center;gap:5px;">
@@ -369,8 +292,16 @@ if (mysqli_stmt_execute($stmt)) {
                     <img style="width: 25px; min-height: 20px" src="<?= IMAGEPATH; ?>course_details/share.png" alt="share">
                     Share With
                   </h6>
-                  <a href="#"><img style="width: 30px; min-height: 25px" src="<?= IMAGEPATH; ?>course_details/facebook.png" alt="facebook"></a>
-                  <a href="#"><img style="width: 30px; min-height: 25px" src="<?= IMAGEPATH; ?>course_details/whatsapp.png" alt="whatsapp"></a>
+
+                  <a target="_blank" href="https://facebook.com/sharer/sharer.php?u=https://serveritstudio.com/course-details/<?= $id; ?>">
+                      <img style="width: 30px; min-height: 25px" src="<?= IMAGEPATH; ?>course_details/facebook.png" alt="facebook">
+                  </a>
+                  
+                  <a target="" href="https://api.whatsapp.com/send?text=<?= $title; ?>%0Ahttps://serveritstudio.com/course-details/<?= $id;?>">
+                      
+                      <img style="width: 30px; min-height: 25px" src="<?= IMAGEPATH; ?>course_details/whatsapp.png" alt="whatsapp">
+                  </a>
+
                 </div>
               </div>
             </div>
@@ -395,13 +326,13 @@ if (mysqli_stmt_execute($stmt)) {
             </p>
 
             <?php
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { ?>
-              <button id="admission" class="btn btn-primary slide-btn">Admission</button>
-            <?php } else { ?>
-              <a href="<?= LINK; ?>admission">
-                <button class="btn btn-primary slide-btn">Admission</button>
-              </a>
-            <?php } ?>
+              if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { ?>
+                  <button id="admission" class="btn btn-primary slide-btn">Admission</button>
+              <?php } else { ?>
+                  <a href="<?= LINK; ?>auth">
+                      <button style="padding: 14px 10px;" class="btn btn-primary slide-btn">কোর্সটি কিনতে লগিন করো</button>
+                  </a>
+              <?php } ?>
 
 
           </div>

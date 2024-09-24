@@ -62,7 +62,7 @@ include("../../partials/header.php");
                 }
                 $per_page = 8;
                 $star_from = ($page - 1) * $per_page;
-                $courseSql = "SELECT `id`,`cat_id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price`,total_students FROM `courses` where cat_id=$category_id ORDER BY id DESC limit $star_from,$per_page";
+                $courseSql = "SELECT `id`,`cat_id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price`,total_students FROM `courses_table` where cat_id=$category_id ORDER BY id DESC limit $star_from,$per_page";
                 $courseStmt = fetch_data($connection, $courseSql);
                 if ($courseStmt) {
                     if (mysqli_stmt_num_rows($courseStmt) == 0) {

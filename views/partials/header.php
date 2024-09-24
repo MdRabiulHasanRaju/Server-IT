@@ -530,7 +530,7 @@ $format = new Format;
             mysqli_stmt_bind_result($cat_stmt, $cat_id, $cat_name, $icon);
             while (mysqli_stmt_fetch($cat_stmt)) { ?>
               <a href="<?= LINK; ?>courses/category/<?= $cat_id; ?>">
-                <li><?= $icon; ?> <?= $cat_name; ?></li>
+                <li><?= $cat_name; ?></li>
               </a>
             <?php }
             ?>

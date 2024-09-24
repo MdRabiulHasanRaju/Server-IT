@@ -7,7 +7,7 @@
       <div class="col-12">
         <div class="owl-carousel owl-theme">
           <?php
-          $courseSql = "SELECT `id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price`,`total_students` FROM `courses`";
+          $courseSql = "SELECT `id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price`,`total_students` FROM `courses_table`";
           $courseStmt = fetch_data($connection, $courseSql);
           if ($courseStmt) {
             mysqli_stmt_bind_result($courseStmt, $id, $image, $title, $subTitle, $instructorId, $price, $discount_price,$total_students);
