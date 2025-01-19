@@ -256,8 +256,10 @@ section.review-part .title-h3::after {
 }
 .home-content h1 {
   font-size: 25px;
-  color: black;
   margin-bottom: 10px;
+  filter: drop-shadow(2px 4px 6px black);
+  /* background: rgb(0,0,0,0.5); */
+  padding: 10px 0;
 }
 .home {
   background-position: top right;

@@ -18,8 +18,10 @@ var header = document.getElementsByClassName("header")[0];
 function myFunction() {
   if (pageYOffset > 150) {
     header.classList.add("sticky-bar");
+    document.getElementsByClassName("animation-container")[0].style.top = "55%";
   } else {
     header.classList.remove("sticky-bar");
+    document.getElementsByClassName("animation-container")[0].style.top = "63%";
   }
 }
 
