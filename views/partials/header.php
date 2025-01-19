@@ -21,6 +21,8 @@ $format = new Format;
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="creator" content="@Md Rabiul Hasan">
+  <meta name="robots" content="index, follow">
+  
   <meta name="description" content="<?php if (!$meta_description) {
                                       header("location:" . LINK . "error/404?metaDataError");
                                     } else {
@@ -37,6 +39,8 @@ $format = new Format;
   <meta property="og:description" content="Server IT Studio is a computer training facility and IT solution for your business. We provide IT training as well as technological services such as website creation, digital marketing, and graphic design to help your company develop to the next level."/>
   <meta property="og:url" content="https://serveritstudio.com"/>
   <meta property="fb:app_id" content="1223755111835936"/>
+
+  <link rel="canonical" href="https://serveritstudio.com/" />
 
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <title><?= $meta_title; ?></title>
@@ -549,7 +553,7 @@ $format = new Format;
               Dashboard
           </a>
           <?php }else{?>
-            <a style="position: relative;right: 20px;padding: 8px 60px;border: 1px solid #ededed;border-radius: 8px;font-size: 15px;" href="<?=LINK?>auth"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+            <a style="position: relative;right: 20px;padding: 8px 60px;border: 1px solid #ededed;border-radius: 8px;font-size: 15px;" href="<?=LINK?>login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
           <?php }?>
 
 

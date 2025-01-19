@@ -226,7 +226,7 @@ if (mysqli_stmt_execute($stmt)) {
 
             </div>
             <div class="col-md-4 courseDetailsSectionRight">
-              <div style="border:1px solid #e8e8e8" class="card" style="width: 100%">
+              <div style="border:1px solid #e8e8e8;position:sticky;top:0;" class="card" style="width: 100%">
                 <img style="min-height: 190px;"
                   src="<?= IMAGEPATH, $image; ?>"
                   class="card-img-top"
@@ -247,7 +247,7 @@ if (mysqli_stmt_execute($stmt)) {
                 --bs-btn-padding-x: 0.5rem;
                 --bs-btn-font-size: 1rem;
               ">
-                    কোর্সট কিনুন
+                    কোর্সটি কিনুন
                   </a>
                 </div>
                 <ul class="list-group list-group-flush">

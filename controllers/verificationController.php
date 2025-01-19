@@ -28,7 +28,7 @@ if (isset($_POST["email"])) {
             mysqli_stmt_bind_result($stmt, $b_otp);
             if (mysqli_stmt_fetch($stmt)) {
                 if ($otp == $b_otp) {
-                    header("location: " . LINK . "auth?p=1");
+                    header("location: " . LINK . "login");
                     $delsql = "delete from verification where otp = $b_otp";
                     $del = $connection->query($delsql);
                 } else {

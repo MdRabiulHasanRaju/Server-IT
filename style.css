@@ -454,10 +454,10 @@ section.our-campus {
   text-align: right;
 }
 section.featured-courses {
-  padding: 60px 0;
-  background: url(public/images/banner-1.png);
-  background-attachment: fixed;
-  background-position: center;
+  /* padding: 60px 0; */
+  /* background: url(public/images/banner-1.png); */
+  /* background-attachment: fixed; */
+  /* background-position: center; */
 }
 .course-item{
   transition: .3s ease;
@@ -856,10 +856,7 @@ h2.insert-title {
   margin: 0 auto;
   font-weight: bold;
   position: relative;
-  top: -13px;
   font-size: 13px;
-  width: 156px;
-  float: right;
 }
 .student-forum{
   background:red;

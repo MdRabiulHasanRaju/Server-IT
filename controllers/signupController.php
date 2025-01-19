@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       if (empty(trim($_POST["username"]))) {
         $username_err = "Username cannot be blank";
         $_SESSION["username_err"] = $username_err;
-        header("location: " . LINK . "auth/2");
+        header("location: " . LINK . "registration");
         die();
       } else {
         $sql = "SELECT id FROM users WHERE email = ?";
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (mysqli_stmt_num_rows($stmt) == 1) {
               $username_err = "This username is already taken!";
               $_SESSION["username_err"] = $username_err;
-              header("location: " . LINK . "auth/2");
+              header("location: " . LINK . "registration");
               die();
             } else {
               $username = trim($_POST['username']);
@@ -52,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       if (empty(trim($_POST['password']))) {
         $password_err = "Password cannot be blank";
         $_SESSION["password_err"] = $password_err;
-        header("location: " . LINK . "auth/2");
+        header("location: " . LINK . "registration");
         die();
       } elseif (strlen(trim($_POST['password'])) < 5) {
         $password_err = "Password cannot be less than 5 characters!";
         $_SESSION["password_err"] = $password_err;
-        header("location: " . LINK . "auth/2");
+        header("location: " . LINK . "registration");
         die();
       } else {
         $password = trim($_POST['password']);
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       if (trim($_POST['password']) !=  trim($_POST['confirm_password'])) {
         $password_err = "Passwords should match!";
         $_SESSION["password_err"] = $password_err;
-        header("location: " . LINK . "auth/2");
+        header("location: " . LINK . "registration");
         die();
       }
 
@@ -191,6 +191,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
   }
 } else {
-  header("location: " . LINK . "auth/2");
+  header("location: " . LINK . "registration");
   die();
 }

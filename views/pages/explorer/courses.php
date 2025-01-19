@@ -1,5 +1,24 @@
 <section class="featured-courses" id="featured-courses">
-  <div class="container">
+  <style>
+    .course-banner-image {
+      position: absolute;
+      width: 100%;
+      height: 560px;
+      z-index: -2;
+      left: 0;
+      object-fit: cover;
+    }
+
+    @media (max-width:768px) {
+      .course-banner-image {
+        display: none;
+      }
+    }
+  </style>
+  <img class="course-banner-image" src="<?= IMAGEPATH; ?>banner-1.png" alt="banner">
+
+
+  <div style="padding:60px 0;" class="container">
     <div class="row">
       <div class="col-12 title-div">
         <h3 class="title-h3 mb-3" style="font-size: 30px;color:white">Featured Courses</h3>
@@ -10,7 +29,7 @@
           $courseSql = "SELECT `id`,`image`,`title`,`sub_title`,`instructor_id`,`price`,`discount_price`,`total_students` FROM `courses_table`";
           $courseStmt = fetch_data($connection, $courseSql);
           if ($courseStmt) {
-            mysqli_stmt_bind_result($courseStmt, $id, $image, $title, $subTitle, $instructorId, $price, $discount_price,$total_students);
+            mysqli_stmt_bind_result($courseStmt, $id, $image, $title, $subTitle, $instructorId, $price, $discount_price, $total_students);
             while (mysqli_stmt_fetch($courseStmt)) {
               $instructorSql = "SELECT `image` FROM `instructors` WHERE `id`='$instructorId'";
               $instructorStmt = fetch_data($connection, $instructorSql);
@@ -34,7 +53,7 @@
                             <i class="fa-regular fa-star"></i>
                             <i class="fa-regular fa-star"></i>
                           </div>
-                          <!-- <p class="">(<?=$total_students;?>) Students</p> -->
+                          <!-- <p class="">(<?= $total_students; ?>) Students</p> -->
                           <p class="">Enroll Now</p>
                         </div>
                         <div class="price-box">

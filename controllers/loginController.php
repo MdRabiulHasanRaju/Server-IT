@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		if (empty(trim($_POST['username'])) || empty(trim($_POST['password']))) {
 			$err = "Please enter username and password";
 			$_SESSION["err"] = $err;
-			header("location: " . LINK . "auth/1");
+			header("location: " . LINK . "login");
 			die();
 		} else {
 			$username = htmlspecialchars(trim($_POST['username']));
@@ -81,14 +81,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 						} else {
 							$err = "Wrong password!";
 							$_SESSION["err"] = $err;
-							header("location: " . LINK . "auth/1");
+							header("location: " . LINK . "login");
 							die();
 						}
 					}
 				} else {
 					$err = "Please enter valid email!";
 					$_SESSION["err"] = $err;
-					header("location: " . LINK . "auth/1");
+					header("location: " . LINK . "login");
 					die();
 				}
 			}
@@ -96,6 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	}
 } else {
 
-	header("location: " . LINK . "auth/1");
+	header("location: " . LINK . "login");
 	die();
 }

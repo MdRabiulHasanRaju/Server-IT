@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /business/
+Disallow: /config/
+Disallow: /controllers/
+Disallow: /lib/
+Disallow: /utility/
+Allow: /
+
+Sitemap: https://serveritstudio.com/sitemap.xml

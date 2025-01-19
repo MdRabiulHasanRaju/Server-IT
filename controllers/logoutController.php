@@ -4,4 +4,4 @@ $baseurl = new Baseurl;
 define("LINK", "{$baseurl->url()}/serverit/");
 session_start();
 session_destroy();
-header("location: ".LINK."auth");
+header("location: ".LINK."login");
